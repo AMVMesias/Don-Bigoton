@@ -18,7 +18,7 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const ambientMotion = document.querySelector<HTMLButtonElement>('#ambient-motion');
 ambientMotion?.addEventListener('click', () => {
   const paused = document.body.classList.toggle('ambient-paused');
-  const label = paused ? 'Reanudar animaciones de los iconos' : 'Pausar animaciones de los iconos';
+  const label = paused ? 'Reanudar animaciones de la revista' : 'Pausar animaciones de la revista';
   ambientMotion.setAttribute('aria-pressed',String(paused));
   ambientMotion.setAttribute('aria-label',label);
   ambientMotion.title=label;

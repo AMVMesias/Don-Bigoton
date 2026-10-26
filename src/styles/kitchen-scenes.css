@@ -1,0 +1,41 @@
+.kitchen-scene{position:relative;width:100%;height:222px;margin:12px 0 22px!important;background:#f1e3ca;border:1px solid #e1cdb1;overflow:hidden}
+.kitchen-scene svg{width:100%;height:calc(100% - 25px);display:block}
+.kitchen-scene figcaption{font:600 6px/1.5 'Manrope',sans-serif;letter-spacing:.09em;color:#795c42;margin:0!important;padding:4px 12px;text-align:center;position:absolute;bottom:7px;width:100%}
+.scene-cat-travel{animation:scene-journey 14s linear infinite}
+.scene-cat-standing{animation:scene-standing 14s linear infinite}
+.scene-cat-body{transform-origin:72px 90px;animation:scene-sitting 14s ease-in-out infinite}
+.scene-cat-head{transform-origin:116px 67px;animation:scene-sniff 14s ease-in-out infinite}
+.scene-tail{transform-origin:34px 65px;animation:scene-tail-swing 1.8s ease-in-out infinite}
+.scene-leg{transform-origin:50% 70%;transform-box:fill-box}
+.scene-leg-a,.scene-leg-d{animation:scene-step-a 14s linear infinite}.scene-leg-b,.scene-leg-c{animation:scene-step-b 14s linear infinite}
+.scene-cat-resting{opacity:0;animation:scene-rest 14s ease-in-out infinite;transform-origin:80px 104px}
+.scene-sleep-body{transform-origin:75px 105px;animation:scene-breath 3s ease-in-out infinite}
+.scene-sleep-signs{opacity:0;animation:scene-sleep-signs 14s linear infinite}
+.sleep-z{animation:scene-zzz 2.6s ease-in-out infinite}.z-two{animation-delay:.5s}.z-three{animation-delay:1s}
+.scene-sniff-lines{opacity:0;animation:scene-sniff-marks 14s linear infinite}
+@keyframes scene-journey{0%{transform:translateX(12px);opacity:0}3%{opacity:1}29%,94%{transform:translateX(195px);opacity:1}97%{transform:translateX(195px);opacity:0}98%,100%{transform:translateX(12px);opacity:0}}
+@keyframes scene-standing{0%,54%{opacity:1}63%,100%{opacity:0}}
+@keyframes scene-sitting{0%,43%{transform:scale(1)}55%,100%{transform:scale(.85,.84)}}
+@keyframes scene-sniff{0%,29%{transform:translate(0,0) rotate(0)}34%{transform:translate(5px,5px) rotate(10deg)}38%{transform:translate(0,0) rotate(-4deg)}43%{transform:translate(6px,5px) rotate(11deg)}49%{transform:translate(0,8px) rotate(0)}58%,100%{transform:translate(-2px,25px) rotate(6deg)}}
+@keyframes scene-step-a{0%,4%,8%,12%,16%,20%,24%,28%{transform:rotate(-19deg)}2%,6%,10%,14%,18%,22%,26%{transform:rotate(19deg)}30%,100%{transform:rotate(0)}}
+@keyframes scene-step-b{0%,4%,8%,12%,16%,20%,24%,28%{transform:rotate(19deg)}2%,6%,10%,14%,18%,22%,26%{transform:rotate(-19deg)}30%,100%{transform:rotate(0)}}
+@keyframes scene-tail-swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(12deg)}}
+@keyframes scene-rest{0%,54%{opacity:0;transform:translateY(-5px)}64%,100%{opacity:1;transform:translateY(0)}}
+@keyframes scene-breath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.045)}}
+@keyframes scene-sleep-signs{0%,63%{opacity:0}67%,94%{opacity:1}97%,100%{opacity:0}}
+@keyframes scene-zzz{0%{opacity:0;transform:translateY(5px)}30%,60%{opacity:.8}100%{opacity:0;transform:translateY(-9px)}}
+@keyframes scene-sniff-marks{0%,30%,47%,100%{opacity:0}34%,43%{opacity:1}}
+.scene-burger{height:145px;background:#fff0d9;margin:10px 0 16px!important}
+.burger-layer{transform-origin:266px 185px;animation-duration:8s;animation-timing-function:cubic-bezier(.22,.8,.3,1);animation-iteration-count:infinite}
+.burger-bottom{animation-name:assemble-bottom}.burger-patty{animation-name:assemble-patty}.burger-cheese{animation-name:assemble-cheese}.burger-greens{animation-name:assemble-greens}.burger-top{animation-name:assemble-top}.assembly-spark{animation:assemble-spark 8s ease-in-out infinite;transform-origin:266px 140px}
+@keyframes assemble-bottom{0%{transform:translateY(40px);opacity:0}12%,86%{transform:translateY(0);opacity:1}98%,100%{transform:translateY(15px);opacity:0}}
+@keyframes assemble-patty{0%,12%{transform:translate(-100px,-35px) rotate(-15deg);opacity:0}27%,86%{transform:translate(0,0) rotate(0);opacity:1}98%,100%{opacity:0}}
+@keyframes assemble-cheese{0%,25%{transform:translate(110px,-55px) rotate(20deg);opacity:0}40%,86%{transform:translate(0,0) rotate(0);opacity:1}98%,100%{opacity:0}}
+@keyframes assemble-greens{0%,36%{transform:translate(-90px,-70px) rotate(-20deg);opacity:0}51%,86%{transform:translate(0,0) rotate(0);opacity:1}98%,100%{opacity:0}}
+@keyframes assemble-top{0%,47%{transform:translateY(-110px);opacity:0}61%{transform:translateY(7px);opacity:1}66%,86%{transform:translateY(0);opacity:1}98%,100%{transform:translateY(-15px);opacity:0}}
+@keyframes assemble-spark{0%,59%,88%,100%{opacity:0;transform:scale(.6)}67%,80%{opacity:1;transform:scale(1)}}
+.food-page.assembly-page figure:not(.kitchen-scene) img{height:240px}.food-page.assembly-page .kitchen-scene svg{height:calc(100% - 22px)}
+.delivery-scene-page .kitchen-scene{height:185px;margin-bottom:17px!important}.delivery-scene-page .book-flow{display:flex;gap:14px;margin-top:0;padding:15px 12px}.delivery-scene-page .book-flow>div{flex:1;padding:0}.delivery-scene-page .book-flow>div>span{position:static;width:22px;height:22px;margin-bottom:9px;font-size:7px}.delivery-scene-page .book-flow>i{display:none}.delivery-scene-page .book-flow h3{font-size:19px}.delivery-scene-page .book-flow p{font-size:9px;line-height:1.6}.delivery-scene-page .page-source{margin-top:15px}
+.ambient-paused .kitchen-scene *{animation-play-state:paused!important}
+.sheet[aria-hidden=true] .kitchen-scene *{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.kitchen-scene *{animation:none!important}.scene-cat-travel{transform:translateX(195px)}.scene-cat-standing{opacity:0}.scene-cat-resting{opacity:1}.scene-sleep-signs{opacity:0}.burger-layer{opacity:1;transform:none}}

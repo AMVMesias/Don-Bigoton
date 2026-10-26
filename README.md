@@ -10,7 +10,15 @@ La entrada `/` es el visor de revista. `/lectura/` conserva la versión continua
 
 `/disenos/` es el cuaderno visual de revisión: reúne los 24 motivos SVG con animación, sus temas y enlaces a cada página. La portada conserva sus destellos y las 23 páginas restantes incorporan el motivo correspondiente en el margen superior. Los trazos se definen en `src/data/page-motifs.ts` y se dibujan con `src/components/PageMotif.astro`. El gato del visor permite pausar también estas animaciones.
 
-## Desarrollo
+## Escenas animadas dentro de las páginas
+
+- Página 8: hamburguesa ilustrada que se arma por capas en un ciclo de 8 segundos. No representa una receta exacta de la marca.
+- Página 11: gato naranja que camina, olfatea una hamburguesa, se acomoda y se duerme, en un ciclo de 14 segundos.
+- Página 18: el gato supervisa una bolsa de pedidos y descansa junto a ella.
+
+Las escenas usan SVG y CSS propios (`KitchenScene.astro`, `SceneCat.astro`, `kitchen-scenes.css`), se pausan en páginas ocultas y respetan el movimiento reducido. El gato del visor permite pausar todos los elementos decorativos.
+
+## Desarrollo local
 
 Requiere Node.js compatible con Astro 7 (el desarrollo se verificó con Node 24).
 
