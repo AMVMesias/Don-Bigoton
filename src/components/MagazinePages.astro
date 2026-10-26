@@ -4,9 +4,6 @@ import Sheet from './Sheet.astro';
 import { authors, youtubeVideoId } from '../data/edition';
 import portrait from '../../material/retrato/retrato-enviado.png';
 import burger from '../../material/instagram/08-hamburguesa.jpg';
-import wings from '../../material/instagram/09-alitas.jpg';
-import hotdog from '../../material/instagram/06-hot-dog.jpg';
-import grill from '../../material/instagram/07-parrillada.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
 const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? youtubeVideoId : null;
@@ -23,8 +20,8 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
   <span class="page-kicker">UNA HISTORIA PARA PENSAR EL EMPRENDIMIENTO</span>
   <h2>Detrás del sabor,<br/><em>una decisión.</em></h2>
   <p class="page-lead">Don Bigotón invita a mirar el emprendimiento desde la vida cotidiana: una necesidad, una experiencia y una familia dispuesta a empezar.</p>
-  <p>Esta revista reúne el testimonio de su fundadora y una lectura del caso. Su recorrido permite observar cómo se combinan los recursos disponibles, el conocimiento del mercado y la constancia para sostener un negocio.</p>
-  <p>La sazón distingue su oferta, pero también cuentan los vínculos con los vecinos y la disposición a aprender. La historia nos lleva de la primera decisión a una pregunta abierta: cómo crecer sin perder la cercanía.</p>
+  <p>Esta revista reúne el testimonio de su fundadora y una lectura del caso desde el emprendimiento y la gestión. ¿Con qué recursos empezó? ¿Cómo elige proveedores, organiza el trabajo y consigue clientes? Sus decisiones permiten entender cómo sostiene el negocio.</p>
+  <p>La experiencia familiar muestra el valor de investigar, capacitarse y construir relaciones. El recorrido va de la necesidad inicial a una decisión de futuro: cómo crecer sin perder la cercanía ni asumir riesgos sin analizarlos.</p>
   <div class="author-learnings"><h3>Lo que aprendió cada integrante</h3>{authors.length ? authors.map(author=><article><h4>{author.name}</h4><p>{author.learning}</p></article>) : <div class="pending-note"><span>EDICIÓN EN PREPARACIÓN</span><p>Faltan los nombres de los autores y la reflexión personal de cada integrante del equipo.</p></div>}</div>
   <span class="page-source">LECTURA EDITORIAL DEL CASO · BASADA EN LA ENTREVISTA</span>
 </Sheet>
@@ -49,27 +46,21 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
     </div>
   </div>
 </Sheet>
-<Sheet number={5} section="04 / DESCRIPCIÓN Y TIPO" class="academic-page business-page">
-  <span class="page-kicker">DE SU COCINA A LA CASA DEL VECINO</span>
-  <h2>Un negocio familiar.<br/><em>Una atención cercana.</em></h2>
-  <p class="page-lead">Don Bigotón elabora y prepara comida rápida desde casa. En la entrevista, su fundadora explica que trabaja con Uber, Rappi y PedidosYa.</p>
-  <div class="business-flow"><article><span>01</span><h3>Recibir</h3><p>El cliente realiza su pedido por las plataformas.</p></article><article><span>02</span><h3>Preparar</h3><p>La cocina elabora la comida y atiende las preferencias del cliente.</p></article><article><span>03</span><h3>Entregar</h3><p>Los repartidores retiran el pedido para llevarlo a su destino.</p></article></div>
-  <div class="case-reading"><span>TIPO DE EMPRENDIMIENTO · LECTURA DEL CASO</span><p>Es un emprendimiento gastronómico de gestión familiar, con preparación y venta de alimentos. Por su motivación inicial, puede analizarse como un emprendimiento por necesidad: surgió tras la pérdida del empleo.</p></div>
-  <h3>Clientes, beneficiarios e impacto</h3><p>Atiende a vecinos y usuarios de las plataformas. La actividad articula aportes familiares y construye relaciones de confianza en el barrio. El testimonio permite describir ese vínculo; no aporta cifras para medir ventas, empleo o alcance.</p>
-  <span class="page-source">ENTREVISTA · 00:26, 00:56, 01:46, 05:25 Y 10:27</span>
+<Sheet number={5} section="04 / RECURSOS Y ORGANIZACIÓN" class="academic-page resources-page">
+  <span class="page-kicker">DECISIONES QUE HACEN POSIBLE EL NEGOCIO</span>
+  <h2>Empezar con lo propio.<br/><em>Elegir con criterio.</em></h2>
+  <p class="page-lead">Don Bigotón prepara y vende comida rápida desde casa. Su organización combina recursos familiares, experiencia y decisiones de compra.</p>
+  <div class="resource-grid"><article><span>01 / CAPITAL Y TRABAJO</span><h3>Repartir los aportes</h3><p>Un hijo aportó capital; otros apoyaron en publicidad y marketing. La fundadora sumó experiencia y se involucró en la investigación inicial.</p></article><article><span>02 / ESPACIO Y COSTOS</span><h3>Comenzar en casa</h3><p>Evitar el arriendo reducía la presión de un gasto fijo mientras comprobaban si la propuesta funcionaba.</p></article><article><span>03 / ABASTECIMIENTO</span><h3>Comparar antes de comprar</h3><p>Buscaban un equilibrio entre precio y calidad. En las carnes revisaban tamaño, aseo y refrigeración.</p></article><article><span>04 / OPERACIÓN</span><h3>Coordinar los pedidos</h3><p>Los clientes piden por las plataformas, la cocina prepara y los repartidores retiran. Ella valora poder organizar sus horarios.</p></article></div>
+  <div class="case-reading"><span>TIPO E IMPACTO · LECTURA DEL CASO</span><p>Gastronómico y de gestión familiar. Su origen tras perder el empleo permite analizarlo como un emprendimiento por necesidad. Moviliza aportes familiares y atiende a vecinos y usuarios de las plataformas.</p></div>
+  <span class="page-source">ENTREVISTA · 00:26, 01:46–02:51, 03:25–04:47 Y 08:35</span>
 </Sheet>
-<Sheet number={6} section="05 / PRODUCTOS Y DIFERENCIACIÓN" class="academic-page products-page dark-page">
-  <span class="page-kicker">LA SAZÓN COMO SELLO PROPIO</span>
-  <h2>Sabores que<br/><em>hacen volver.</em></h2>
-  <div class="product-grid">
-    <figure><Image src={burger} alt="Hamburguesa y papas de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>01 / HAMBURGUESAS</figcaption></figure>
-    <figure><Image src={wings} alt="Alitas y papas de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>02 / ALITAS</figcaption></figure>
-    <figure><Image src={hotdog} alt="Hot dog de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>03 / HOT DOGS</figcaption></figure>
-    <figure><Image src={grill} alt="Parrillada del archivo de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>04 / PARRILLADAS</figcaption></figure>
-  </div>
-  <p>La hamburguesa es el producto que más se vende, según su fundadora. Los cursos y las pruebas fueron afinando una receta que ella identifica como diferente.</p>
-  <p>La atención también distingue la propuesta: recordar quién prefiere la salsa aparte hace que un vecino pueda decir «usted ya sabe».</p>
-  <span class="page-source">TESTIMONIO · 05:25–07:20 · FOTOS DEL ARCHIVO 2022; NO SON UNA CARTA VIGENTE</span>
+<Sheet number={6} section="05 / ESTRATEGIAS Y CLIENTES" class="academic-page clients-page dark-page">
+  <span class="page-kicker">ATRAER, ATENDER Y LOGRAR QUE VUELVAN</span>
+  <h2>La confianza<br/><em>también se gestiona.</em></h2>
+  <p class="page-lead">Su estrategia se reconoce en acciones cotidianas: hacerse visible, atender con cercanía y cuidar una diferencia propia.</p>
+  <div class="client-strategies"><article><h3>Recomendación local</h3><p>Familiares y vecinos recomiendan la comida. El grupo de emprendimientos de WhatsApp ayuda a darla a conocer.</p></article><article><h3>Presencia digital</h3><p>Las plataformas permiten recibir pedidos. Con asesoría y apoyo de su hijo, aprendió a cargar fotos y promociones.</p></article><article><h3>Atención personalizada</h3><p>Recuerda las preferencias de cada cliente, como enviar la salsa aparte. Ese cuidado fortalece la relación.</p></article><article><h3>Diferenciación</h3><p>Los cursos y la práctica mejoraron las recetas. La sazón y la atención son los atributos que destaca su fundadora.</p></article></div>
+  <div class="offer-context"><Image src={burger} alt="Hamburguesa y papas del archivo de Don Bigotón" width={180} height={180} format="webp" loading="eager"/><div><span>LA OFERTA, EN CONTEXTO</span><p>Hamburguesas, alitas, hot dogs y parrilladas aparecen en su archivo. La hamburguesa es lo que más se vende, según la entrevista.</p></div></div>
+  <span class="page-source">ESTRATEGIAS INTERPRETADAS DEL TESTIMONIO · 05:25–07:20, 10:27 Y 12:40 · FOTO: ARCHIVO 2022</span>
 </Sheet>
 <Sheet number={7} section="06 / BENEFICIOS Y OBSTÁCULOS" class="academic-page balance-page">
   <span class="page-kicker">LO QUE AYUDA. LO QUE DESAFÍA.</span>
@@ -80,16 +71,17 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
 </Sheet>
 <Sheet number={8} section="07 / CARÁCTER Y VISIÓN DE FUTURO" class="academic-page character-page">
   <span class="page-kicker">CRECER SIN OLVIDAR EL INICIO</span>
-  <h2>Un local propio.<br/><em>El mismo corazón.</em></h2>
-  <div class="trait-list"><article><h3>Iniciativa</h3><p>Buscó una alternativa cuando perdió su empleo.</p></article><article><h3>Constancia</h3><p>Reconoce que habrá días buenos y difíciles y anima a continuar.</p></article><article><h3>Aprendizaje</h3><p>Perfeccionó las recetas y aprendió a usar herramientas digitales.</p></article><article><h3>Cercanía</h3><p>Recuerda preferencias y cuida el vínculo con los vecinos.</p></article></div>
-  <div class="future-note"><h3>La próxima meta</h3><p>Abrir un local donde sus clientes puedan sentarse a comer. Antes, quiere analizar la ubicación, la clientela y las condiciones de seguridad.</p><p>Su deseo es permanecer cerca del sector que acompañó los primeros pedidos: crecer cuidando esa relación.</p></div>
-  <span class="page-source">CARACTERÍSTICAS INTERPRETADAS DEL TESTIMONIO · FUTURO: 07:29–08:28 Y 14:04</span>
+  <h2>Crecer también<br/><em>es aprender.</em></h2>
+  <p class="page-lead">La formación, el manejo de las plataformas y las recomendaciones de clientes son avances que relata. El siguiente paso exige evaluar riesgos.</p>
+  <div class="trait-list"><article><h3>Iniciativa</h3><p>Transformó su experiencia previa en una actividad propia, con aportes familiares.</p></article><article><h3>Constancia</h3><p>Asume los días de pocas ventas como parte del negocio y anima a continuar.</p></article><article><h3>Aprendizaje</h3><p>Los cursos mejoraron sus recetas; la asesoría le permitió manejar fotos y promociones digitales.</p></article><article><h3>Cercanía</h3><p>La atención a las preferencias y las recomendaciones de vecinos sostienen la relación con sus clientes.</p></article></div>
+  <div class="future-note"><h3>La próxima meta: un local</h3><p>Quiere recibir a quienes desean sentarse a comer. Antes de invertir, plantea analizar ubicación, clientela y seguridad.</p><p>Su deseo es quedarse cerca del vecindario que acompañó los primeros pedidos.</p></div>
+  <span class="page-source">EVOLUCIÓN Y CARACTERÍSTICAS: LECTURA DEL TESTIMONIO · 06:41, 09:46, 10:27 Y 12:40 · FUTURO: 07:29 Y 14:04</span>
 </Sheet>
 <Sheet number={9} section="08 / LA ENTREVISTA EN VIDEO" class="academic-page video-page">
   <span class="page-kicker">LA HISTORIA, EN SU PROPIA VOZ</span>
   <h2>Escuchar también<br/><em>es conocer.</em></h2>
   {videoId ? <><div class="video-frame web-video"><iframe src={`https://www.youtube-nocookie.com/embed/${videoId}`} title="Entrevista a la fundadora de Don Bigotón" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="printed-link" href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">Ver la entrevista en YouTube ↗</a><p class="print-video-link">Accede al video desde el enlace de YouTube de esta página.</p></> : <div class="video-pending"><span>ENTREVISTA EN PREPARACIÓN</span><Image src={logo} alt="Don Bigotón" width={120} height={120} format="webp" loading="eager"/><p>El video se incorporará aquí cuando el equipo comparta el enlace de YouTube de la edición de máximo 10 minutos.</p></div>}
-  <p>La conversación recorre el origen del negocio, los aportes de la familia, la sazón, la atención y el sueño de abrir un local.</p>
+  <p>La conversación recorre el inicio del negocio, la organización familiar, la elección de proveedores, las estrategias de atención y la decisión de abrir un futuro local.</p>
   <blockquote>«Tampoco podía quedarme<br/><em>con las manos cruzadas».</em></blockquote>
   <a class="printed-link" href="https://github.com/AMVMesias/Don-Bigoton/blob/main/docs/transcripcion_entrevista_don_bigoton.md" target="_blank" rel="noopener noreferrer">Leer la transcripción original ↗</a>
   <span class="page-source">FUENTE ORIGINAL: ENTREVISTA DE 14:43 · LA EDICIÓN PARA LA TAREA DEBE DURAR MÁXIMO 10:00</span>

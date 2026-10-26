@@ -6,10 +6,10 @@ La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la co
 2. Editorial y aprendizajes individuales.
 3. Historia y motivación.
 4. Perfil de la emprendedora.
-5. Descripción, actividades, tipo, clientes e impacto.
-6. Productos y diferenciación.
+5. Recursos y organización: aportes familiares, costos iniciales, proveedores, operación, tipo e impacto.
+6. Estrategias y clientes: recomendaciones, WhatsApp, plataformas, atención y diferenciación. Los productos se describen como contexto con una sola foto.
 7. Beneficios y obstáculos.
-8. Características y visión de futuro.
+8. Evolución de capacidades, características y visión de futuro. Los avances descritos son cualitativos; no se inventan resultados económicos.
 9. Entrevista en YouTube.
 10. Contraportada y créditos.
 
