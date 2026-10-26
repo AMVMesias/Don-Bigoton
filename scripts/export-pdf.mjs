@@ -1,6 +1,8 @@
 import { createRequire } from 'node:module';
 import { mkdir, copyFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
 
 // PLAYWRIGHT_MODULES can point to a shared runtime; otherwise install playwright locally.
 const require = createRequire(process.env.PLAYWRIGHT_MODULES ? path.join(process.env.PLAYWRIGHT_MODULES,'package.json') : import.meta.url);
@@ -24,7 +26,12 @@ try {
   if(overflow.some(item=>item.overflow>1)) throw new Error(`Content overflow: ${JSON.stringify(overflow)}`);
   for(let i=0;i<count;i++) await pages.nth(i).screenshot({path:path.join(previews,`page-${String(i+1).padStart(2,'0')}.png`),animations:'disabled'});
   await page.emulateMedia({media:'print',reducedMotion:'reduce'});
-  await page.pdf({path:path.join(output,'revista-don-bigoton.pdf'),preferCSSPageSize:true,printBackground:true,displayHeaderFooter:false});
+  const rawPDF=path.join(previews,'raw-export.pdf');
+  await page.pdf({path:rawPDF,preferCSSPageSize:true,printBackground:true,displayHeaderFooter:false});
+  const optimized=await promisify(execFile)(process.env.PDF_PYTHON || 'python',[
+    path.resolve('scripts/optimize-pdf.py'),rawPDF,path.join(output,'revista-don-bigoton.pdf'),
+  ]);
+  process.stdout.write(optimized.stdout);
   await copyFile(path.join(output,'revista-don-bigoton.pdf'),path.resolve('public/revista-don-bigoton.pdf'));
   await writeFile(path.join(previews,'layout-report.json'),JSON.stringify({count,overflow,errors},null,2));
   if(errors.length) throw new Error(errors.join('\n'));

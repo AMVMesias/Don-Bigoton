@@ -27,10 +27,16 @@ La web y el PDF son un borrador de revisión mientras faltan esos materiales. No
 
 1. Ejecutar `npm run build` y `npm run preview -- --port 4322`.
 2. Disponer de `playwright` local o indicar la carpeta compartida de módulos en `PLAYWRIGHT_MODULES`.
-3. Si se usa Chrome o Edge instalado, indicar su ejecutable en `BROWSER_EXECUTABLE`.
+3. Si se usa Chrome o Edge instalado, indicar su ejecutable en `BROWSER_EXECUTABLE`. La optimización requiere Python con `pypdf`; `PDF_PYTHON` permite indicar el ejecutable del entorno que lo contiene.
 4. Ejecutar `node scripts/export-pdf.mjs` y revisar `output/pdf/revista-don-bigoton.pdf` y las capturas de `tmp/pdfs/`.
 5. El script copia el PDF a `public/revista-don-bigoton.pdf`. Ejecutar de nuevo `npm run build` antes de desplegar para incluirlo en `dist/`.
 
 Alternativa manual: abrir `/imprimir/` y pulsar «Imprimir / Guardar PDF», habilitando fondos y márgenes cero con el tamaño definido por el sitio.
 
 Antes de entregar, completar autores y video, regenerar el PDF y comprobar las diez páginas. La tarea requiere tanto el enlace web como el archivo PDF.
+
+## Descarga optimizada sin cambios visuales
+
+La exportación de Chromium repetía imágenes idénticas de la textura de papel en las diez hojas. `scripts/optimize-pdf.py` unifica objetos repetidos sin recomprimir ni reducir imágenes, conservando fuentes, texto seleccionable, enlaces, dimensiones y textura. `export-pdf.mjs` aplica este paso antes de copiar la descarga pública.
+
+La primera optimización pasó de 35.184.131 a 5.032.801 bytes. Las diez páginas del PDF original y el optimizado se renderizaron con Poppler a 760 px y se comprobaron píxel por píxel: no hubo diferencias.
