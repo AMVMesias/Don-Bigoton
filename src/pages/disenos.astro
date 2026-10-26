@@ -3,6 +3,7 @@ import '@fontsource/fraunces/latin-400.css';
 import '@fontsource/manrope/latin-400.css';
 import '../styles/book.css';
 import MarginCat from '../components/MarginCat.astro';
+import MarginOrnaments from '../components/MarginOrnaments.astro';
 ---
 <!doctype html>
 <html lang="es">
@@ -12,6 +13,7 @@ import MarginCat from '../components/MarginCat.astro';
   <main>
     <section><span>01 / AL PIE DE LA PÁGINA</span><div class="sample sample-footer"><p>Una historia<br/>con sazón propia.</p><MarginCat variant="footer" number={101}/><div class="rule"></div></div><h2>Un descanso entre historias.</h2><p>La cola se balancea, el cuerpo respira y los ojos parpadean.</p><a href="/#pagina-2">Ver en la revista ↗</a></section>
     <section><span>02 / EN EL ENCABEZADO</span><div class="sample sample-header"><div class="rule"></div><MarginCat variant="header" number={102}/><p>Siempre hay<br/>algo por descubrir.</p></div><h2>Una visita por el borde.</h2><p>Las orejas se mueven; el gatito se esconde y vuelve a asomarse.</p><a href="/#pagina-3">Ver en la revista ↗</a></section>
+    <section class="ornaments-card"><span>03 / EN LOS LATERALES</span><div class="sample sample-ornaments"><MarginOrnaments/><p>Huellas que acompañan.<br/>Destellos entre historias.</p></div><h2>Un recorrido por los márgenes.</h2><p>Las huellitas aparecen en secuencia y los destellos giran y flotan. Son adornos pequeños junto al borde, fuera de las columnas de lectura.</p><a href="/#pagina-5">Ver en la revista ↗</a></section>
   </main>
   <p class="note">En estas muestras se ven ampliados para revisar el movimiento. Dentro de la revista ocupan solamente un margen.</p>
   <script>const button=document.querySelector<HTMLButtonElement>('#board-motion');button?.addEventListener('click',()=>{const paused=document.body.classList.toggle('ambient-paused');button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'Reanudar animaciones':'Pausar animaciones';});</script>
@@ -21,4 +23,8 @@ import MarginCat from '../components/MarginCat.astro';
   header{max-width:1100px;margin:auto}header>span,section>span{font-size:10px;letter-spacing:.13em}h1{font:400 clamp(36px,5vw,64px) var(--serif);letter-spacing:-.06em;margin:16px 0}p{font-size:14px;line-height:1.7}nav{display:flex;gap:28px;margin:24px 0;font-size:12px}button,a{border-bottom:1px solid #af472d;padding:7px 0}
   main{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px;margin:36px auto}section{background:var(--paper);padding:30px;border:1px solid var(--line)}h2{font:400 30px var(--serif);letter-spacing:-.04em;margin:20px 0 12px}section>a{display:inline-block;font-size:12px;margin-top:12px}.sample{height:280px;position:relative;margin-top:25px;overflow:hidden}.sample p{font:400 32px var(--serif);letter-spacing:-.04em;position:absolute;top:30px;left:10px}.rule{position:absolute;left:0;right:0;height:1px;background:#38281f55}.sample-footer .rule{bottom:25px}.sample-header .rule{top:130px}.sample-header p{top:170px}.sample-footer :global(.margin-cat){width:230px;height:115px;right:0;bottom:25px}.sample-header :global(.margin-cat){width:200px;height:134px;right:0;top:6px}.note{max-width:1100px;margin:auto;color:#766956;font-size:12px}
   @media(max-width:700px){main{grid-template-columns:1fr}:global(body.cat-board){padding:30px 20px}section{padding:22px}}
+  .ornaments-card{grid-column:1/-1}.sample-ornaments{height:200px}.sample-ornaments p{inset:65px 80px auto;text-align:center;font-size:26px}
+  .sample-ornaments :global(.ornament-paws){top:27px;left:15px;width:40px;height:145px}
+  .sample-ornaments :global(.ornament-sparkles){top:40px;right:20px;width:36px;height:105px}
+  @media(max-width:700px){.sample-ornaments p{inset:60px 55px auto;font-size:20px}}
 </style>

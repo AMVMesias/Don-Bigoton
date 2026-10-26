@@ -1,5 +1,6 @@
 ---
 import MarginCat from './MarginCat.astro';
+import MarginOrnaments from './MarginOrnaments.astro';
 interface Props { number: number; section: string; class?: string; cover?: boolean; }
 const { number, section, class: className = '', cover = false } = Astro.props;
 ---
@@ -7,6 +8,7 @@ const { number, section, class: className = '', cover = false } = Astro.props;
   <div class="page-canvas">
     <header class="page-running"><span>DON BIGOTÓN</span><span>{section}</span></header>
     <MarginCat variant={number % 2 ? 'header' : 'footer'} number={number}/>
+    <MarginOrnaments/>
     <div class="page-content"><div class="page-layout"><slot /></div></div>
     <footer class="page-footer"><span>LA SAZÓN DE VOLVER A EMPEZAR</span><span>{String(number).padStart(2,'0')}</span></footer>
   </div>
