@@ -1,0 +1,38 @@
+---
+import '@fontsource/fraunces/latin-400.css';
+import '@fontsource/fraunces/latin-400-italic.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-600.css';
+import '../styles/book.css';
+import PageMotif from '../components/PageMotif.astro';
+import { pageMotifs } from '../data/page-motifs';
+---
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex"/><title>Los diseños, página a página — Don Bigotón</title></head>
+  <body class="design-board">
+    <header class="board-header"><div><span class="board-eyebrow">DON BIGOTÓN / CUADERNO VISUAL</span><h1>Un detalle para <em>cada página.</em></h1><p>24 dibujos SVG originales. Movimiento suave, relacionado con lo que cuenta cada hoja.</p></div><nav><button id="board-motion" aria-pressed="false">Pausar movimientos</button><a href="/">Abrir la revista ↗</a></nav></header>
+    <main class="motif-grid">{pageMotifs.map((motif,i)=><a class={`motif-card tone-${i%4}`} href={`/#pagina-${i+1}`} aria-label={`Ver página ${i+1}: ${motif.title}`}><div class="motif-card-top"><span>PÁGINA {String(i+1).padStart(2,'0')}</span><span>↗</span></div><PageMotif number={i+1} preview/><h2>{motif.title}</h2><p>{motif.theme}</p></a>)}</main>
+    <footer class="board-footer"><span>EL TRAZO ACOMPAÑA A LA HISTORIA.</span><span>Giro lento · Balanceo · Respiración · Flotación</span><span>Pulsa un diseño para ver su página.</span></footer>
+    <script>
+      const toggle=document.querySelector<HTMLButtonElement>('#board-motion');
+      toggle?.addEventListener('click',()=>{const paused=document.body.classList.toggle('ambient-paused');toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=paused?'Reanudar movimientos':'Pausar movimientos';});
+    </script>
+  </body>
+</html>
+<style>
+  :global(body.design-board){margin:0;padding:32px 40px;background:#e8e1d6;color:#38281f;min-height:100vh;overflow:auto}
+  .board-header{display:flex;justify-content:space-between;align-items:center;gap:35px;padding-bottom:25px;border-bottom:1px solid #c9bba6;margin-bottom:24px}
+  .board-eyebrow{font:600 9px 'Manrope',sans-serif;letter-spacing:.12em}
+  h1{font:400 42px 'Fraunces',serif;letter-spacing:-.055em;margin:12px 0 10px;line-height:1.05}h1 em{color:#af472d}
+  .board-header p{font-size:11px;line-height:1.7}.board-header nav{display:flex;gap:20px;font-size:10px;align-items:center;white-space:nowrap}.board-header button{padding:11px 15px;border:1px solid #a9947b;border-radius:30px}
+  .motif-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}
+  .motif-card{padding:13px 15px 16px;display:block;min-width:0;background:#fff7e9;border:1px solid #d3c5b1;transition:box-shadow .2s}
+  .motif-card:hover{box-shadow:0 5px 14px #38281f20}.motif-card-top{display:flex;justify-content:space-between;font-size:7px;font-weight:600;letter-spacing:.1em}
+  .motif-card :global(.page-motif.motif-preview){display:block;position:relative;top:auto;right:auto;width:86px;height:86px;margin:10px auto 9px;color:#af472d}
+  .motif-card h2{font:400 18px 'Fraunces',serif;line-height:1.12;letter-spacing:-.04em;margin:0 0 7px}.motif-card p{font-size:8px;line-height:1.5;opacity:.75}
+  .tone-1{background:#f4803c;border-color:#ed975d}.tone-1 :global(.page-motif.motif-preview){color:#693a25}.tone-2{background:#493227;color:#fff7e9;border-color:#493227}.tone-2 :global(.page-motif.motif-preview){color:#fac49a}.tone-3{background:#f2e6d2}
+  .board-footer{display:flex;gap:20px;justify-content:space-between;margin-top:24px;padding-top:15px;border-top:1px solid #c9bba6;font-size:7px;letter-spacing:.07em}
+  @media(max-width:1100px){.motif-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.board-header{align-items:start}.board-header nav{flex-direction:column;align-items:end}h1{font-size:36px}}
+  @media(max-width:700px){:global(body.design-board){padding:24px 20px}.motif-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.board-header{display:block}.board-header nav{flex-direction:row;margin-top:20px;justify-content:space-between}h1{font-size:35px}.board-footer{flex-wrap:wrap;font-size:7px}.board-footer span:last-child{width:100%}}
+</style>

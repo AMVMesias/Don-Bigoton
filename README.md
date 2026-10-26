@@ -8,6 +8,8 @@ Revista implementada con Astro: **24 páginas con giro de hoja**, portada con el
 
 La entrada `/` es el visor de revista. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
 
+`/disenos/` es el cuaderno visual de revisión: reúne los 24 motivos SVG con animación, sus temas y enlaces a cada página. La portada conserva sus destellos y las 23 páginas restantes incorporan el motivo correspondiente en el margen superior. Los trazos se definen en `src/data/page-motifs.ts` y se dibujan con `src/components/PageMotif.astro`. El gato del visor permite pausar también estas animaciones.
+
 ## Desarrollo
 
 Requiere Node.js compatible con Astro 7 (el desarrollo se verificó con Node 24).

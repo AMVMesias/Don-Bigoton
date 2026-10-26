@@ -24,7 +24,15 @@ body.reader-ready{height:100dvh;overflow:hidden;display:grid;grid-template-rows:
 .cat-eyes{transform-box:fill-box;transform-origin:center;animation:editorial-blink 7.5s ease-in-out infinite}
 .cover-sparkle{position:absolute;top:35px;width:17px;height:17px;color:#b86e45;animation:editorial-sparkle 22s linear infinite;pointer-events:none}
 .sparkle-left{left:179px}.sparkle-right{right:179px;animation-direction:reverse;animation-duration:28s;width:13px;height:13px;top:38px}
-.ambient-paused .editorial-cat *,.ambient-paused .cover-sparkle{animation-play-state:paused!important}
+.page-motif{position:absolute;width:45px;height:45px;right:12px;top:62px;color:#b46e47;pointer-events:none}
+.dark-page .page-motif,.portrait-page .page-motif{color:#f5c59e}.family-page .page-motif,.community-page .page-motif,.closing-page .page-motif,.back-cover .page-motif{color:#804124}
+.motif-drawing{transform-box:fill-box;transform-origin:center}
+.motif-sway .motif-drawing{animation:motif-sway 8s ease-in-out infinite}.motif-float .motif-drawing{animation:motif-float 7s ease-in-out infinite}.motif-breathe .motif-drawing{animation:motif-breathe 6s ease-in-out infinite}.motif-rotate .motif-drawing{animation:editorial-sparkle 35s linear infinite}.motif-dot{animation:motif-dot 5s ease-in-out infinite}
+@keyframes motif-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes motif-float{0%,100%{transform:translateY(1px)}50%{transform:translateY(-3px)}}
+@keyframes motif-breathe{0%,100%{transform:scale(.97)}50%{transform:scale(1.035)}}
+@keyframes motif-dot{0%,100%{opacity:.25}50%{opacity:.85}}
+.ambient-paused .editorial-cat *,.ambient-paused .cover-sparkle,.ambient-paused .page-motif *{animation-play-state:paused!important}
 @keyframes editorial-tail{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
 @keyframes editorial-breath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.025)}}
 @keyframes editorial-head{0%,100%{transform:rotate(-2deg)}45%,60%{transform:rotate(2deg)}}
