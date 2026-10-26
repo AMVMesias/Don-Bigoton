@@ -8,6 +8,7 @@ import '@fontsource/manrope/latin-600.css';
 import '@fontsource/manrope/latin-700.css';
 import '../styles/book.css';
 import Sheet from '../components/Sheet.astro';
+import EditorialCat from '../components/EditorialCat.astro';
 import { interview } from '../data/interview';
 import portrait from '../../material/retrato/retrato-enviado.png';
 import burger from '../../material/instagram/08-hamburguesa.jpg';
@@ -38,6 +39,8 @@ const index=[['La historia',4,'Una decisión que empieza en casa'],['La familia'
     <div class="book-viewport" id="book-viewport"><div id="book" class="book" aria-label="Revista digital Don Bigotón, 24 páginas">
       <Sheet number={1} section="EDICIÓN ESPECIAL · OCTUBRE 2026" class="book-cover" cover>
         <Image class="cover-original-logo" src={logo} alt="Logo original de Don Bigotón: el gato naranja y su lema Bien sabrosón" width={150} height={150} loading="eager"/>
+        <svg class="cover-sparkle sparkle-left" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 2c0 9-5 14-14 14 9 0 14 5 14 14 0-9 5-14 14-14C21 16 16 11 16 2Z" fill="currentColor"/></svg>
+        <svg class="cover-sparkle sparkle-right" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 2c0 9-5 14-14 14 9 0 14 5 14 14 0-9 5-14 14-14C21 16 16 11 16 2Z" fill="currentColor"/></svg>
         <span class="cover-label">COCINA · FAMILIA · EMPRENDIMIENTO</span>
         <h1>La sazón de<br /><em>volver a empezar.</em></h1>
         <p class="cover-deck">Una cocina en casa. Una familia que suma.</p>
@@ -98,7 +101,7 @@ const index=[['La historia',4,'Una decisión que empieza en casa'],['La familia'
       </Sheet>
     </div></div>
   </main>
-  <footer class="reader-controls"><div class="reader-bottom"><button id="cover-button" data-goto="0">DON BIGOTÓN <span>/ REVISTA DIGITAL</span></button><div class="page-navigation"><button id="prev-page" aria-label="Página anterior" disabled>←</button><output id="page-status" aria-live="polite" aria-atomic="true">PORTADA / 24</output><button id="next-page" aria-label="Página siguiente">→</button></div><div class="reader-extra"><button id="zoom-toggle" aria-pressed="false" title="Ampliar revista">Ampliar ＋</button><span id="reading-mode">DOBLE PÁGINA</span></div></div><label class="page-slider"><span class="sr-only">Ir a una página</span><input id="page-slider" type="range" min="1" max="24" value="1" aria-label="Ir a una página"/></label></footer>
+  <footer class="reader-controls"><EditorialCat /><div class="reader-bottom"><button id="cover-button" data-goto="0">DON BIGOTÓN <span>/ REVISTA DIGITAL</span></button><div class="page-navigation"><button id="prev-page" aria-label="Página anterior" disabled>←</button><output id="page-status" aria-live="polite" aria-atomic="true">PORTADA / 24</output><button id="next-page" aria-label="Página siguiente">→</button></div><div class="reader-extra"><button id="zoom-toggle" aria-pressed="false" title="Ampliar revista">Ampliar ＋</button><span id="reading-mode">DOBLE PÁGINA</span></div></div><label class="page-slider"><span class="sr-only">Ir a una página</span><input id="page-slider" type="range" min="1" max="24" value="1" aria-label="Ir a una página"/></label></footer>
   <noscript><p class="no-script">Puedes leer todas las páginas a continuación o abrir la <a href="/lectura/">versión continua</a>.</p></noscript>
   <script>import '../scripts/book';</script>
 </body>

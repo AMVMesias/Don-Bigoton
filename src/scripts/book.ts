@@ -15,6 +15,14 @@ const zoomButton = document.querySelector<HTMLButtonElement>('#zoom-toggle')!;
 const indexToggle = document.querySelector<HTMLButtonElement>('#index-toggle')!;
 const indexMenu = document.querySelector<HTMLElement>('#book-index')!;
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const ambientMotion = document.querySelector<HTMLButtonElement>('#ambient-motion');
+ambientMotion?.addEventListener('click', () => {
+  const paused = document.body.classList.toggle('ambient-paused');
+  const label = paused ? 'Reanudar animaciones de los iconos' : 'Pausar animaciones de los iconos';
+  ambientMotion.setAttribute('aria-pressed',String(paused));
+  ambientMotion.setAttribute('aria-label',label);
+  ambientMotion.title=label;
+});
 let zoomed = false;
 let busy = false;
 let pageWidth = 540;
