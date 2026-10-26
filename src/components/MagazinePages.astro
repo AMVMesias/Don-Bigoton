@@ -37,13 +37,17 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
   <blockquote>«Intentemos,<br/><em>no perdemos nada».</em></blockquote>
   <span class="page-source">TESTIMONIO · 00:56–02:51 Y 11:20–12:14</span>
 </Sheet>
-<Sheet number={4} section="03 / PERFIL DE LA EMPRENDEDORA" class="academic-page profile-page">
-  <span class="page-kicker">LA MUJER DETRÁS DE DON BIGOTÓN</span>
-  <h2>Ella puso<br/><em>la sazón.</em></h2>
-  <figure class="profile-portrait"><Image src={portrait} alt="Retrato de la emprendedora aportado para el proyecto" width={650} height={867} format="webp" loading="eager"/><figcaption>EXPERIENCIA · FAMILIA · APRENDIZAJE</figcaption></figure>
-  <p>Su trayectoria en cocina le dio una base para comenzar. También asumió, junto con uno de sus hijos, la investigación inicial sobre permisos, mercado y materia prima.</p>
-  <p>La formación continuó después de abrir: siguió cursos para mejorar las recetas y recibió asesoría para manejar las plataformas de pedidos. Su perfil reúne conocimiento práctico y voluntad de seguir aprendiendo.</p>
-  <span class="page-source">PERFIL BASADO EN EL TESTIMONIO · 00:56, 04:31, 06:41 Y 12:40</span>
+<Sheet number={4} section="03 / PERFIL DE LA EMPRENDEDORA" class="portrait-page profile-feature">
+  <div class="full-portrait">
+    <Image src={portrait} alt="Retrato de la emprendedora aportado para el proyecto" widths={[400,650,900]} sizes="(max-width:800px) 90vw,40vw" format="webp" loading="eager"/>
+    <div class="portrait-caption">
+      <span>LA MUJER DETRÁS DE DON BIGOTÓN</span>
+      <h2>Ella puso<br/><em>la sazón.</em></h2>
+      <p>Su experiencia en cocina se convirtió en el recurso con el que podía volver a empezar.</p>
+      <p>Junto con uno de sus hijos investigó el mercado, los permisos y la materia prima. Después siguió cursos para perfeccionar las recetas y aprendió a usar las plataformas de pedidos.</p>
+      <span class="portrait-source">PERFIL BASADO EN EL TESTIMONIO · 00:56, 04:31, 06:41 Y 12:40</span>
+    </div>
+  </div>
 </Sheet>
 <Sheet number={5} section="04 / DESCRIPCIÓN Y TIPO" class="academic-page business-page">
   <span class="page-kicker">DE SU COCINA A LA CASA DEL VECINO</span>

@@ -15,8 +15,12 @@
 .story-steps{margin-top:21px}.story-steps article{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
 .story-steps article>span{display:block;font-size:7px;letter-spacing:.1em;font-weight:700;margin-bottom:7px}
 .story-steps article p{font-size:14px!important}.story-page .page-content blockquote{font-size:26px;margin:21px 0 10px}
-.profile-portrait{position:relative;margin:0 0 22px}.profile-portrait img{width:460px;height:290px;object-fit:cover;object-position:50% 37%}
-.profile-portrait figcaption{font-size:6px;letter-spacing:.12em;margin-top:9px}
+.profile-feature .page-content{inset:0}
+.profile-feature .full-portrait::after{background:linear-gradient(180deg,#25190e22 0%,#25190e05 28%,#21170d66 48%,#21170de8 78%,#21170df2 100%)}
+.profile-feature .portrait-caption{bottom:110px}
+.profile-feature .portrait-caption p{max-width:360px;font-size:15px;line-height:1.6}
+.profile-feature .portrait-caption p+p{margin-top:13px}
+.profile-feature .portrait-caption .portrait-source{font-size:6px;line-height:1.6;letter-spacing:.06em;margin:17px 0 0;color:#eadac6}
 .business-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
 .business-flow article{border-top:1px solid var(--rust);padding-top:11px}.business-flow article>span{font-size:8px;display:block;margin-bottom:10px}
 .business-flow h3{font-size:23px!important}.business-flow p{font-size:12px!important;line-height:1.55!important}
