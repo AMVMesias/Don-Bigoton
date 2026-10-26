@@ -1,0 +1,61 @@
+---
+import { getImage } from 'astro:assets';
+import sleeping from '../../material/creativo/gato-inferior.png';
+import peeking from '../../material/creativo/gato-encabezado.png';
+interface Props { variant: 'header' | 'footer'; number: number; }
+const {variant, number} = Astro.props;
+const footer = variant === 'footer';
+const asset = await getImage({src: footer ? sleeping : peeking, width: footer ? 710 : 615, format:'webp'});
+const id = `cat-${variant}-${number}`;
+---
+<div class={`margin-cat margin-cat-${variant}`} aria-hidden="true">
+  {footer ? <svg viewBox="0 0 1774 887" focusable="false">
+    <defs>
+      <clipPath id={`${id}-body`}><path d="M0 0H1410V887H0Z"/></clipPath>
+      <clipPath id={`${id}-tail`}><path d="M1370 0H1774V887H1370Z"/></clipPath>
+      <linearGradient id={`${id}-fur`} x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff8d2e"/><stop offset="1" stop-color="#ff892a"/></linearGradient>
+    </defs>
+    <g class="margin-tail"><image href={asset.src} width="1774" height="887" clip-path={`url(#${id}-tail)`}/></g>
+    <g class="margin-breath">
+      <image href={asset.src} width="1774" height="887" clip-path={`url(#${id}-body)`}/>
+      <ellipse cx="450" cy="487" rx="86" ry="46" fill={`url(#${id}-fur)`}/>
+      <ellipse cx="779" cy="414" rx="82" ry="47" fill={`url(#${id}-fur)`}/>
+      <g class="margin-blink" fill="none" stroke="#4a2007" stroke-width="24" stroke-linecap="round">
+        <path d="M391 501Q450 443 506 480"/><path d="M728 432Q775 375 828 398"/>
+      </g>
+    </g>
+  </svg> : <svg viewBox="0 0 1536 1024" focusable="false">
+    <defs>
+      <clipPath id={`${id}-head`}><path d="M0 540L365 513 565 355 810 300 1080 425 1132 445H1536V1024H0Z"/></clipPath>
+      <clipPath id={`${id}-left`}><path d="M230 210H580V360L365 545H230Z"/></clipPath>
+      <clipPath id={`${id}-right`}><path d="M800 60H1160V458L1060 425 800 312Z"/></clipPath>
+    </defs>
+    <g class="margin-peek">
+      <g class="margin-ear margin-ear-left"><image href={asset.src} width="1536" height="1024" clip-path={`url(#${id}-left)`}/></g>
+      <g class="margin-ear margin-ear-right"><image href={asset.src} width="1536" height="1024" clip-path={`url(#${id}-right)`}/></g>
+      <image href={asset.src} width="1536" height="1024" clip-path={`url(#${id}-head)`}/>
+    </g>
+  </svg>}
+</div>
+<style is:global>
+  .margin-cat{position:absolute;pointer-events:none;z-index:2;line-height:0}
+  .margin-cat svg{width:100%;height:100%;overflow:visible}
+  .margin-cat-header{width:88px;height:59px;right:38px;top:-6px;overflow:hidden}
+  .margin-cat-footer{width:94px;height:47px;right:42px;bottom:48px}
+  .has-header-cat .page-running>span:last-child{padding-right:93px;max-width:330px}
+  .has-footer-cat .page-content{bottom:105px}
+  .margin-tail{transform-origin:1390px 815px;animation:margin-tail 3.6s ease-in-out infinite}
+  .margin-breath{transform-origin:870px 855px;animation:margin-breath 5s ease-in-out infinite}
+  .margin-blink{transform-box:fill-box;transform-origin:center;animation:margin-blink 5.2s ease-in-out infinite}
+  .margin-ear-left{transform-origin:430px 410px;animation:margin-ear-left 6s ease-in-out infinite}
+  .margin-ear-right{transform-origin:1000px 350px;animation:margin-ear-right 6s ease-in-out infinite}
+  .margin-peek{animation:margin-peek 10s ease-in-out infinite}
+  @keyframes margin-tail{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(10deg)}}
+  @keyframes margin-breath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.018)}}
+  @keyframes margin-blink{0%,39%,45%,78%,84%,100%{transform:scaleY(1)}42%,81%{transform:scaleY(.12)}}
+  @keyframes margin-ear-left{0%,30%,40%,100%{transform:rotate(0)}33%{transform:rotate(-5deg)}36%{transform:rotate(2deg)}}
+  @keyframes margin-ear-right{0%,32%,43%,100%{transform:rotate(0)}36%{transform:rotate(5deg)}39%{transform:rotate(-2deg)}}
+  @keyframes margin-peek{0%,62%,100%{transform:translateY(0)}74%,83%{transform:translateY(880px)}}
+  .ambient-paused .margin-cat *,.sheet[inert] .margin-cat *{animation-play-state:paused!important}
+  @media(prefers-reduced-motion:reduce){.margin-cat *{animation:none!important}}
+</style>

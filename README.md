@@ -8,15 +8,9 @@ Revista implementada con Astro: **24 páginas con giro de hoja**, portada con el
 
 La entrada `/` es el visor de revista. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
 
-`/disenos/` es el cuaderno visual de revisión: reúne los 24 motivos SVG con animación, sus temas y enlaces a cada página. La portada conserva sus destellos y las 23 páginas restantes incorporan el motivo correspondiente en el margen superior. Los trazos se definen en `src/data/page-motifs.ts` y se dibujan con `src/components/PageMotif.astro`. El gato del visor permite pausar también estas animaciones.
+`/disenos/` muestra las dos ilustraciones aprobadas en movimiento y ampliadas para revisión. En la revista se alternan en los márgenes: gato asomado al encabezado y gato recostado al pie. Las imágenes generadas se componen por capas en `src/components/MarginCat.astro`: cola, respiración, parpadeo, orejas y aparición. Las páginas ocultas pausan sus movimientos; se respeta el movimiento reducido y el botón Ⅱ permite pausarlos manualmente.
 
-## Escenas animadas dentro de las páginas
-
-- Página 8: hamburguesa ilustrada que se arma por capas en un ciclo de 8 segundos. No representa una receta exacta de la marca.
-- Página 11: gato naranja que camina, olfatea una hamburguesa, se acomoda y se duerme, en un ciclo de 14 segundos.
-- Página 18: el gato supervisa una bolsa de pedidos y descansa junto a ella.
-
-Las escenas usan SVG y CSS propios (`KitchenScene.astro`, `SceneCat.astro`, `kitchen-scenes.css`), se pausan en páginas ocultas y respetan el movimiento reducido. El gato del visor permite pausar todos los elementos decorativos.
+Se retiraron los antiguos motivos y las escenas ilustradas de hamburguesas de las páginas 8, 11 y 18. Se conservan las fotografías de productos y el logo original.
 
 ## Desarrollo local
 

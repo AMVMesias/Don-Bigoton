@@ -1,38 +1,24 @@
 ---
 import '@fontsource/fraunces/latin-400.css';
-import '@fontsource/fraunces/latin-400-italic.css';
 import '@fontsource/manrope/latin-400.css';
-import '@fontsource/manrope/latin-600.css';
 import '../styles/book.css';
-import PageMotif from '../components/PageMotif.astro';
-import { pageMotifs } from '../data/page-motifs';
+import MarginCat from '../components/MarginCat.astro';
 ---
 <!doctype html>
 <html lang="es">
-  <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex"/><title>Los diseños, página a página — Don Bigotón</title></head>
-  <body class="design-board">
-    <header class="board-header"><div><span class="board-eyebrow">DON BIGOTÓN / CUADERNO VISUAL</span><h1>Un detalle para <em>cada página.</em></h1><p>24 dibujos SVG originales. Movimiento suave, relacionado con lo que cuenta cada hoja.</p></div><nav><button id="board-motion" aria-pressed="false">Pausar movimientos</button><a href="/">Abrir la revista ↗</a></nav></header>
-    <main class="motif-grid">{pageMotifs.map((motif,i)=><a class={`motif-card tone-${i%4}`} href={`/#pagina-${i+1}`} aria-label={`Ver página ${i+1}: ${motif.title}`}><div class="motif-card-top"><span>PÁGINA {String(i+1).padStart(2,'0')}</span><span>↗</span></div><PageMotif number={i+1} preview/><h2>{motif.title}</h2><p>{motif.theme}</p></a>)}</main>
-    <footer class="board-footer"><span>EL TRAZO ACOMPAÑA A LA HISTORIA.</span><span>Giro lento · Balanceo · Respiración · Flotación</span><span>Pulsa un diseño para ver su página.</span></footer>
-    <script>
-      const toggle=document.querySelector<HTMLButtonElement>('#board-motion');
-      toggle?.addEventListener('click',()=>{const paused=document.body.classList.toggle('ambient-paused');toggle.setAttribute('aria-pressed',String(paused));toggle.textContent=paused?'Reanudar movimientos':'Pausar movimientos';});
-    </script>
-  </body>
-</html>
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Gatitos en movimiento — Don Bigotón</title></head>
+<body class="cat-board">
+  <header><span>DON BIGOTÓN / PRUEBAS EN MOVIMIENTO</span><h1>Pequeñas compañías.</h1><p>Detalles animados para los márgenes de la revista.</p><nav><a href="/">Abrir la revista ↗</a><button id="board-motion" aria-pressed="false">Pausar animaciones</button></nav></header>
+  <main>
+    <section><span>01 / AL PIE DE LA PÁGINA</span><div class="sample sample-footer"><p>Una historia<br/>con sazón propia.</p><MarginCat variant="footer" number={101}/><div class="rule"></div></div><h2>Un descanso entre historias.</h2><p>La cola se balancea, el cuerpo respira y los ojos parpadean.</p><a href="/#pagina-2">Ver en la revista ↗</a></section>
+    <section><span>02 / EN EL ENCABEZADO</span><div class="sample sample-header"><div class="rule"></div><MarginCat variant="header" number={102}/><p>Siempre hay<br/>algo por descubrir.</p></div><h2>Una visita por el borde.</h2><p>Las orejas se mueven; el gatito se esconde y vuelve a asomarse.</p><a href="/#pagina-11">Ver en la revista ↗</a></section>
+  </main>
+  <p class="note">En estas muestras se ven ampliados para revisar el movimiento. Dentro de la revista ocupan solamente un margen.</p>
+  <script>const button=document.querySelector<HTMLButtonElement>('#board-motion');button?.addEventListener('click',()=>{const paused=document.body.classList.toggle('ambient-paused');button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'Reanudar animaciones':'Pausar animaciones';});</script>
+</body></html>
 <style>
-  :global(body.design-board){margin:0;padding:32px 40px;background:#e8e1d6;color:#38281f;min-height:100vh;overflow:auto}
-  .board-header{display:flex;justify-content:space-between;align-items:center;gap:35px;padding-bottom:25px;border-bottom:1px solid #c9bba6;margin-bottom:24px}
-  .board-eyebrow{font:600 9px 'Manrope',sans-serif;letter-spacing:.12em}
-  h1{font:400 42px 'Fraunces',serif;letter-spacing:-.055em;margin:12px 0 10px;line-height:1.05}h1 em{color:#af472d}
-  .board-header p{font-size:11px;line-height:1.7}.board-header nav{display:flex;gap:20px;font-size:10px;align-items:center;white-space:nowrap}.board-header button{padding:11px 15px;border:1px solid #a9947b;border-radius:30px}
-  .motif-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}
-  .motif-card{padding:13px 15px 16px;display:block;min-width:0;background:#fff7e9;border:1px solid #d3c5b1;transition:box-shadow .2s}
-  .motif-card:hover{box-shadow:0 5px 14px #38281f20}.motif-card-top{display:flex;justify-content:space-between;font-size:7px;font-weight:600;letter-spacing:.1em}
-  .motif-card :global(.page-motif.motif-preview){display:block;position:relative;top:auto;right:auto;width:104px;height:104px;margin:10px auto 9px;color:#af472d}
-  .motif-card h2{font:400 18px 'Fraunces',serif;line-height:1.12;letter-spacing:-.04em;margin:0 0 7px}.motif-card p{font-size:8px;line-height:1.5;opacity:.75}
-  .tone-1{background:#f4803c;border-color:#ed975d}.tone-1 :global(.page-motif.motif-preview){color:#693a25}.tone-2{background:#493227;color:#fff7e9;border-color:#493227}.tone-2 :global(.page-motif.motif-preview){color:#fac49a}.tone-3{background:#f2e6d2}
-  .board-footer{display:flex;gap:20px;justify-content:space-between;margin-top:24px;padding-top:15px;border-top:1px solid #c9bba6;font-size:7px;letter-spacing:.07em}
-  @media(max-width:1100px){.motif-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.board-header{align-items:start}.board-header nav{flex-direction:column;align-items:end}h1{font-size:36px}}
-  @media(max-width:700px){:global(body.design-board){padding:24px 20px}.motif-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.board-header{display:block}.board-header nav{flex-direction:row;margin-top:20px;justify-content:space-between}h1{font-size:35px}.board-footer{flex-wrap:wrap;font-size:7px}.board-footer span:last-child{width:100%}}
+  :global(body.cat-board){padding:48px 6%;overflow:auto;height:auto;min-height:100vh}
+  header{max-width:1100px;margin:auto}header>span,section>span{font-size:10px;letter-spacing:.13em}h1{font:400 clamp(36px,5vw,64px) var(--serif);letter-spacing:-.06em;margin:16px 0}p{font-size:14px;line-height:1.7}nav{display:flex;gap:28px;margin:24px 0;font-size:12px}button,a{border-bottom:1px solid #af472d;padding:7px 0}
+  main{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px;margin:36px auto}section{background:var(--paper);padding:30px;border:1px solid var(--line)}h2{font:400 30px var(--serif);letter-spacing:-.04em;margin:20px 0 12px}section>a{display:inline-block;font-size:12px;margin-top:12px}.sample{height:280px;position:relative;margin-top:25px;overflow:hidden}.sample p{font:400 32px var(--serif);letter-spacing:-.04em;position:absolute;top:30px;left:10px}.rule{position:absolute;left:0;right:0;height:1px;background:#38281f55}.sample-footer .rule{bottom:25px}.sample-header .rule{top:130px}.sample-header p{top:170px}.sample-footer :global(.margin-cat){width:230px;height:115px;right:0;bottom:25px}.sample-header :global(.margin-cat){width:200px;height:134px;right:0;top:6px}.note{max-width:1100px;margin:auto;color:#766956;font-size:12px}
+  @media(max-width:700px){main{grid-template-columns:1fr}:global(body.cat-board){padding:30px 20px}section{padding:22px}}
 </style>
