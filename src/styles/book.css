@@ -18,24 +18,24 @@ body.reader-ready{height:100dvh;overflow:hidden;display:grid;grid-template-rows:
 @media(max-width:820px){body.reader-ready{grid-template-rows:65px minmax(0,1fr) 89px}.reader-ready .reader-main{grid-template-rows:40px minmax(0,1fr)}}
 .reader-cat{position:absolute;right:38px;top:-68px;width:88px;height:69px;padding:0;z-index:3;transform-origin:bottom center;touch-action:manipulation}
 .reader-cat svg{display:block;width:100%;height:100%;overflow:visible}
-.cat-tail{transform-origin:116px 96px;animation:editorial-tail 6s ease-in-out infinite}
+.cat-tail{transform-origin:116px 96px;animation:editorial-tail 3.2s ease-in-out infinite}
 .cat-breath{transform-origin:80px 106px;animation:editorial-breath 5s ease-in-out infinite}
-.cat-head{transform-origin:62px 92px;animation:editorial-head 9s ease-in-out infinite}
-.cat-eyes{transform-box:fill-box;transform-origin:center;animation:editorial-blink 7.5s ease-in-out infinite}
-.cover-sparkle{position:absolute;top:35px;width:17px;height:17px;color:#b86e45;animation:editorial-sparkle 22s linear infinite;pointer-events:none}
-.sparkle-left{left:179px}.sparkle-right{right:179px;animation-direction:reverse;animation-duration:28s;width:13px;height:13px;top:38px}
-.page-motif{position:absolute;width:45px;height:45px;right:12px;top:62px;color:#b46e47;pointer-events:none}
+.cat-head{transform-origin:62px 92px;animation:editorial-head 5s ease-in-out infinite}
+.cat-eyes{transform-box:fill-box;transform-origin:center;animation:editorial-blink 4.5s ease-in-out infinite}
+.cover-sparkle{position:absolute;top:35px;width:17px;height:17px;color:#b86e45;animation:editorial-sparkle 9s linear infinite;pointer-events:none}
+.sparkle-left{left:179px}.sparkle-right{right:179px;animation-direction:reverse;animation-duration:12s;width:13px;height:13px;top:38px}
+.page-motif{position:absolute;width:50px;height:50px;right:10px;top:58px;color:#b46e47;pointer-events:none}
 .dark-page .page-motif,.portrait-page .page-motif{color:#f5c59e}.family-page .page-motif,.community-page .page-motif,.closing-page .page-motif,.back-cover .page-motif{color:#804124}
 .motif-drawing{transform-box:fill-box;transform-origin:center}
-.motif-sway .motif-drawing{animation:motif-sway 8s ease-in-out infinite}.motif-float .motif-drawing{animation:motif-float 7s ease-in-out infinite}.motif-breathe .motif-drawing{animation:motif-breathe 6s ease-in-out infinite}.motif-rotate .motif-drawing{animation:editorial-sparkle 35s linear infinite}.motif-dot{animation:motif-dot 5s ease-in-out infinite}
-@keyframes motif-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
-@keyframes motif-float{0%,100%{transform:translateY(1px)}50%{transform:translateY(-3px)}}
-@keyframes motif-breathe{0%,100%{transform:scale(.97)}50%{transform:scale(1.035)}}
-@keyframes motif-dot{0%,100%{opacity:.25}50%{opacity:.85}}
+.motif-sway .motif-drawing{animation:motif-sway 3.2s ease-in-out infinite}.motif-float .motif-drawing{animation:motif-float 3s ease-in-out infinite}.motif-breathe .motif-drawing{animation:motif-breathe 3.4s ease-in-out infinite}.motif-rotate .motif-drawing{animation:editorial-sparkle 12s linear infinite}.motif-dot{animation:motif-dot 3s ease-in-out infinite}
+@keyframes motif-sway{0%,100%{transform:rotate(-11deg)}50%{transform:rotate(11deg)}}
+@keyframes motif-float{0%,100%{transform:translateY(4px)}50%{transform:translateY(-7px)}}
+@keyframes motif-breathe{0%,100%{transform:scale(.9)}50%{transform:scale(1.12)}}
+@keyframes motif-dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-5px)}}
 .ambient-paused .editorial-cat *,.ambient-paused .cover-sparkle,.ambient-paused .page-motif *{animation-play-state:paused!important}
-@keyframes editorial-tail{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+@keyframes editorial-tail{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(20deg)}}
 @keyframes editorial-breath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.025)}}
-@keyframes editorial-head{0%,100%{transform:rotate(-2deg)}45%,60%{transform:rotate(2deg)}}
+@keyframes editorial-head{0%,100%{transform:rotate(-5deg)}45%,60%{transform:rotate(5deg)}}
 @keyframes editorial-blink{0%,43%,47%,79%,83%,100%{transform:scaleY(1)}45%,81%{transform:scaleY(.1)}}
 @keyframes editorial-sparkle{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @media(max-width:820px){.reader-cat{right:21px;width:65px;height:51px;top:-50px}}
