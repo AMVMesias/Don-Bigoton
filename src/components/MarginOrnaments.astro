@@ -1,34 +1,56 @@
-<div class="margin-ornaments" aria-hidden="true">
-  <svg class="side-ornament ornament-paws" viewBox="0 0 36 130" fill="currentColor" focusable="false">
-    {[{x:9,y:4,angle:15},{x:2,y:47,angle:-12},{x:9,y:90,angle:15}].map(({x,y,angle},index)=><g transform={`translate(${x} ${y}) rotate(${angle} 12 13)`}><g class={`paw-print paw-print-${index}`}>
-      <ellipse cx="4" cy="10" rx="2.5" ry="3.3" transform="rotate(-22 4 10)"/>
-      <ellipse cx="9" cy="5" rx="2.5" ry="3.4" transform="rotate(-8 9 5)"/>
-      <ellipse cx="16" cy="5" rx="2.5" ry="3.4" transform="rotate(8 16 5)"/>
-      <ellipse cx="21" cy="10" rx="2.5" ry="3.3" transform="rotate(22 21 10)"/>
-      <path d="M8 16c2-4 7-4 9 0 2 3 5 4 3 7-2 3-5 0-8 0-2 0-6 3-7 0-2-3 1-5 3-7Z"/>
-    </g></g>)}
+---
+import EditorialGlyph from './EditorialGlyph.astro';
+import {editorialDesigns} from '../data/editorial-designs';
+interface Props {number?:number;}
+const {number=1}=Astro.props;
+const design=editorialDesigns[number-1] || editorialDesigns[0];
+---
+<div class={'margin-ornaments ornament-page-'+number+' ornament-motion-'+design.motion+' ornament-parity-'+(number%2 ? 'odd' : 'even')} data-design={design.title} aria-hidden="true">
+  <svg class="side-ornament ornament-primary" viewBox="0 0 48 128" focusable="false">
+    <g class="ornament-primary-drawing"><EditorialGlyph kind={design.primary}/></g>
+    <path d="M24 66v22m0 13v1" stroke="currentColor" stroke-width="1.3" opacity=".35" stroke-linecap="round"/>
   </svg>
-  <svg class="side-ornament ornament-sparkles" viewBox="0 0 32 92" fill="none" focusable="false">
-    <g class="ornament-star"><path d="M16 9c0 8-3 12-11 13 8 1 11 5 11 13 1-8 4-12 12-13-8-1-11-5-12-13Z" fill="currentColor"/></g>
-    <g class="ornament-small-star"><path d="M11 55v14m-7-7h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="24" cy="47" r="2" fill="currentColor"/><circle cx="19" cy="83" r="1.5" fill="currentColor"/></g>
+  <svg class="side-ornament ornament-secondary" viewBox="0 0 48 112" focusable="false">
+    <g class="ornament-secondary-drawing"><EditorialGlyph kind={design.secondary}/></g>
+    <circle cx="24" cy="73" r="1.7" fill="currentColor" opacity=".5"/>
+    <circle cx="24" cy="91" r="1" fill="currentColor" opacity=".3"/>
   </svg>
 </div>
 <style is:global>
   .margin-ornaments{position:absolute;inset:0;pointer-events:none;z-index:4;color:#aa613d}
   .side-ornament{position:absolute;display:block;overflow:visible}
-  .ornament-paws{left:6px;top:365px;width:28px;height:107px}
-  .ornament-sparkles{right:7px;top:205px;width:25px;height:72px}
-  .paw-print{transform-box:fill-box;transform-origin:center;opacity:.6;animation:margin-paw-step 4.2s ease-in-out infinite}
-  .paw-print-1{animation-delay:.6s}.paw-print-2{animation-delay:1.2s}
-  .ornament-star{transform-box:fill-box;transform-origin:center;animation:margin-star-turn 4.8s ease-in-out infinite}
-  .ornament-small-star{animation:margin-star-float 4s ease-in-out infinite}
+  .ornament-primary{left:6px;top:365px;width:28px;height:75px}
+  .ornament-secondary{right:7px;top:205px;width:25px;height:59px}
+  .ornament-parity-odd .ornament-primary{left:auto;right:6px}
+  .ornament-parity-odd .ornament-secondary{right:auto;left:7px}
+  .ornament-primary-drawing,.ornament-secondary-drawing{transform-box:fill-box;transform-origin:center}
+  .ornament-primary-drawing{animation:editorial-icon-breathe 4.2s ease-in-out infinite}
+  .ornament-secondary-drawing{animation:editorial-icon-float 4.8s ease-in-out infinite}
+  .ornament-motion-write .ornament-primary-drawing{animation:editorial-pen 3.8s ease-in-out infinite}
+  .ornament-motion-sway .ornament-primary-drawing{transform-origin:bottom center;animation:editorial-sprout 4.8s ease-in-out infinite}
+  .compass-needle{transform-box:fill-box;transform-origin:center;animation:editorial-compass 6s ease-in-out infinite}
+  .ornament-motion-rise .ornament-primary-drawing{animation:editorial-coin 3.8s ease-in-out infinite}
+  .ornament-motion-talk .ornament-primary-drawing{animation:editorial-talk 4s ease-in-out infinite}
+  .balance-arm{transform-box:fill-box;transform-origin:top center;animation:editorial-balance 5s ease-in-out infinite}
+  .ornament-motion-climb .ornament-primary-drawing{animation:editorial-climb 3.6s ease-in-out infinite}
+  .voice-bar{transform-box:fill-box;transform-origin:center;animation:editorial-voice 1.6s ease-in-out infinite}
+  .voice-bar-1{animation-delay:.25s}.voice-bar-2{animation-delay:.5s}.voice-bar-3{animation-delay:.75s}.voice-bar-4{animation-delay:1s}
+  .ornament-motion-seal .ornament-primary-drawing{animation:editorial-seal 7s ease-in-out infinite}
   .dark-page .margin-ornaments{color:#f8ad79}.portrait-page .margin-ornaments{color:#fff7e9}
   .back-cover .margin-ornaments{color:#743e28}
-  .book-cover .ornament-paws{top:440px}.book-cover .ornament-sparkles{top:286px}
-  @keyframes margin-paw-step{0%,15%,100%{opacity:.2;transform:scale(.82)}32%,60%{opacity:.85;transform:scale(1.06)}78%{opacity:.35;transform:scale(.94)}}
-  @keyframes margin-star-turn{0%,100%{transform:rotate(-18deg) scale(.85);opacity:.4}50%{transform:rotate(22deg) scale(1.08);opacity:.9}}
-  @keyframes margin-star-float{0%,100%{transform:translateY(3px);opacity:.4}50%{transform:translateY(-4px);opacity:.8}}
-  .ambient-paused .margin-ornaments *,.sheet[inert] .margin-ornaments *{animation-play-state:paused!important}
+  .book-cover .ornament-primary{top:440px}.book-cover .ornament-secondary{top:310px}
+  @keyframes editorial-icon-breathe{0%,100%{opacity:.45;transform:scale(.88)}50%{opacity:.9;transform:scale(1.04)}}
+  @keyframes editorial-icon-float{0%,100%{transform:translateY(3px);opacity:.5}50%{transform:translateY(-4px);opacity:.9}}
+  @keyframes editorial-pen{0%,100%{transform:rotate(-6deg) translateY(2px)}50%{transform:rotate(6deg) translateY(-3px)}}
+  @keyframes editorial-sprout{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+  @keyframes editorial-compass{0%,100%{transform:rotate(-12deg)}45%,60%{transform:rotate(18deg)}}
+  @keyframes editorial-coin{0%,100%{transform:translateY(2px)}50%{transform:translateY(-5px)}}
+  @keyframes editorial-talk{0%,100%{transform:scale(.9)}30%,70%{transform:scale(1.05)}}
+  @keyframes editorial-balance{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+  @keyframes editorial-climb{0%,100%{transform:translateY(3px);opacity:.5}40%,65%{transform:translateY(-4px);opacity:1}}
+  @keyframes editorial-voice{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+  @keyframes editorial-seal{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+  .ambient-paused .margin-ornaments *,.sheet[inert] .margin-ornaments *,.design-spread[data-outside] .margin-ornaments *{animation-play-state:paused!important}
   @media(prefers-reduced-motion:reduce){.margin-ornaments *{animation:none!important}}
-  @media print{.margin-ornaments *{animation:none!important}.paw-print{opacity:.6}}
+  @media print{.margin-ornaments *{animation:none!important}}
 </style>

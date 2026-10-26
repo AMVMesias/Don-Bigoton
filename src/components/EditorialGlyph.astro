@@ -1,0 +1,26 @@
+---
+interface Props { kind:string; }
+const {kind}=Astro.props;
+---
+<g class={'editorial-glyph glyph-'+kind} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  {kind==='paw'&&<g fill="currentColor" stroke="none"><ellipse cx="10" cy="18" rx="4" ry="5" transform="rotate(-22 10 18)"/><ellipse cx="20" cy="10" rx="4" ry="5"/><ellipse cx="31" cy="10" rx="4" ry="5"/><ellipse cx="40" cy="19" rx="4" ry="5" transform="rotate(22 40 19)"/><path d="M17 28c3-6 11-6 15 0 3 5 8 7 5 12-3 4-8 0-12 0s-10 4-12 0 0-8 4-12Z"/></g>}
+  {kind==='spark'&&<><path d="M24 5c0 12-5 18-17 19 12 1 17 7 17 19 1-12 6-18 18-19C30 23 25 17 24 5Z"/><path d="M6 6v7m-3-3h7"/></>}
+  {kind==='pen'&&<><path d="m8 40 5-15L33 5l10 10-20 20-15 5Zm5-15 10 10M29 9l10 10M8 40l7-7"/><path d="M24 43h19" stroke-dasharray="2 4"/></>}
+  {kind==='quotes'&&<><path d="M19 13C9 15 7 23 7 34h12V23H12m29-10c-10 2-12 10-12 21h12V23h-7"/></>}
+  {kind==='sprout'&&<><path d="M24 44V27m0 7C7 33 5 24 6 15c13 0 21 7 18 19Zm0-8C22 11 30 5 42 4c1 12-5 22-18 22Z"/><path d="M10 44h28M13 22l11 12m0-8L35 13"/></>}
+  {kind==='sunrise'&&<><path d="M5 35h38M12 29a12 12 0 0 1 24 0M24 5v6M6 16l5 4m31-4-5 4M15 8l2 5m16-5-2 5M11 42h26"/></>}
+  {kind==='compass'&&<><circle cx="24" cy="24" r="19"/><path d="M24 5v4m0 30v4M5 24h4m30 0h4"/><g class="compass-needle"><path d="m32 15-5 14-13 5 6-14 12-5Z"/><path d="m20 20 7 9"/></g></>}
+  {kind==='heart'&&<path d="M24 40S5 29 5 17C5 5 20 4 24 15 28 4 43 5 43 17c0 12-19 23-19 23Z"/>}
+  {kind==='coins'&&<><ellipse cx="18" cy="15" rx="13" ry="6"/><path d="M5 15v9c0 8 26 8 26 0v-9M5 23v9c0 7 20 8 25 3"/><path d="M33 23c12 0 14 10 5 14-4 2-8 1-11-1"/><path d="M37 20v8m-4-4h8"/></>}
+  {kind==='link'&&<><path d="m18 29-4 4a8 8 0 0 1-11-11l10-10a8 8 0 0 1 11 0m6 7 4-4a8 8 0 0 1 11 11L35 36a8 8 0 0 1-11 0M16 32l17-17"/></>}
+  {kind==='conversation'&&<><path d="M41 21c0 10-10 17-21 13l-10 6 2-12C0 15 13 3 26 6c9 1 15 7 15 15Z"/><path d="M13 18h19m-19 7h12"/><circle cx="39" cy="8" r="4" fill="currentColor" stroke="none"/></>}
+  {kind==='megaphone'&&<><path d="M7 20h10L39 9v30L17 28H7v-8Zm10 0v8m-5 0 4 13h7l-4-12M43 19l3-2m-3 12 3 2"/></>}
+  {kind==='balance'&&<><path d="M24 6v37M11 43h26M7 16l34-5"/><g class="balance-arm"><path d="m8 16-5 17h14L8 16Zm30-5-7 17h14l-7-17Z"/><path d="M3 33c2 6 12 6 14 0m14-5c2 6 12 6 14 0"/></g><circle cx="24" cy="6" r="2" fill="currentColor"/></>}
+  {kind==='shield'&&<><path d="M24 4 41 11v14c0 10-17 19-17 19S7 35 7 25V11L24 4Z"/><path d="m15 24 6 6 12-13"/></>}
+  {kind==='steps'&&<><path d="M5 43h12V32h11V21h12V7M33 14l7-7 7 7"/><path d="M6 31v-5m5-6v-5" stroke-dasharray="1 4"/></>}
+  {kind==='flag'&&<><path d="M10 44V5m0 2c9-8 17 8 29 0v22c-12 8-20-8-29 0M4 44h13"/></>}
+  {kind==='audio'&&<>{[15,29,39,25,13].map((height,index)=><path class={'voice-bar voice-bar-'+index} d={'M'+(7+index*8)+' '+(24-height/2)+'v'+height}/>)}</>}
+  {kind==='play'&&<><circle cx="24" cy="24" r="19"/><path d="m19 14 14 10-14 10V14Z"/></>}
+  {kind==='seal'&&<><path d="m24 3 5 4 7-1 2 7 6 4-3 7 3 6-6 4-2 8-7-1-5 4-5-4-7 1-2-8-6-4 3-6-3-7 6-4 2-7 7 1 5-4Z"/><circle cx="24" cy="24" r="11"/><path d="m18 24 4 4 8-9"/></>}
+  {kind==='ribbon'&&<><path d="M13 5h22v38l-11-8-11 8V5Zm0 9h22"/><path d="M20 23h8m-8 5h8"/></>}
+</g>

@@ -13,24 +13,13 @@ import MagazinePages from '../components/MagazinePages.astro';
 <body class="print-edition ambient-paused"><nav class="print-tools"><a href="/">← Volver a la revista</a><button id="print-button">Imprimir / Guardar PDF</button></nav><main class="print-pages"><MagazinePages/></main>
 <script>
 import {fitMagazinePages} from '../scripts/fit-pages';
+import {arrangeSpreads} from '../scripts/spread-layout';
 await document.fonts.ready;
 await Promise.all([...document.images].map(img=>img.decode().catch(()=>{})));
 const sheets=[...document.querySelectorAll<HTMLElement>('.sheet')];
 fitMagazinePages(sheets);
 const container=document.querySelector<HTMLElement>('.print-pages')!;
-const groups=[sheets.slice(0,1)];
-for(let index=1;index<sheets.length-1;index+=2) groups.push(sheets.slice(index,Math.min(index+2,sheets.length-1)));
-groups.push(sheets.slice(-1));
-let folio=1;
-for(const group of groups) {
-  const spread=document.createElement('section');
-  spread.className=`print-spread print-spread-${group.length===1 ? 'single' : 'double'}`;
-  spread.dataset.pages=group.map((_,index)=>folio+index).join(',');
-  spread.setAttribute('aria-label',group.length===1 ? `Página ${folio}` : `Páginas ${folio} y ${folio+1}`);
-  spread.append(...group);
-  container.append(spread);
-  folio+=group.length;
-}
+arrangeSpreads(container,sheets,'print-spread');
 document.body.dataset.printReady='true';
 document.querySelector('#print-button')?.addEventListener('click',()=>window.print());
 </script></body></html>

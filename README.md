@@ -10,9 +10,9 @@ La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y
 
 El PDF reproduce el formato de escritorio: portada y contraportada individuales e interiores en parejas 2–3, 4–5, 6–7 y 8–9. Conserva diez páginas editoriales distribuidas en seis láminas PDF.
 
-`/disenos/` muestra las dos ilustraciones aprobadas en movimiento y ampliadas para revisión. En la revista se alternan en los márgenes: gato asomado al encabezado y gato recostado al pie. Las imágenes generadas se componen por capas en `src/components/MarginCat.astro`: cola, respiración, parpadeo, orejas y aparición. Las páginas ocultas pausan sus movimientos; se respeta el movimiento reducido y el botón Ⅱ permite pausarlos manualmente.
+`/disenos/` muestra las diez páginas reales como seis composiciones adaptables, con animaciones y uniones entre las hojas. Los gatos ilustrados quedan como acentos de marca en portada, retrato y contraportada. Sus capas se animan en `MarginCat.astro`; las páginas ocultas pausan los movimientos y se respeta el movimiento reducido.
 
-`MarginOrnaments.astro` añade huellas que aparecen en secuencia en el margen izquierdo y destellos que giran y flotan en el derecho. Se mantienen fuera de las columnas de texto, no capturan toques ni clics y comparten los controles de pausa y movimiento reducido. `/disenos/` incluye una muestra ampliada. En el PDF quedan estáticos como parte del diseño.
+`editorial-designs.ts` asigna diez motivos propios y veinte iconos distintos a las hojas: identidad, escritura, inicio, rumbo, recursos, conversación, equilibrio, avance, voz y cierre. `MarginOrnaments.astro` los sitúa en los márgenes con movimientos propios. No capturan toques ni clics y comparten los controles de pausa. `SpreadConnection.astro` dibuja una composición continua por pareja: un trazo superior, una figura central dividida entre las dos hojas y una franja inferior. En móvil se ocultan esas uniones para que cada página funcione sola; en escritorio, galería y PDF se unen. Los adornos del PDF son estáticos.
 
 Se retiraron los antiguos motivos y las escenas ilustradas de hamburguesas. Se conservan las fotografías de productos y el logo original.
 

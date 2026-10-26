@@ -42,6 +42,13 @@ try {
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base,{waitUntil:'networkidle'});
     await waitAt(page,1);
+    const art=await page.evaluate(()=>({
+      designs:new Set([...document.querySelectorAll('.margin-ornaments')].map(e=>e.getAttribute('data-design'))).size,
+      glyphs:new Set([...document.querySelectorAll('.editorial-glyph')].map(e=>e.getAttribute('class'))).size,
+      bridges:document.querySelectorAll('.spread-connection').length,
+      portraitFit:document.querySelector('.profile-feature').getAttribute('data-content-fit'),
+    }));
+    assert.deepEqual(art,{designs:10,glyphs:20,bridges:8,portraitFit:'1'});
     // Traverse both boundaries with real touch taps and the normal flip animation.
     for(let i=2;i<=10;i++) {await page.locator('#next-page').tap();await waitAt(page,i);}
     assert(await page.locator('#next-page').isDisabled());

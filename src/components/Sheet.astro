@@ -1,14 +1,17 @@
 ---
 import MarginCat from './MarginCat.astro';
 import MarginOrnaments from './MarginOrnaments.astro';
+import SpreadConnection from './SpreadConnection.astro';
 interface Props { number: number; section: string; class?: string; cover?: boolean; }
 const { number, section, class: className = '', cover = false } = Astro.props;
+const hasCat=[1,4,10].includes(number);
 ---
-<article class={`sheet ${className} has-${number % 2 ? 'header' : 'footer'}-cat`} data-density={cover ? 'hard' : 'soft'} aria-label={`Página ${number}: ${section}`}>
+<article class={`sheet ${className} ${hasCat&&number%2 ? 'has-header-cat' : ''} ${number%2===0 ? 'has-footer-art' : ''}`} data-density={cover ? 'hard' : 'soft'} aria-label={`Página ${number}: ${section}`}>
   <div class="page-canvas">
     <header class="page-running"><span>DON BIGOTÓN</span><span>{section}</span></header>
-    <MarginCat variant={number % 2 ? 'header' : 'footer'} number={number}/>
-    <MarginOrnaments/>
+    {hasCat&&<MarginCat variant={number % 2 ? 'header' : 'footer'} number={number}/>}
+    <MarginOrnaments number={number}/>
+    <SpreadConnection number={number}/>
     <div class="page-content"><div class="page-layout"><slot /></div></div>
     <footer class="page-footer"><span>LA SAZÓN DE VOLVER A EMPEZAR</span><span>{String(number).padStart(2,'0')}</span></footer>
   </div>

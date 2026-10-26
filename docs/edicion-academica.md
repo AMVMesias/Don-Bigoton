@@ -42,3 +42,11 @@ La exportación de Chromium repetía imágenes idénticas de la textura de papel
 La primera optimización pasó de 35.184.131 a 5.032.801 bytes. Las diez páginas del PDF original y el optimizado se renderizaron con Poppler a 760 px y se comprobaron píxel por píxel: no hubo diferencias.
 
 La vista de impresión usa tamaños de página específicos para portada y dobles páginas. La descarga automatizada primero exporta las diez hojas por separado y después une las parejas en el PDF, sin convertirlas en imágenes. Así conserva los elementos compartidos y mantiene la descarga de dobles páginas en torno a 5 MB. Se validan las seis láminas, sus dimensiones, el texto y los enlaces de las diez hojas originales.
+
+## Identidad visual de cada hoja y composición compartida
+
+Cada página tiene dos iconos propios, definidos en `editorial-designs.ts` y dibujados en `EditorialGlyph.astro`, sin repetir los veinte motivos. Los gatos son acentos de marca en las hojas 1, 4 y 10. Se conserva el retrato a página completa.
+
+Las parejas comparten un trazo superior, una figura dividida en el pliegue y una franja inferior continua: 2–3, del relato al comienzo; 4–5, persona y recursos; 6–7, relaciones y equilibrio; 8–9, futuro y voz. Las formas se recortan desde el mismo lienzo de doble página para que coincidan al juntarse en el lector y en el PDF. Se mantienen fuera de las columnas de lectura y se ocultan en el visor de una sola página en móvil.
+
+`spread-layout.ts` agrupa las mismas hojas para impresión y para la galería `/disenos/`. La galería permite revisar la revista completa y sus animaciones sin usar maquetas distintas del contenido real.

@@ -1,30 +1,91 @@
 ---
 import '@fontsource/fraunces/latin-400.css';
+import '@fontsource/fraunces/latin-400-italic.css';
+import '@fontsource/fraunces/latin-600.css';
 import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-600.css';
+import '@fontsource/manrope/latin-700.css';
 import '../styles/book.css';
-import MarginCat from '../components/MarginCat.astro';
-import MarginOrnaments from '../components/MarginOrnaments.astro';
+import '../styles/edition.css';
+import MagazinePages from '../components/MagazinePages.astro';
+import {spreadDesigns} from '../data/editorial-designs';
 ---
 <!doctype html>
-<html lang="es">
-<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Gatitos en movimiento — Don Bigotón</title></head>
-<body class="cat-board">
-  <header><span>DON BIGOTÓN / PRUEBAS EN MOVIMIENTO</span><h1>Pequeñas compañías.</h1><p>Detalles animados para los márgenes de la revista.</p><nav><a href="/">Abrir la revista ↗</a><button id="board-motion" aria-pressed="false">Pausar animaciones</button></nav></header>
-  <main>
-    <section><span>01 / AL PIE DE LA PÁGINA</span><div class="sample sample-footer"><p>Una historia<br/>con sazón propia.</p><MarginCat variant="footer" number={101}/><div class="rule"></div></div><h2>Un descanso entre historias.</h2><p>La cola se balancea, el cuerpo respira y los ojos parpadean.</p><a href="/#pagina-2">Ver en la revista ↗</a></section>
-    <section><span>02 / EN EL ENCABEZADO</span><div class="sample sample-header"><div class="rule"></div><MarginCat variant="header" number={102}/><p>Siempre hay<br/>algo por descubrir.</p></div><h2>Una visita por el borde.</h2><p>Las orejas se mueven; el gatito se esconde y vuelve a asomarse.</p><a href="/#pagina-3">Ver en la revista ↗</a></section>
-    <section class="ornaments-card"><span>03 / EN LOS LATERALES</span><div class="sample sample-ornaments"><MarginOrnaments/><p>Huellas que acompañan.<br/>Destellos entre historias.</p></div><h2>Un recorrido por los márgenes.</h2><p>Las huellitas aparecen en secuencia y los destellos giran y flotan. Son adornos pequeños junto al borde, fuera de las columnas de lectura.</p><a href="/#pagina-5">Ver en la revista ↗</a></section>
-  </main>
-  <p class="note">En estas muestras se ven ampliados para revisar el movimiento. Dentro de la revista ocupan solamente un margen.</p>
-  <script>const button=document.querySelector<HTMLButtonElement>('#board-motion');button?.addEventListener('click',()=>{const paused=document.body.classList.toggle('ambient-paused');button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'Reanudar animaciones':'Pausar animaciones';});</script>
+<html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Diseños de cada doble página — Don Bigotón</title></head>
+<body class="design-board">
+  <header class="design-header"><span>DON BIGOTÓN / CUADERNO DE DISEÑO</span><h1>Cada página,<br/><em>su propio trazo.</em></h1><p>Diez motivos distintos y cuatro composiciones que continúan de una hoja a la siguiente.</p><nav><a href="/">Abrir la revista ↗</a><button id="board-motion" aria-pressed="false">Pausar animaciones</button><a href="/revista-don-bigoton.pdf" download>Descargar PDF ↓</a></nav></header>
+  <nav class="design-index" aria-label="Explorar las composiciones">{spreadDesigns.map(design=><a href={'#design-'+design.first+'-'+(design.first+1)}><span>{String(design.first).padStart(2,'0')} — {String(design.first+1).padStart(2,'0')}</span>{design.title}</a>)}</nav>
+  <main class="design-pages"><MagazinePages/></main>
+  <p class="design-note">Estas son las páginas de la revista. En pantalla, los detalles se mueven; en el PDF permanecen como parte de la composición.</p>
+  <script>
+    import {fitMagazinePages} from '../scripts/fit-pages';
+    import {arrangeSpreads} from '../scripts/spread-layout';
+    await document.fonts.ready;
+    const container=document.querySelector<HTMLElement>('.design-pages')!;
+    const sheets=[...container.querySelectorAll<HTMLElement>('.sheet')];
+    fitMagazinePages(sheets);
+    const spreads=arrangeSpreads(container,sheets,'design-spread');
+    const resize=(spread:HTMLElement)=>{
+      const canvas=spread.querySelector<HTMLElement>('.design-canvas')!;
+      const width=Number(canvas.dataset.width);
+      const scale=Math.min(1,spread.clientWidth/width);
+      canvas.style.transform='scale('+scale+')';
+      spread.style.height=(760*scale)+'px';
+    };
+    const resizeObserver=new ResizeObserver(entries=>entries.forEach(entry=>resize(entry.target as HTMLElement)));
+    const visibility=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.toggleAttribute('data-outside',!entry.isIntersecting)),{rootMargin:'200px'});
+    for(const spread of spreads) {
+      const width=spread.childElementCount*540;
+      const canvas=document.createElement('div');
+      canvas.className='design-canvas';
+      canvas.dataset.width=String(width);
+      canvas.style.width=width+'px';
+      canvas.append(...spread.childNodes);
+      spread.append(canvas);
+      spread.id='design-'+spread.dataset.pages?.replace(',','-');
+      resize(spread);
+      resizeObserver.observe(spread);
+      visibility.observe(spread);
+    }
+    document.body.dataset.designReady='true';
+    const button=document.querySelector<HTMLButtonElement>('#board-motion');
+    button?.addEventListener('click',()=>{
+      const paused=document.body.classList.toggle('ambient-paused');
+      button.setAttribute('aria-pressed',String(paused));
+      button.textContent=paused?'Reanudar animaciones':'Pausar animaciones';
+    });
+    document.addEventListener('click',event=>{
+      const target=event.target as Element;
+      const jump=target.closest<HTMLElement>('[data-goto],[data-next]');
+      if(jump) {
+        event.preventDefault();
+        location.href='/#pagina-'+(jump.hasAttribute('data-next') ? 2 : Number(jump.dataset.goto)+1);
+      }
+    });
+  </script>
 </body></html>
-<style>
-  :global(body.cat-board){padding:48px 6%;overflow:auto;height:auto;min-height:100vh}
-  header{max-width:1100px;margin:auto}header>span,section>span{font-size:10px;letter-spacing:.13em}h1{font:400 clamp(36px,5vw,64px) var(--serif);letter-spacing:-.06em;margin:16px 0}p{font-size:14px;line-height:1.7}nav{display:flex;gap:28px;margin:24px 0;font-size:12px}button,a{border-bottom:1px solid #af472d;padding:7px 0}
-  main{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px;margin:36px auto}section{background:var(--paper);padding:30px;border:1px solid var(--line)}h2{font:400 30px var(--serif);letter-spacing:-.04em;margin:20px 0 12px}section>a{display:inline-block;font-size:12px;margin-top:12px}.sample{height:280px;position:relative;margin-top:25px;overflow:hidden}.sample p{font:400 32px var(--serif);letter-spacing:-.04em;position:absolute;top:30px;left:10px}.rule{position:absolute;left:0;right:0;height:1px;background:#38281f55}.sample-footer .rule{bottom:25px}.sample-header .rule{top:130px}.sample-header p{top:170px}.sample-footer :global(.margin-cat){width:230px;height:115px;right:0;bottom:25px}.sample-header :global(.margin-cat){width:200px;height:134px;right:0;top:6px}.note{max-width:1100px;margin:auto;color:#766956;font-size:12px}
-  @media(max-width:700px){main{grid-template-columns:1fr}:global(body.cat-board){padding:30px 20px}section{padding:22px}}
-  .ornaments-card{grid-column:1/-1}.sample-ornaments{height:200px}.sample-ornaments p{inset:65px 80px auto;text-align:center;font-size:26px}
-  .sample-ornaments :global(.ornament-paws){top:27px;left:15px;width:40px;height:145px}
-  .sample-ornaments :global(.ornament-sparkles){top:40px;right:20px;width:36px;height:105px}
-  @media(max-width:700px){.sample-ornaments p{inset:60px 55px auto;font-size:20px}}
+<style is:global>
+  body.design-board{padding:48px 5%;overflow:auto;height:auto;min-width:0;min-height:100vh}
+  .design-header,.design-index,.design-note{max-width:1080px;margin:0 auto}
+  .design-header>span{font-size:10px;letter-spacing:.14em}
+  .design-header h1{font:400 clamp(38px,5vw,68px) var(--serif);letter-spacing:-.06em;line-height:1.02;margin:20px 0}
+  .design-header h1 em{font-weight:400;color:var(--rust)}
+  .design-header p{font-size:14px;line-height:1.8;max-width:620px}
+  .design-header nav{display:flex;flex-wrap:wrap;gap:25px;font-size:12px;margin:28px 0}
+  .design-header nav a,.design-header nav button{border-bottom:1px solid #af472d;padding:7px 0}
+  .design-index{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:24px 0 30px;border-top:1px solid var(--line)}
+  .design-index a{font:400 22px var(--serif);letter-spacing:-.035em;line-height:1.2}
+  .design-index a>span{display:block;font:600 8px var(--sans);letter-spacing:.1em;margin-bottom:10px;color:var(--rust)}
+  .design-pages{max-width:1080px;margin:12px auto 0;visibility:hidden}
+  [data-design-ready=true] .design-pages{visibility:visible}
+  .design-spread{position:relative;width:100%;max-width:1080px;overflow:hidden;margin:0 auto 35px;box-shadow:0 10px 25px #38281f20;scroll-margin-top:20px}
+  .design-spread-single{max-width:540px}
+  .design-canvas{display:flex;gap:0;height:760px;transform-origin:top left}
+  .design-canvas .sheet{display:block;position:relative;flex:0 0 540px;width:540px;height:760px}
+  .design-canvas .page-canvas{transform:none}
+  .design-spread-double .sheet:first-child .page-canvas{box-shadow:inset -16px 0 24px -23px #38281f77}
+  .design-spread-double .sheet:last-child .page-canvas{box-shadow:inset 16px 0 24px -23px #38281f77}
+  .design-spread[data-outside] .margin-cat *{animation-play-state:paused!important}
+  .design-note{font-size:12px;line-height:1.7;color:#766956;padding:0 0 20px}
+  @media(max-width:700px){body.design-board{padding:30px 18px}.design-index{grid-template-columns:1fr 1fr;gap:20px}.design-index a{font-size:20px}.design-header nav{gap:18px;font-size:11px}}
 </style>

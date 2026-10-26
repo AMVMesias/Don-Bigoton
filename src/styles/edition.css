@@ -15,7 +15,7 @@
 .story-steps{margin-top:21px}.story-steps article{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
 .story-steps article>span{display:block;font-size:7px;letter-spacing:.1em;font-weight:700;margin-bottom:7px}
 .story-steps article p{font-size:14px!important}.story-page .page-content blockquote{font-size:26px;margin:21px 0 10px}
-.profile-feature .page-content{inset:0}
+.sheet.profile-feature .page-content{inset:0}
 .profile-feature .full-portrait::after{background:linear-gradient(180deg,#25190e22 0%,#25190e05 28%,#21170d66 48%,#21170de8 78%,#21170df2 100%)}
 .profile-feature .portrait-caption{bottom:110px}
 .profile-feature .portrait-caption p{max-width:360px;font-size:15px;line-height:1.6}

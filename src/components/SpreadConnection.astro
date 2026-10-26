@@ -1,0 +1,23 @@
+---
+import {spreadDesigns} from '../data/editorial-designs';
+interface Props {number:number;}
+const {number}=Astro.props;
+const first=number%2===0 ? number : number-1;
+const design=spreadDesigns.find(item=>item.first===first);
+const side=number===first ? 'left' : 'right';
+---
+{design&&<svg class={'spread-connection connection-'+design.theme} data-spread={first} data-side={side} viewBox={(side==='left' ? '0' : '540')+' 0 540 760'} style={'color:'+design.color} aria-hidden="true" focusable="false" fill="none">
+  <path class="connection-thread" d="M420 64c54-16 90 18 120 0s66-16 120 0" stroke="currentColor" stroke-width="1.5"/>
+  <path d="M0 752c180-12 350 8 540 0s360-8 540 0v8H0Z" fill="currentColor" opacity=".2"/>
+  <g class="connection-medallion" stroke="currentColor" stroke-width="1.3" opacity=".7">
+    {design.theme==='beginning'&&<><circle cx="540" cy="390" r="28"/><path d="M540 413v-32c-12 0-17-8-16-17 12 0 18 8 16 17 12 0 17-8 16-17-12 0-18 8-16 17"/></>}
+    {design.theme==='resources'&&<><ellipse cx="532" cy="390" rx="17" ry="27" transform="rotate(24 532 390)"/><ellipse cx="548" cy="390" rx="17" ry="27" transform="rotate(-24 548 390)"/></>}
+    {design.theme==='relationships'&&<><path d="M514 390c0-21 26-21 26 0s26 21 26 0-26-21-26 0-26 21-26 0Z"/><circle cx="540" cy="390" r="29" stroke-dasharray="2 6"/></>}
+    {design.theme==='future'&&<><circle cx="540" cy="390" r="28"/>{[12,22,34,44,34,22,12].map((height,index)=><path d={'M'+(519+index*7)+' '+(390-height/2)+'v'+height}/>)}</>}
+  </g>
+</svg>}
+<style is:global>
+  .spread-connection{position:absolute;inset:0;width:540px;height:760px;overflow:hidden;pointer-events:none;z-index:3}
+  .connection-thread{opacity:.65}
+  .book[data-orientation=portrait] .spread-connection{display:none}
+</style>
