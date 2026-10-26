@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import '@fontsource/fraunces/latin-400.css';
+import '@fontsource/fraunces/latin-400-italic.css';
+import '@fontsource/fraunces/latin-600.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-500.css';
+import '@fontsource/manrope/latin-600.css';
+import '@fontsource/manrope/latin-700.css';
+import '../styles/global.css';
+import { interview } from '../data/interview';
+import { Content as Transcript } from '../../docs/transcripcion_entrevista_don_bigoton.md';
+import portrait from '../../material/retrato/retrato-enviado.png';
+import burger from '../../material/instagram/08-hamburguesa.jpg';
+import wings from '../../material/instagram/09-alitas.jpg';
+import hotdog from '../../material/instagram/06-hot-dog.jpg';
+import grill from '../../material/instagram/07-parrillada.jpg';
+import logo from '../../material/instagram/00-logo-perfil.jpg';
+import hero from '../../material/creativo/hamburguesa-recorte.png';
+import diabla from '../../material/instagram/01-la-diabla.jpg';
+import combos from '../../material/instagram/02-combos-bigotones.jpg';
+import mundial from '../../material/instagram/04-combo-mundialista.jpg';
+
+const products = [
+  { image: burger, title: 'La hamburguesa', tag: 'La favorita, según su fundadora', text: 'El plato que más sale de su cocina, de acuerdo con la entrevista. Una receta que fue encontrando su carácter entre cursos, pruebas y mucha práctica.', source: 'CjqAKLguVft' },
+  { image: wings, title: 'Las alitas', tag: 'El detalle también cuenta', text: 'Buscar el tamaño adecuado fue parte del aprendizaje. Para algunos vecinos, conocer el pedido significa recordar que la salsa va aparte.', source: 'Cjp_0-6O5gX' },
+  { image: hotdog, title: 'El hot dog', tag: 'Otro sabor en la mesa', text: 'Una de las propuestas que aparece en las fotografías del archivo de la marca. La variedad también forma parte de su identidad visual.', source: 'CjqAVZjO004' },
+  { image: grill, title: 'La parrillada', tag: 'Una cocina con variedad', text: 'El archivo de Don Bigotón también muestra parrilladas: otro plato de una propuesta que se presenta como comida rápida con sazón propia.', source: 'CjqAPNiuc_9' },
+];
+const chapters = [['historia','La historia'],['sabores','Los sabores'],['entrevista','La entrevista'],['futuro','El futuro']];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff7e9" />
+    <meta name="description" content="La historia de Don Bigotón: una cocina en casa, una familia que suma y una sazón que se gana al barrio. Una revista sobre volver a empezar." />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:title" content="Don Bigotón — La sazón de volver a empezar" />
+    <meta property="og:description" content="Una historia de familia, cocina y emprendimiento. Conoce a la mujer detrás de Don Bigotón." />
+    <meta property="og:image" content={new URL('/social-cover.jpg', Astro.site || Astro.url).href} />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="640" />
+    {Astro.site && <link rel="canonical" href={Astro.site.href} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Lectura continua — Don Bigotón</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Volver a la revista Don Bigotón">don bigotón<span aria-hidden="true">✳</span></a>
+      <nav class="desktop-nav" aria-label="Capítulos de la revista">
+        {chapters.map(([id,title]) => <a href={`#${id}`} data-nav={id}>{title}</a>)}
+      </nav>
+      <a class="edition-link" href="#indice">EDICIÓN 01 <span>↗</span></a>
+      <button class="menu-toggle" aria-label="Abrir índice" aria-expanded="false" aria-controls="mobile-nav">Índice <span>＋</span></button>
+    </header>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Índice móvil" hidden>
+      {chapters.map(([id,title],i) => <a href={`#${id}`}><span>0{i+1}</span>{title}<span>↗</span></a>)}
+    </nav>
+    <main id="contenido">
+      <section id="inicio" class="cover section-anchor" aria-labelledby="cover-title">
+        <div class="cover-top eyebrow"><span>HISTORIAS QUE SE COCINAN EN FAMILIA</span><span>EMPRENDIMIENTO · EDICIÓN ESPECIAL</span></div>
+        <div class="cover-heading">
+          <p class="cover-kicker"><span class="tiny-star">✳</span> Hay historias que empiezan en casa.</p>
+          <h1 id="cover-title">La sazón de<br /><em>volver a empezar.</em></h1>
+        </div>
+        <div class="cover-stage">
+          <span class="cover-giant" aria-hidden="true">BIEN<br />SABROSÓN.</span>
+          <div class="cover-image-wrap"><Image class="hero-food" src={hero} widths={[500,800,1100]} sizes="(max-width: 760px) 110vw, 75vw" format="webp" quality={85} alt="La hamburguesa y las papas de Don Bigotón, servidas en su plato original" fetchpriority="high" loading="eager" /></div>
+          <div class="round-stamp"><span>EL INGREDIENTE ES</span><strong>la<br /><i>familia.</i></strong><span>DON BIGOTÓN · BIEN SABROSÓN</span></div>
+          <span class="stage-note">Una receta propia.<br />Muchas manos detrás.</span>
+          <span class="stage-folio">01 / EL COMIENZO</span>
+        </div>
+        <div class="cover-bottom"><p>Una cocina en casa. Una familia que suma.<br />Y un barrio que aprendió a decir: <em>«veci, usted ya sabe».</em></p><a class="round-link" href="#historia"><span>Descubre la historia</span><span class="arrow-circle">↓</span></a></div>
+      </section>
+
+      <section id="indice" class="editor-note wrap section-anchor">
+        <div class="eyebrow"><span>EN ESTA EDICIÓN</span><span>UNA HISTORIA, MUCHOS INGREDIENTES</span></div>
+        <div class="note-grid"><h2 class="display-small" data-reveal>Detrás del sabor,<br /><em>hay una historia.</em></h2><div class="note-copy"><p>Esta revista abre la puerta a Don Bigotón: un emprendimiento de comida rápida que comenzó en casa y se construye con experiencia, aprendizaje y apoyo familiar.</p><p>La voz de su fundadora nos lleva del primer «intentemos» al sueño de un local propio. Una conversación sobre lo que significa empezar, aprender y seguir.</p></div></div>
+        <div class="chapter-index">{chapters.map(([id,title],i) => <a href={`#${id}`}><span class="eyebrow">0{i+1}</span><span>{title}</span><span>↗</span></a>)}</div>
+      </section>
+
+      <section id="historia" class="origin wrap section-anchor" aria-labelledby="origin-title">
+        <div class="section-label eyebrow"><span>01 — LA HISTORIA</span><span>DE LA NECESIDAD A LA DECISIÓN</span></div>
+        <div class="origin-grid">
+          <figure class="portrait-figure" data-reveal><div class="portrait-frame"><Image src={portrait} alt="Retrato personal compartido para esta revista" widths={[400,600,900]} sizes="(max-width: 700px) 90vw, 42vw" format="webp" loading="lazy" /><span class="portrait-tag">LA MUJER DETRÁS<br />DE LA SAZÓN</span></div><figcaption>Una historia contada por la fundadora de Don Bigotón.<span>RETRATO · ARCHIVO PERSONAL</span></figcaption></figure>
+          <div class="origin-copy"><span class="small-italic">Todo empezó con una decisión.</span><h2 id="origin-title" class="display" data-reveal>Cuando una<br />puerta se cierra,<br /><em>se abre<br />la cocina.</em></h2><p class="lead">La pandemia le quitó el trabajo. Su experiencia y las ganas de salir adelante le dieron un punto de partida.</p><p>La cocina ya era un gusto y un oficio conocido. Había trabajado en un restaurante de comida rápida y decidió poner ese aprendizaje sobre la mesa. Con sus hijos comenzó a investigar qué podían ofrecer, cómo hacerlo y por dónde empezar.</p><p>La respuesta estaba en casa. Sin la presión de un arriendo, podían probar la idea con los recursos disponibles. El miedo seguía ahí, pero ya había una decisión: intentarlo.</p><blockquote class="inline-quote">«Intentemos, no perdemos nada».<cite>LA FUNDADORA · ENTREVISTA, 02:18</cite></blockquote></div>
+        </div>
+      </section>
+
+      <section class="family-section section-anchor" aria-labelledby="family-title">
+        <div class="wrap"><div class="section-label eyebrow"><span>EL NEGOCIO SE CONSTRUYE ENTRE TODOS</span><span>ELIGE UN INGREDIENTE ↓</span></div>
+        <div class="family-grid"><div><h2 id="family-title" class="display" data-reveal>Una receta.<br /><em>Muchas manos.</em></h2><p>Ella puso la sazón. Sus hijos sumaron otros recursos. El emprendimiento tomó forma al juntar lo que cada uno sabía y podía aportar.</p><div class="family-controls" role="group" aria-label="Aportes al emprendimiento"><button data-ingredient="0" aria-pressed="true">01 La sazón</button><button data-ingredient="1" aria-pressed="false">02 El impulso</button><button data-ingredient="2" aria-pressed="false">03 La identidad</button><button data-ingredient="3" aria-pressed="false">04 La confianza</button></div></div><div class="recipe-card" aria-live="polite" aria-atomic="true"><span class="eyebrow">LA RECETA DE DON BIGOTÓN</span><span class="recipe-number" aria-hidden="true">01</span><div class="recipe-center"><span class="recipe-symbol" aria-hidden="true">✳</span><h3 id="ingredient-title">La sazón</h3><p id="ingredient-copy">La fundadora aporta su experiencia en cocina y el sabor que ha perfeccionado con práctica y cursos.</p></div><div class="recipe-bottom"><span>PORCIÓN GENEROSA DE</span><strong id="ingredient-word">experiencia.</strong></div></div></div>
+        <p class="family-footnote">Aportes relatados en la entrevista · 01:46 y 10:27</p></div>
+      </section>
+
+      <section class="learning wrap" aria-labelledby="learning-title"><div class="section-label eyebrow"><span>APRENDER TAMBIÉN ES EMPRENDER</span><span>EL SABOR NO APARECIÓ DE UN DÍA PARA OTRO</span></div><div class="learning-heading"><h2 id="learning-title" class="display-small" data-reveal>Probar. Aprender.<br /><em>Volver a probar.</em></h2><p>Antes de encontrar un sabor propio, hubo preguntas, compras de prueba y recetas que cambiaron. La experiencia se convirtió en criterio.</p></div><div class="learning-steps"><article data-reveal><span class="step-num">01</span><h3>Mirar alrededor</h3><p>Investigar el mercado, comparar precios y entender qué productos podían funcionar en el sector.</p><span class="eyebrow">OBSERVAR</span></article><article data-reveal><span class="step-num">02</span><h3>Elegir con cuidado</h3><p>Buscar proveedores y comparar las carnes: calidad, precio, tamaño, aseo y refrigeración.</p><span class="eyebrow">DECIDIR</span></article><article data-reveal><span class="step-num">03</span><h3>Afilar la receta</h3><p>Tomar cursos, incorporar técnicas y ajustar los detalles hasta encontrar un sabor diferente.</p><span class="eyebrow">MEJORAR</span></article></div></section>
+
+      <section id="sabores" class="flavors section-anchor" aria-labelledby="flavors-title"><div class="wrap"><div class="section-label eyebrow"><span>02 — LOS SABORES</span><span>FOTOGRAFÍAS DEL ARCHIVO DE LA MARCA</span></div><div class="flavors-heading"><h2 id="flavors-title" class="display" data-reveal>Se ve rico.<br /><em>Sabe a propio.</em></h2><div><span class="little-spark" aria-hidden="true">✳</span><p>Su diferencia, dice ella, está en la sazón.<br />Aquí, cuatro platos de su archivo visual.</p></div></div><div class="product-grid">{products.map((product,i) => <article class={`product product-${i}`} data-reveal><button class="product-photo" data-gallery={i} aria-label={`Ampliar fotografía: ${product.title}`}><Image src={product.image} alt={`${product.title} de Don Bigotón en su fotografía de archivo`} widths={[320,640]} sizes="(max-width: 700px) 90vw, 43vw" format="webp" loading="lazy" /><span class="product-zoom" aria-hidden="true">↗</span></button><div class="product-title"><span class="eyebrow">0{i+1}</span><h3>{product.title}</h3></div><span class="product-tag">{product.tag}</span><p>{product.text}</p></article>)}</div><p class="archive-note">Imágenes publicadas por Don Bigotón en 2022. Esta galería es un archivo editorial, no una carta de productos o precios vigentes.</p></div></section>
+
+      <section class="neighbor" aria-labelledby="neighbor-title"><div class="wrap"><span class="eyebrow">EL INGREDIENTE QUE NO ESTÁ EN LA CARTA</span><h2 id="neighbor-title" class="neighbor-quote">«Veci,<br /><em>usted ya sabe».</em></h2><div class="neighbor-bottom"><span class="neighbor-star" aria-hidden="true">✳</span><p>Recordar quién pide la salsa aparte. Saber cómo le gusta a cada vecino. Para su fundadora, atender bien también significa prestar atención a esas pequeñas cosas.</p><p>La frase que ella recuerda de sus clientes resume una confianza ganada pedido a pedido.<span class="eyebrow">RELATO DE LA FUNDADORA · 05:25</span></p></div></div></section>
+
+      <section class="brand-story wrap" aria-labelledby="brand-title"><div class="brand-grid"><div class="brand-art" data-reveal><span class="brand-orbit orbit-one" aria-hidden="true"></span><span class="brand-orbit orbit-two" aria-hidden="true"></span><Image src={logo} width={150} height={150} alt="Logo original de Don Bigotón: un gato naranja y el lema Bien sabrosón" loading="lazy" /><span class="brand-art-label">EL GERENTE TIENE BIGOTES.</span><span class="brand-art-star" aria-hidden="true">✳</span></div><div class="brand-copy"><span class="eyebrow">UN NOMBRE CON HISTORIA</span><h2 id="brand-title" class="display-small">Mucho gusto.<br /><em>Don Bigotón.</em></h2><p>El nombre salió de casa, como el negocio. Bigotes, el gato de la familia, ya tenía un cargo entre bromas: era el gerente. Al buscar cómo llamar al emprendimiento, le dieron un poco más de señorío. Y apareció Don Bigotón.</p><p>Uno de sus hijos, formado en marketing, diseñó el logo y la identidad. Después de uno o dos cambios en familia, el gato naranja encontró su lugar en la marca.</p><span class="source-note">ENTREVISTA · 11:20–12:14</span></div></div></section>
+
+      <section id="entrevista" class="interview section-anchor" aria-labelledby="interview-title"><div class="wrap"><div class="section-label eyebrow"><span>03 — LA ENTREVISTA</span><span>UNA CONVERSACIÓN DE 14:43</span></div><div class="interview-heading"><h2 id="interview-title" class="display" data-reveal>De su cocina,<br /><em>en sus palabras.</em></h2><p>Lo que no se ve detrás de un pedido.<br />Una conversación sobre comenzar, mejorar y sostener un negocio en familia.</p></div><p class="editorial-note">Las respuestas son síntesis editoriales de la entrevista. Las frases entre comillas son fragmentos del testimonio; los tiempos permiten ubicarlas en la transcripción.</p><nav class="interview-tabs" aria-label="Temas de la entrevista">{interview.map(group=><a href={`#voz-${group.id}`} data-interview-link={group.id}><span>{group.number}</span>{group.label}</a>)}</nav><div class="interview-body">{interview.map(group=><section class="interview-group" id={`voz-${group.id}`} data-interview-group={group.id} aria-labelledby={`label-${group.id}`}><div class="interview-sticky"><span class="huge-number" aria-hidden="true">{group.number}</span><h3 id={`label-${group.id}`}>{group.label}</h3><span class="eyebrow">LA VOZ DE SU FUNDADORA</span><span class="sticky-flower" aria-hidden="true">✳</span></div><div class="answers">{group.items.map((item,index)=><article class="answer" data-reveal><div class="answer-meta eyebrow"><span>PREGUNTA 0{index+1}</span><span>{item.time} ↗</span></div><h4>{item.q}</h4><p>{item.a}</p>{item.quote&&<blockquote class="answer-quote">«{item.quote}»</blockquote>}</article>)}</div></section>)}</div><details class="transcript"><summary><span><span class="eyebrow">PARA LEER LA CONVERSACIÓN COMPLETA</span><strong>La entrevista, de principio a fin.</strong></span><span class="transcript-plus" aria-hidden="true">＋</span></summary><div class="transcript-content"><Transcript /></div></details></div></section>
+
+      <section class="digital wrap" aria-labelledby="digital-title"><div class="digital-grid"><div><span class="eyebrow">DE LA COCINA A LA PANTALLA</span><h2 id="digital-title" class="display-small" data-reveal>Aprender algo<br /><em>que parecía lejano.</em></h2><p>Al principio, la tecnología la hacía sentirse perdida. Las asesorías de las plataformas, los cursos y la ayuda de su hijo le permitieron aprender a subir información, fotografías y promociones.</p><p>En la entrevista menciona Uber, Rappi y PedidosYa. El reparto digital se unió a un canal mucho más cercano: la recomendación de los vecinos y el grupo de emprendimientos de WhatsApp.</p></div><div class="digital-flow" aria-label="El recorrido del pedido"><span class="eyebrow">UNA COCINA, VARIOS CAMINOS</span><div class="flow-node"><span>01</span><strong>El pedido llega.</strong><small>Plataformas y vecinos</small></div><span class="flow-line" aria-hidden="true"></span><div class="flow-node"><span>02</span><strong>La cocina se mueve.</strong><small>Preparación con sazón propia</small></div><span class="flow-line" aria-hidden="true"></span><div class="flow-node"><span>03</span><strong>El sabor sale a casa.</strong><small>Repartidores retiran el pedido</small></div><span class="source-note">SEGÚN SU TESTIMONIO · 00:26 Y 12:40</span></div></div></section>
+
+      <section class="campaign-section"><div class="wrap"><div class="section-label eyebrow"><span>EL ARCHIVO DE UNA MARCA</span><span>CAMPAÑAS · 2022–2023</span></div><div class="campaign-heading"><h2 class="display-small">También se cocina<br /><em>la identidad.</em></h2><p>Combos, fechas especiales y un lenguaje propio. Estas piezas muestran cómo Don Bigotón se ha presentado en redes.</p></div><div class="campaigns"><figure><Image src={combos} alt="Archivo publicitario de Combos Bigotones con la identidad naranja de la marca" width={512} height={640} format="webp" loading="lazy" /><figcaption>01 / COMBOS BIGOTONES · 2023</figcaption></figure><figure><Image src={diabla} alt="Archivo de la campaña La Diabla, una hamburguesa anunciada como picante" width={569} height={640} format="webp" loading="lazy" /><figcaption>02 / LA DIABLA · 2023</figcaption></figure><figure><Image src={mundial} alt="Anuncio histórico del Combo Mundialista durante Qatar 2022" width={512} height={640} format="webp" loading="lazy" /><figcaption>03 / COMBO MUNDIALISTA · 2022</figcaption></figure></div><p class="archive-note">Piezas históricas reproducidas como archivo de comunicación. Sus promociones, precios y contactos no se presentan como vigentes.</p></div></section>
+
+      <section id="futuro" class="future wrap section-anchor" aria-labelledby="future-title"><div class="section-label eyebrow"><span>04 — EL FUTURO</span><span>CRECER, SIN OLVIDAR DE DÓNDE VIENES</span></div><div class="future-grid"><div><h2 id="future-title" class="display" data-reveal>Un local propio.<br /><em>El mismo<br />corazón.</em></h2><span class="future-asterisk" aria-hidden="true">✳</span></div><div class="future-copy"><p class="lead">Los vecinos preguntan dónde pueden sentarse a comer. La familia imagina ese siguiente paso, pero quiere darlo con cuidado.</p><p>Abrir un local es un sueño, no una decisión cerrada. Hay que estudiar dónde conviene, cómo crece la clientela y qué condiciones les permiten sentirse seguros. Trabajar desde casa, por otro lado, les da una flexibilidad de horarios que valoran.</p><p>En medio de esas preguntas hay algo que la fundadora tiene claro: le gustaría permanecer cerca de los vecinos. Fueron ellos quienes les dieron el inicio. Crecer también significa recordar ese vínculo.</p><div class="future-note"><span class="eyebrow">UNA META QUE SIGUE EN CONSTRUCCIÓN</span><p>El local se presenta como una aspiración relatada en la entrevista, no como un establecimiento ya abierto.</p></div></div></div></section>
+
+      <section class="final-quote" aria-labelledby="final-title"><div class="wrap"><span class="eyebrow">SI TE QUEDAS CON UNA SOLA IDEA…</span><h2 id="final-title" class="scroll-quote">La cosa es <em>continuar</em> y no decaerse.</h2><div class="final-bottom"><span>LA FUNDADORA DE DON BIGOTÓN<br />ENTREVISTA · 09:46</span><p>Observar el entorno. Analizar lo que quieres ofrecer.<br />Y encontrar la constancia para volver a intentarlo.</p><a class="back-top" href="#inicio" aria-label="Volver al inicio">↑</a></div></div></section>
+    </main>
+    <footer class="site-footer wrap"><div class="footer-main"><a class="footer-brand" href="#inicio">don bigotón<span>Una historia con sazón propia.</span></a><a class="instagram-link" href="https://www.instagram.com/donbigoton_uio/" target="_blank" rel="noopener noreferrer">Conoce su Instagram ↗<small>@donbigoton_uio</small></a></div><details class="credits"><summary>Créditos y fuentes <span>＋</span></summary><div><p>Revista digital de carácter académico sobre emprendimiento. Contenido basado en la transcripción de la entrevista de 14:43 aportada para este proyecto. Las interpretaciones y síntesis se distinguen de las citas de la fundadora.</p><p>Fotografías de productos, logo y campañas: archivo público de Don Bigotón, Instagram @donbigoton_uio, publicaciones de 2022–2023. Retrato: fotografía proporcionada para el proyecto. Fotografía de portada: recorte asistido por IA de la foto original de hamburguesa de la marca.</p><p>No se verificaron precios, promociones, horarios o disponibilidad actual. No se añadieron cifras de ventas ni datos biográficos que no consten en la entrevista.</p><p><a href="/transcripcion-entrevista.md" download>Descargar la transcripción original (.md) ↗</a> · <a href="https://www.instagram.com/donbigoton_uio/" target="_blank" rel="noopener noreferrer">Fuente de las imágenes ↗</a></p></div></details><div class="footer-bottom eyebrow"><span>EDICIÓN 01 · OCTUBRE 2026</span><span>COCINA · FAMILIA · EMPRENDIMIENTO</span><span>HECHO PARA LEER CON CALMA.</span></div></footer>
+    <dialog class="gallery-dialog" aria-labelledby="gallery-title"><div class="gallery-inner"><button class="gallery-close" aria-label="Cerrar fotografía">Cerrar ×</button><img id="gallery-image" src={burger.src} alt="" width="640" height="640" /><div class="gallery-caption"><button class="gallery-prev" aria-label="Foto anterior">←</button><div><h2 id="gallery-title">La hamburguesa</h2><p>ARCHIVO DE DON BIGOTÓN · <span id="gallery-count">1 / 4</span></p></div><button class="gallery-next" aria-label="Foto siguiente">→</button></div></div></dialog>
+    <script>
+      import '../scripts/magazine';
+    </script>
+  </body>
+</html>
