@@ -10,6 +10,7 @@ import '../styles/edition.css';
 import MagazinePages from '../components/MagazinePages.astro';
 import { chapters } from '../data/edition';
 import EditorialCat from '../components/EditorialCat.astro';
+import NavigationArrow from '../components/NavigationArrow.astro';
 
 ---
 <!doctype html>
@@ -29,7 +30,7 @@ import EditorialCat from '../components/EditorialCat.astro';
       <MagazinePages/>
     </div></div>
   </main>
-  <footer class="reader-controls"><div class="reader-bottom"><button id="cover-button" data-goto="0">DON BIGOTÓN <span>/ REVISTA DIGITAL</span></button><div class="page-navigation"><button id="prev-page" aria-label="Página anterior" disabled>←</button><output id="page-status" aria-live="polite" aria-atomic="true">PORTADA / 10</output><button id="next-page" aria-label="Página siguiente">→</button></div><div class="reader-extra"><EditorialCat /><button id="zoom-toggle" aria-pressed="false" title="Ampliar revista">Ampliar ＋</button><span id="reading-mode">DOBLE PÁGINA</span></div></div><label class="page-slider"><span class="sr-only">Ir a una página</span><input id="page-slider" type="range" min="1" max="10" value="1" aria-label="Ir a una página"/></label></footer>
+  <footer class="reader-controls"><div class="reader-bottom"><button id="cover-button" data-goto="0">DON BIGOTÓN <span>/ REVISTA DIGITAL</span></button><div class="page-navigation"><button id="prev-page" aria-label="Página anterior" disabled><NavigationArrow direction="left"/></button><output id="page-status" aria-live="polite" aria-atomic="true">PORTADA / 10</output><button id="next-page" aria-label="Página siguiente"><NavigationArrow direction="right"/></button></div><div class="reader-extra"><EditorialCat /><button id="zoom-toggle" aria-pressed="false" title="Ampliar revista">Ampliar ＋</button><span id="reading-mode">DOBLE PÁGINA</span></div></div><label class="page-slider"><span class="sr-only">Ir a una página</span><input id="page-slider" type="range" min="1" max="10" value="1" aria-label="Ir a una página"/></label></footer>
   <noscript><p class="no-script">Puedes leer todas las páginas a continuación o abrir la <a href="/lectura/">versión continua</a>.</p></noscript>
   <script>import '../scripts/book';</script>
 </body>

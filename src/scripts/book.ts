@@ -97,8 +97,63 @@ function updateReader() {
   });
   history.replaceState(null,'',`#pagina-${index+1}`);
 }
-function forward() { if (book && !busy && book.getCurrentPageIndex() < pages.length-1) reduced.matches ? book.turnToNextPage() : book.flipNext(); }
-function backward() { if (book && !busy && book.getCurrentPageIndex() > 0) reduced.matches ? book.turnToPrevPage() : book.flipPrev(); }
+function turnPage(direction: 'forward' | 'backward') {
+  if (!book || busy) return;
+  const index=book.getCurrentPageIndex();
+  if (direction==='forward' ? index>=pages.length-1 : index<=0) return;
+  if (reduced.matches) {
+    direction==='forward' ? book.turnToNextPage() : book.turnToPrevPage();
+    return;
+  }
+  // StPageFlip applies its corner hit test even to flipPrev() requested by a button.
+  // Its synthetic back corner lies outside the visible half in portrait mode.
+  // Explicit navigation already has a direction; only free clicks need that test.
+  const settings=book.getSettings();
+  const cornerClicksOnly=settings.disableFlipByClick;
+  settings.disableFlipByClick=false;
+  try {
+    direction==='forward' ? book.flipNext() : book.flipPrev();
+  } finally {
+    settings.disableFlipByClick=cornerClicksOnly;
+  }
+}
+function forward() { turnPage('forward'); }
+function backward() { turnPage('backward'); }
+
+// Handle portrait swipes independently of the library's 250 ms gesture deadline.
+// Starting over links, buttons or the video leaves those controls usable.
+let swipeStart: {x:number;y:number} | null=null;
+const interactiveTarget=(target: EventTarget | null)=>target instanceof Element && !!target.closest('a,button,input,select,textarea,iframe');
+viewportElement.addEventListener('touchstart',event=>{
+  swipeStart=null;
+  if (!book || zoomed || book.getOrientation()!=='portrait' || interactiveTarget(event.target)) return;
+  if (!(event.target instanceof Node) || !bookElement.contains(event.target)) return;
+  event.stopPropagation();
+  if (event.touches.length===1 && !busy) {
+    swipeStart={x:event.touches[0].clientX,y:event.touches[0].clientY};
+  }
+},{capture:true,passive:true});
+viewportElement.addEventListener('touchmove',event=>{
+  if (!swipeStart) return;
+  event.stopPropagation();
+  if (event.touches.length!==1) { swipeStart=null; return; }
+  const dx=event.touches[0].clientX-swipeStart.x;
+  const dy=event.touches[0].clientY-swipeStart.y;
+  if (Math.abs(dx)>10 && Math.abs(dx)>Math.abs(dy)*1.35 && event.cancelable) event.preventDefault();
+},{capture:true,passive:false});
+viewportElement.addEventListener('touchend',event=>{
+  if (!swipeStart) return;
+  event.stopPropagation();
+  const start=swipeStart;
+  swipeStart=null;
+  if (event.touches.length || !event.changedTouches.length) return;
+  const dx=event.changedTouches[0].clientX-start.x;
+  const dy=event.changedTouches[0].clientY-start.y;
+  if (Math.abs(dx)<40 || Math.abs(dx)<=Math.abs(dy)*1.35) return;
+  if (event.cancelable) event.preventDefault();
+  dx>0 ? backward() : forward();
+},{capture:true,passive:false});
+viewportElement.addEventListener('touchcancel',()=>{swipeStart=null;},{capture:true,passive:true});
 document.addEventListener('click', event => {
   const target = event.target as Element;
   const jump = target.closest<HTMLElement>('[data-goto]');
