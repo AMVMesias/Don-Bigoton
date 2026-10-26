@@ -1,0 +1,36 @@
+---
+import '@fontsource/fraunces/latin-400.css';
+import '@fontsource/fraunces/latin-400-italic.css';
+import '@fontsource/fraunces/latin-600.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-600.css';
+import '@fontsource/manrope/latin-700.css';
+import '../styles/book.css';
+import '../styles/edition.css';
+import MagazinePages from '../components/MagazinePages.astro';
+---
+<!doctype html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex"/><title>Don Bigotón · Edición para PDF</title></head>
+<body class="print-edition ambient-paused"><nav class="print-tools"><a href="/">← Volver a la revista</a><button id="print-button">Imprimir / Guardar PDF</button></nav><main class="print-pages"><MagazinePages/></main>
+<script>
+import {fitMagazinePages} from '../scripts/fit-pages';
+await document.fonts.ready;
+await Promise.all([...document.images].map(img=>img.decode().catch(()=>{})));
+fitMagazinePages([...document.querySelectorAll<HTMLElement>('.sheet')]);
+document.body.dataset.printReady='true';
+document.querySelector('#print-button')?.addEventListener('click',()=>window.print());
+</script></body></html>
+<style is:global>
+@page{size:142.875mm 201.083333mm;margin:0}
+body.print-edition{display:block;height:auto;overflow:auto;min-width:540px}
+.print-tools{display:flex;justify-content:space-between;padding:20px;max-width:540px;margin:auto;font-size:12px}
+.print-pages{width:540px;margin:auto;display:block}
+.print-pages .sheet{display:block;width:540px;height:760px;position:relative;margin-bottom:22px;break-after:page}
+.print-pages .page-canvas{transform:none}
+@media print{
+ html,body.print-edition{width:540px;margin:0!important;padding:0!important;background:white;display:block!important;height:auto!important;overflow:visible!important}
+ .print-tools{display:none!important}.print-pages{margin:0;width:540px}
+ .print-pages .sheet{margin:0;break-inside:avoid;break-after:page}
+ .print-pages .sheet:last-child{break-after:auto}.margin-cat *{animation:none!important}
+ *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>

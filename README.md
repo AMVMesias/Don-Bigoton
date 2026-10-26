@@ -4,13 +4,13 @@ Repositorio: https://github.com/AMVMesias/Don-Bigoton
 
 ## Estado
 
-Revista implementada con Astro: **24 páginas con giro de hoja**, portada con el logo original, dobles páginas interiores en escritorio, una página a la vez en móvil y contraportada. Incluye relato de origen, familia, productos, 12 preguntas de entrevista, archivo publicitario, futuro y créditos. La investigación y el material original se conservan en el repositorio.
+Revista implementada con Astro: **10 páginas con giro de hoja**, portada con el logo original, dobles páginas interiores en escritorio, una página a la vez en móvil y contraportada. Incluye editorial, historia, perfil, descripción y tipo de emprendimiento, productos, beneficios, obstáculos, características, futuro, espacio para el video y créditos. La investigación y el material original se conservan en el repositorio.
 
-La entrada `/` es el visor de revista. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
+La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. Faltan los nombres y aprendizajes individuales y el video de YouTube de máximo diez minutos: esta edición es un borrador hasta recibirlos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
 
 `/disenos/` muestra las dos ilustraciones aprobadas en movimiento y ampliadas para revisión. En la revista se alternan en los márgenes: gato asomado al encabezado y gato recostado al pie. Las imágenes generadas se componen por capas en `src/components/MarginCat.astro`: cola, respiración, parpadeo, orejas y aparición. Las páginas ocultas pausan sus movimientos; se respeta el movimiento reducido y el botón Ⅱ permite pausarlos manualmente.
 
-Se retiraron los antiguos motivos y las escenas ilustradas de hamburguesas de las páginas 8, 11 y 18. Se conservan las fotografías de productos y el logo original.
+Se retiraron los antiguos motivos y las escenas ilustradas de hamburguesas. Se conservan las fotografías de productos y el logo original.
 
 ## Desarrollo local
 

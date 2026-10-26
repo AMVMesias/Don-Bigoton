@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import Sheet from './Sheet.astro';
+import { authors, youtubeVideoId } from '../data/edition';
+import portrait from '../../material/retrato/retrato-enviado.png';
+import burger from '../../material/instagram/08-hamburguesa.jpg';
+import wings from '../../material/instagram/09-alitas.jpg';
+import hotdog from '../../material/instagram/06-hot-dog.jpg';
+import grill from '../../material/instagram/07-parrillada.jpg';
+import logo from '../../material/logo-original-alta-calidad.png';
+import hero from '../../material/creativo/hamburguesa-recorte.png';
+const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? youtubeVideoId : null;
+---
+<Sheet number={1} section="EDICIÓN ESPECIAL · OCTUBRE 2026" class="book-cover" cover>
+  <Image class="cover-original-logo" src={logo} alt="Logo original de Don Bigotón, bien sabrosón" widths={[190,380,570]} sizes="190px" format="webp" loading="eager"/>
+  <span class="cover-label">COCINA · FAMILIA · EMPRENDIMIENTO</span>
+  <h1>La sazón de<br/><em>volver a empezar.</em></h1>
+  <p class="cover-deck">Una cocina en casa. Una familia que suma.</p>
+  <div class="cover-food"><span class="cover-bg-word" aria-hidden="true">BIEN<br/>SABROSÓN.</span><Image src={hero} alt="Hamburguesa y papas de Don Bigotón, recorte de la fotografía original" widths={[540,800,1100]} sizes="(max-width:800px) 90vw,40vw" format="webp" loading="eager" fetchpriority="high"/></div>
+  <div class="cover-bottom"><span>UNA HISTORIA CON SABOR PROPIO</span><button data-next>ABRIR LA REVISTA <span>↗</span></button></div>
+</Sheet>
+<Sheet number={2} section="01 / EDITORIAL DE LOS AUTORES" class="academic-page editorial-page">
+  <span class="page-kicker">UNA HISTORIA PARA PENSAR EL EMPRENDIMIENTO</span>
+  <h2>Detrás del sabor,<br/><em>una decisión.</em></h2>
+  <p class="page-lead">Don Bigotón invita a mirar el emprendimiento desde la vida cotidiana: una necesidad, una experiencia y una familia dispuesta a empezar.</p>
+  <p>Esta revista reúne el testimonio de su fundadora y una lectura del caso. Su recorrido permite observar cómo se combinan los recursos disponibles, el conocimiento del mercado y la constancia para sostener un negocio.</p>
+  <p>La sazón distingue su oferta, pero también cuentan los vínculos con los vecinos y la disposición a aprender. La historia nos lleva de la primera decisión a una pregunta abierta: cómo crecer sin perder la cercanía.</p>
+  <div class="author-learnings"><h3>Lo que aprendió cada integrante</h3>{authors.length ? authors.map(author=><article><h4>{author.name}</h4><p>{author.learning}</p></article>) : <div class="pending-note"><span>EDICIÓN EN PREPARACIÓN</span><p>Faltan los nombres de los autores y la reflexión personal de cada integrante del equipo.</p></div>}</div>
+  <span class="page-source">LECTURA EDITORIAL DEL CASO · BASADA EN LA ENTREVISTA</span>
+</Sheet>
+<Sheet number={3} section="02 / HISTORIA Y MOTIVACIÓN" class="academic-page story-page">
+  <span class="page-kicker">DE LA NECESIDAD A LA DECISIÓN</span>
+  <h2>Se cierra una puerta.<br/><em>Se abre la cocina.</em></h2>
+  <p class="page-lead">Perder el empleo durante la pandemia fue el impulso. Su experiencia en cocina fue el punto de partida.</p>
+  <p>La fundadora había trabajado en un restaurante de comida rápida y siempre había disfrutado cocinar. Ante la dificultad de conseguir empleo, decidió poner ese conocimiento en práctica e investigar qué podía ofrecer.</p>
+  <div class="story-steps"><article><span>01 / EMPEZAR EN CASA</span><p>Trabajar desde su vivienda reducía la presión de pagar arriendo mientras probaban la idea.</p></article><article><span>02 / SUMAR A LA FAMILIA</span><p>Los hijos aportaron capital, publicidad y marketing; ella, experiencia y sazón.</p></article><article><span>03 / ENCONTRAR UNA IDENTIDAD</span><p>Bigotes, el gato de la familia, inspiró el nombre. Un hijo formado en marketing diseñó la marca.</p></article></div>
+  <blockquote>«Intentemos,<br/><em>no perdemos nada».</em></blockquote>
+  <span class="page-source">TESTIMONIO · 00:56–02:51 Y 11:20–12:14</span>
+</Sheet>
+<Sheet number={4} section="03 / PERFIL DE LA EMPRENDEDORA" class="academic-page profile-page">
+  <span class="page-kicker">LA MUJER DETRÁS DE DON BIGOTÓN</span>
+  <h2>Ella puso<br/><em>la sazón.</em></h2>
+  <figure class="profile-portrait"><Image src={portrait} alt="Retrato de la emprendedora aportado para el proyecto" width={650} height={867} format="webp" loading="eager"/><figcaption>EXPERIENCIA · FAMILIA · APRENDIZAJE</figcaption></figure>
+  <p>Su trayectoria en cocina le dio una base para comenzar. También asumió, junto con uno de sus hijos, la investigación inicial sobre permisos, mercado y materia prima.</p>
+  <p>La formación continuó después de abrir: siguió cursos para mejorar las recetas y recibió asesoría para manejar las plataformas de pedidos. Su perfil reúne conocimiento práctico y voluntad de seguir aprendiendo.</p>
+  <span class="page-source">PERFIL BASADO EN EL TESTIMONIO · 00:56, 04:31, 06:41 Y 12:40</span>
+</Sheet>
+<Sheet number={5} section="04 / DESCRIPCIÓN Y TIPO" class="academic-page business-page">
+  <span class="page-kicker">DE SU COCINA A LA CASA DEL VECINO</span>
+  <h2>Un negocio familiar.<br/><em>Una atención cercana.</em></h2>
+  <p class="page-lead">Don Bigotón elabora y prepara comida rápida desde casa. En la entrevista, su fundadora explica que trabaja con Uber, Rappi y PedidosYa.</p>
+  <div class="business-flow"><article><span>01</span><h3>Recibir</h3><p>El cliente realiza su pedido por las plataformas.</p></article><article><span>02</span><h3>Preparar</h3><p>La cocina elabora la comida y atiende las preferencias del cliente.</p></article><article><span>03</span><h3>Entregar</h3><p>Los repartidores retiran el pedido para llevarlo a su destino.</p></article></div>
+  <div class="case-reading"><span>TIPO DE EMPRENDIMIENTO · LECTURA DEL CASO</span><p>Es un emprendimiento gastronómico de gestión familiar, con preparación y venta de alimentos. Por su motivación inicial, puede analizarse como un emprendimiento por necesidad: surgió tras la pérdida del empleo.</p></div>
+  <h3>Clientes, beneficiarios e impacto</h3><p>Atiende a vecinos y usuarios de las plataformas. La actividad articula aportes familiares y construye relaciones de confianza en el barrio. El testimonio permite describir ese vínculo; no aporta cifras para medir ventas, empleo o alcance.</p>
+  <span class="page-source">ENTREVISTA · 00:26, 00:56, 01:46, 05:25 Y 10:27</span>
+</Sheet>
+<Sheet number={6} section="05 / PRODUCTOS Y DIFERENCIACIÓN" class="academic-page products-page dark-page">
+  <span class="page-kicker">LA SAZÓN COMO SELLO PROPIO</span>
+  <h2>Sabores que<br/><em>hacen volver.</em></h2>
+  <div class="product-grid">
+    <figure><Image src={burger} alt="Hamburguesa y papas de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>01 / HAMBURGUESAS</figcaption></figure>
+    <figure><Image src={wings} alt="Alitas y papas de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>02 / ALITAS</figcaption></figure>
+    <figure><Image src={hotdog} alt="Hot dog de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>03 / HOT DOGS</figcaption></figure>
+    <figure><Image src={grill} alt="Parrillada del archivo de Don Bigotón" width={320} height={320} format="webp" loading="eager"/><figcaption>04 / PARRILLADAS</figcaption></figure>
+  </div>
+  <p>La hamburguesa es el producto que más se vende, según su fundadora. Los cursos y las pruebas fueron afinando una receta que ella identifica como diferente.</p>
+  <p>La atención también distingue la propuesta: recordar quién prefiere la salsa aparte hace que un vecino pueda decir «usted ya sabe».</p>
+  <span class="page-source">TESTIMONIO · 05:25–07:20 · FOTOS DEL ARCHIVO 2022; NO SON UNA CARTA VIGENTE</span>
+</Sheet>
+<Sheet number={7} section="06 / BENEFICIOS Y OBSTÁCULOS" class="academic-page balance-page">
+  <span class="page-kicker">LO QUE AYUDA. LO QUE DESAFÍA.</span>
+  <h2>Emprender también<br/><em>es encontrar equilibrio.</em></h2>
+  <div class="balance-columns"><section><h3>Los beneficios</h3><article><h4>Empezar con lo disponible</h4><p>La cocina en casa evitaba asumir un arriendo al inicio.</p></article><article><h4>Organizar sus horarios</h4><p>Valora la flexibilidad para abrir o cerrar las plataformas según sus actividades.</p></article><article><h4>Apoyarse en otros</h4><p>Familia y vecinos aportan recursos, publicidad y recomendaciones.</p></article></section><section><h3>Los obstáculos</h3><article><h4>Investigar antes de abrir</h4><p>Entender los permisos, precios y mercado tomó tiempo.</p></article><article><h4>Elegir la materia prima</h4><p>Compararon calidad, tamaño, aseo, refrigeración y precio.</p></article><article><h4>Aprender y asumir incertidumbre</h4><p>La tecnología exigió formación. Hay días con pocas ventas y preocupación por la seguridad al pensar en un local.</p></article></section></div>
+  <blockquote>«La cosa es continuar<br/><em>y no decaerse».</em></blockquote>
+  <span class="page-source">ENTREVISTA · 02:18, 03:25–04:47, 07:29, 08:35, 09:46 Y 12:40</span>
+</Sheet>
+<Sheet number={8} section="07 / CARÁCTER Y VISIÓN DE FUTURO" class="academic-page character-page">
+  <span class="page-kicker">CRECER SIN OLVIDAR EL INICIO</span>
+  <h2>Un local propio.<br/><em>El mismo corazón.</em></h2>
+  <div class="trait-list"><article><h3>Iniciativa</h3><p>Buscó una alternativa cuando perdió su empleo.</p></article><article><h3>Constancia</h3><p>Reconoce que habrá días buenos y difíciles y anima a continuar.</p></article><article><h3>Aprendizaje</h3><p>Perfeccionó las recetas y aprendió a usar herramientas digitales.</p></article><article><h3>Cercanía</h3><p>Recuerda preferencias y cuida el vínculo con los vecinos.</p></article></div>
+  <div class="future-note"><h3>La próxima meta</h3><p>Abrir un local donde sus clientes puedan sentarse a comer. Antes, quiere analizar la ubicación, la clientela y las condiciones de seguridad.</p><p>Su deseo es permanecer cerca del sector que acompañó los primeros pedidos: crecer cuidando esa relación.</p></div>
+  <span class="page-source">CARACTERÍSTICAS INTERPRETADAS DEL TESTIMONIO · FUTURO: 07:29–08:28 Y 14:04</span>
+</Sheet>
+<Sheet number={9} section="08 / LA ENTREVISTA EN VIDEO" class="academic-page video-page">
+  <span class="page-kicker">LA HISTORIA, EN SU PROPIA VOZ</span>
+  <h2>Escuchar también<br/><em>es conocer.</em></h2>
+  {videoId ? <><div class="video-frame web-video"><iframe src={`https://www.youtube-nocookie.com/embed/${videoId}`} title="Entrevista a la fundadora de Don Bigotón" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="printed-link" href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">Ver la entrevista en YouTube ↗</a><p class="print-video-link">Accede al video desde el enlace de YouTube de esta página.</p></> : <div class="video-pending"><span>ENTREVISTA EN PREPARACIÓN</span><Image src={logo} alt="Don Bigotón" width={120} height={120} format="webp" loading="eager"/><p>El video se incorporará aquí cuando el equipo comparta el enlace de YouTube de la edición de máximo 10 minutos.</p></div>}
+  <p>La conversación recorre el origen del negocio, los aportes de la familia, la sazón, la atención y el sueño de abrir un local.</p>
+  <blockquote>«Tampoco podía quedarme<br/><em>con las manos cruzadas».</em></blockquote>
+  <a class="printed-link" href="https://github.com/AMVMesias/Don-Bigoton/blob/main/docs/transcripcion_entrevista_don_bigoton.md" target="_blank" rel="noopener noreferrer">Leer la transcripción original ↗</a>
+  <span class="page-source">FUENTE ORIGINAL: ENTREVISTA DE 14:43 · LA EDICIÓN PARA LA TAREA DEBE DURAR MÁXIMO 10:00</span>
+</Sheet>
+<Sheet number={10} section="CONTRAPORTADA / CRÉDITOS" class="academic-page academic-back-cover back-cover" cover>
+  <span class="page-kicker">COCINA · FAMILIA · EMPRENDIMIENTO</span>
+  <Image src={logo} alt="Logo original de Don Bigotón" width={150} height={150} format="webp" loading="eager"/>
+  <h2>Lo que empieza<br/>en casa<br/><em>puede llegar lejos.</em></h2>
+  <p>Una historia con sazón propia.</p>
+  <div class="edition-credits"><p>Revista académica de Emprendimiento. Relato y citas basados en la entrevista a la fundadora de Don Bigotón.</p><p>Fotografías de productos: archivo público de la marca en Instagram, 2022. Retrato y logo de mayor calidad: aportados para el proyecto. Recorte de portada e ilustraciones de gatos: asistidos por IA.</p><p>{authors.length ? `Autores: ${authors.map(author=>author.name).join(', ')}.` : 'Créditos de los autores pendientes de completar por el equipo.'}</p></div>
+  <a class="printed-link" href="https://www.instagram.com/donbigoton_uio/" target="_blank" rel="noopener noreferrer">@donbigoton_uio ↗</a>
+  <button class="printed-link" data-goto="0">Volver a la portada ↗</button>
+</Sheet>

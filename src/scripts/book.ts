@@ -1,4 +1,5 @@
 import { PageFlip } from 'page-flip';
+import { fitMagazinePages } from './fit-pages';
 import type { SizeType } from 'page-flip';
 
 const bookElement = document.querySelector<HTMLElement>('#book')!;
@@ -127,20 +128,7 @@ zoomButton.addEventListener('click', () => {
 
 async function startBook() {
   await document.fonts.ready;
-  pages.forEach(page => {
-    const content = page.querySelector<HTMLElement>('.page-content');
-    const layout = page.querySelector<HTMLElement>('.page-layout');
-    if (content && page.classList.contains('qa-page') && content.scrollHeight > content.clientHeight+1) page.classList.add('dense');
-    if (content && layout && !page.classList.contains('book-cover') && !page.classList.contains('portrait-page')) {
-      let fit = 1;
-      while (content.scrollHeight > content.clientHeight+1 && fit > .78) {
-        fit = Math.round((fit-.015)*1000)/1000;
-        layout.style.zoom=String(fit);
-      }
-      page.dataset.contentFit=String(fit);
-    }
-    if (content) page.dataset.contentOverflow=String(Math.max(0,content.scrollHeight-content.clientHeight));
-  });
+  fitMagazinePages(pages);
   const requested = Number(location.hash.match(/^#pagina-(\d+)$/)?.[1] || 1)-1;
   book = new PageFlip(bookElement, {
     width:540,height:760,size:'stretch' as SizeType,minWidth:280,maxWidth:540,minHeight:394,maxHeight:760,
