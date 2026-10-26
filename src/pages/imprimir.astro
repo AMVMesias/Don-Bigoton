@@ -15,22 +15,41 @@ import MagazinePages from '../components/MagazinePages.astro';
 import {fitMagazinePages} from '../scripts/fit-pages';
 await document.fonts.ready;
 await Promise.all([...document.images].map(img=>img.decode().catch(()=>{})));
-fitMagazinePages([...document.querySelectorAll<HTMLElement>('.sheet')]);
+const sheets=[...document.querySelectorAll<HTMLElement>('.sheet')];
+fitMagazinePages(sheets);
+const container=document.querySelector<HTMLElement>('.print-pages')!;
+const groups=[sheets.slice(0,1)];
+for(let index=1;index<sheets.length-1;index+=2) groups.push(sheets.slice(index,Math.min(index+2,sheets.length-1)));
+groups.push(sheets.slice(-1));
+let folio=1;
+for(const group of groups) {
+  const spread=document.createElement('section');
+  spread.className=`print-spread print-spread-${group.length===1 ? 'single' : 'double'}`;
+  spread.dataset.pages=group.map((_,index)=>folio+index).join(',');
+  spread.setAttribute('aria-label',group.length===1 ? `Página ${folio}` : `Páginas ${folio} y ${folio+1}`);
+  spread.append(...group);
+  container.append(spread);
+  folio+=group.length;
+}
 document.body.dataset.printReady='true';
 document.querySelector('#print-button')?.addEventListener('click',()=>window.print());
 </script></body></html>
 <style is:global>
-@page{size:142.875mm 201.083333mm;margin:0}
+@page{size:285.75mm 201.083333mm;margin:0}
+@page single{size:142.875mm 201.083333mm;margin:0}
+@page double{size:285.75mm 201.083333mm;margin:0}
 body.print-edition{display:block;height:auto;overflow:auto;min-width:540px}
-.print-tools{display:flex;justify-content:space-between;padding:20px;max-width:540px;margin:auto;font-size:12px}
-.print-pages{width:540px;margin:auto;display:block}
-.print-pages .sheet{display:block;width:540px;height:760px;position:relative;margin-bottom:22px;break-after:page}
+.print-tools{display:flex;justify-content:space-between;padding:20px;max-width:1080px;margin:auto;font-size:12px}
+.print-pages{width:1080px;margin:auto;display:block}
+.print-spread{display:flex;height:760px;margin:0 auto 32px;gap:0;break-inside:avoid;break-after:page}
+.print-spread-single{width:540px;page:single}.print-spread-double{width:1080px;page:double}
+.print-pages .sheet{display:block;flex:0 0 540px;width:540px;height:760px;position:relative;margin:0;break-after:auto}
 .print-pages .page-canvas{transform:none}
 @media print{
- html,body.print-edition{width:540px;margin:0!important;padding:0!important;background:white;display:block!important;height:auto!important;overflow:visible!important}
- .print-tools{display:none!important}.print-pages{margin:0;width:540px}
- .print-pages .sheet{margin:0;break-inside:avoid;break-after:page}
- .print-pages .sheet:last-child{break-after:auto}.margin-cat *{animation:none!important}
+ html,body.print-edition{width:auto;margin:0!important;padding:0!important;background:white;display:block!important;height:auto!important;overflow:visible!important}
+ .print-tools{display:none!important}.print-pages{margin:0;width:auto}
+ .print-spread{margin:0;break-inside:avoid;break-after:page}.print-spread:last-child{break-after:auto}
+ .print-pages .sheet{margin:0;break-inside:avoid;break-after:auto!important}.margin-cat *{animation:none!important}
  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
 </style>

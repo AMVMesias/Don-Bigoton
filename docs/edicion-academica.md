@@ -23,7 +23,7 @@ La web y el PDF son un borrador de revisión mientras faltan esos materiales. No
 
 ## PDF compartido con la web
 
-`MagazinePages.astro` contiene las diez hojas de `/` y `/imprimir/`, con el mismo ajuste tipográfico (`fit-pages.ts`). El PDF conserva texto seleccionable y enlaces.
+`MagazinePages.astro` contiene las diez hojas de `/` y `/imprimir/`, con el mismo ajuste tipográfico (`fit-pages.ts`). El PDF conserva texto seleccionable y enlaces. Reproduce la vista de escritorio en seis láminas: portada 1 sola, interiores 2–3, 4–5, 6–7 y 8–9, y contraportada 10 sola. La numeración editorial sigue siendo de diez páginas.
 
 1. Ejecutar `npm run build` y `npm run preview -- --port 4322`.
 2. Disponer de `playwright` local o indicar la carpeta compartida de módulos en `PLAYWRIGHT_MODULES`.
@@ -33,10 +33,12 @@ La web y el PDF son un borrador de revisión mientras faltan esos materiales. No
 
 Alternativa manual: abrir `/imprimir/` y pulsar «Imprimir / Guardar PDF», habilitando fondos y márgenes cero con el tamaño definido por el sitio.
 
-Antes de entregar, completar autores y video, regenerar el PDF y comprobar las diez páginas. La tarea requiere tanto el enlace web como el archivo PDF.
+Antes de entregar, completar autores y video, regenerar el PDF y comprobar las diez páginas editoriales distribuidas en seis láminas. La tarea requiere tanto el enlace web como el archivo PDF.
 
 ## Descarga optimizada sin cambios visuales
 
 La exportación de Chromium repetía imágenes idénticas de la textura de papel en las diez hojas. `scripts/optimize-pdf.py` unifica objetos repetidos sin recomprimir ni reducir imágenes, conservando fuentes, texto seleccionable, enlaces, dimensiones y textura. `export-pdf.mjs` aplica este paso antes de copiar la descarga pública.
 
 La primera optimización pasó de 35.184.131 a 5.032.801 bytes. Las diez páginas del PDF original y el optimizado se renderizaron con Poppler a 760 px y se comprobaron píxel por píxel: no hubo diferencias.
+
+La vista de impresión usa tamaños de página específicos para portada y dobles páginas. La descarga automatizada primero exporta las diez hojas por separado y después une las parejas en el PDF, sin convertirlas en imágenes. Así conserva los elementos compartidos y mantiene la descarga de dobles páginas en torno a 5 MB. Se validan las seis láminas, sus dimensiones, el texto y los enlaces de las diez hojas originales.

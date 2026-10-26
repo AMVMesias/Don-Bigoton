@@ -8,6 +8,8 @@ Revista implementada con Astro: **10 páginas con giro de hoja**, portada con el
 
 La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. Faltan los nombres y aprendizajes individuales y el video de YouTube de máximo diez minutos: esta edición es un borrador hasta recibirlos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
 
+El PDF reproduce el formato de escritorio: portada y contraportada individuales e interiores en parejas 2–3, 4–5, 6–7 y 8–9. Conserva diez páginas editoriales distribuidas en seis láminas PDF.
+
 `/disenos/` muestra las dos ilustraciones aprobadas en movimiento y ampliadas para revisión. En la revista se alternan en los márgenes: gato asomado al encabezado y gato recostado al pie. Las imágenes generadas se componen por capas en `src/components/MarginCat.astro`: cola, respiración, parpadeo, orejas y aparición. Las páginas ocultas pausan sus movimientos; se respeta el movimiento reducido y el botón Ⅱ permite pausarlos manualmente.
 
 `MarginOrnaments.astro` añade huellas que aparecen en secuencia en el margen izquierdo y destellos que giran y flotan en el derecho. Se mantienen fuera de las columnas de texto, no capturan toques ni clics y comparten los controles de pausa y movimiento reducido. `/disenos/` incluye una muestra ampliada. En el PDF quedan estáticos como parte del diseño.
