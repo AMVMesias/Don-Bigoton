@@ -33,6 +33,12 @@ try {
   for(const reducedMotion of ['no-preference','reduce']) {
     const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion});
     const page=await context.newPage();
+    await page.addInitScript(()=>{
+      window.readerTouchChecks=[];
+      window.addEventListener('touchmove',event=>{
+        setTimeout(()=>window.readerTouchChecks.push(event.defaultPrevented),0);
+      },{capture:true,passive:true});
+    });
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(base,{waitUntil:'networkidle'});
     await waitAt(page,1);
@@ -47,7 +53,18 @@ try {
       await swipe(page,'back',{slow});await waitAt(page,2);
     }
     await swipe(page,'back',{vertical:true});
+    await page.waitForTimeout(100);
     assert.equal(new URL(page.url()).hash,'#pagina-2');
+    const vertical=await page.evaluate(()=>({
+      rootOverflow:getComputedStyle(document.documentElement).overflowY,
+      bodyOverflow:getComputedStyle(document.body).overflowY,
+      overscroll:getComputedStyle(document.documentElement).overscrollBehaviorY,
+      events:window.readerTouchChecks.slice(-1),
+    }));
+    assert.equal(vertical.rootOverflow,'auto');
+    assert.equal(vertical.bodyOverflow,'visible');
+    assert.equal(vertical.overscroll,'auto');
+    assert.deepEqual(vertical.events,[false],'Vertical gesture was prevented');
     await swipe(page,'forward',{cancel:true});
     assert.equal(new URL(page.url()).hash,'#pagina-2');
     await page.locator('#prev-page').tap();await waitAt(page,1);
