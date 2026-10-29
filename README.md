@@ -6,7 +6,7 @@ Repositorio: https://github.com/AMVMesias/Don-Bigoton
 
 Revista implementada con Astro: **10 páginas con giro de hoja**, portada con el logo original, dobles páginas interiores en escritorio, una página a la vez en móvil y contraportada. Incluye editorial, historia, perfil, descripción y tipo de emprendimiento, productos, beneficios, obstáculos, características, futuro, entrevista en YouTube y créditos. La investigación y el material original se conservan en el repositorio.
 
-La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. El video de YouTube ya está incorporado en la página 9, con miniatura enlazada y QR en el PDF. Faltan los nombres y aprendizajes individuales; además, el video recibido dura 10:19 y requiere un recorte de 19 segundos para cumplir el máximo de diez minutos. La edición sigue como borrador hasta completar esos puntos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. `/lectura/` conserva la versión continua como alternativa y contiene la transcripción completa desplegable.
+La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. El video de YouTube ya está incorporado en la página 9, con miniatura enlazada y QR en el PDF. Faltan los nombres y aprendizajes individuales; además, el video recibido dura 10:19 y requiere un recorte de 19 segundos para cumplir el máximo de diez minutos. La edición sigue como borrador hasta completar esos puntos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. `/lectura/` conserva la versión continua como alternativa para el lector. La transcripción original queda como material de trabajo en `docs/`, sin enlaces ni descargas públicas desde la revista.
 
 El PDF reproduce el formato de escritorio: portada y contraportada individuales e interiores en parejas 2–3, 4–5, 6–7 y 8–9. Conserva diez páginas editoriales distribuidas en seis láminas PDF.
 
@@ -52,7 +52,7 @@ Las siguientes publicaciones se generan al actualizar la rama conectada en Verce
 - Galería con cierre por Escape, navegación con flechas y retorno del foco al disparador.
 - Preferencia de movimiento reducido respetada por CSS y GSAP.
 - Contenido editorial completo en HTML; las animaciones no lo ocultan de forma permanente.
-- Apertura nativa de la transcripción y los créditos con `details`.
+- Créditos accesibles con apertura nativa mediante `details` en la lectura continua.
 
 ## Editar contenido
 

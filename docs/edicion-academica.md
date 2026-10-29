@@ -23,6 +23,12 @@ La web y el PDF son un borrador de revisión mientras faltan esos materiales. No
 
 La página 9 contiene un reproductor de YouTube con acceso a pantalla completa y un enlace directo. En impresión, el reproductor se sustituye por la miniatura auténtica enlazada y un código QR del video; el PDF no reproduce video. Los nombres y aprendizajes siguen pendientes y no se inventaron.
 
+## Material de trabajo y contenido público
+
+La transcripción y las notas de verificación se conservan en `docs/` como insumos de edición. No se enlazan desde la revista ni se copian a `public/`. Se retiraron los accesos al Markdown y GitHub, la transcripción desplegable de la lectura continua, las marcas de tiempo y las aclaraciones sobre el proceso de edición. Los créditos públicos se limitan a la revista, las imágenes y el equipo editorial.
+
+Las páginas conservan las decisiones, experiencias y aprendizajes del emprendimiento, el video y su QR, además de los espacios que el equipo pidió reservar para los autores. Esta limpieza se aplica también a la galería y al PDF mediante los componentes compartidos.
+
 ## PDF compartido con la web
 
 `MagazinePages.astro` contiene las diez hojas de `/` y `/imprimir/`, con el mismo ajuste tipográfico (`fit-pages.ts`). El PDF conserva texto seleccionable y enlaces. Reproduce la vista de escritorio en seis láminas: portada 1 sola, interiores 2–3, 4–5, 6–7 y 8–9, y contraportada 10 sola. La numeración editorial sigue siendo de diez páginas.
