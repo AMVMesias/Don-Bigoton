@@ -1,0 +1,44 @@
+---
+import {getImage} from 'astro:assets';
+import chef from '../../material/creativo/gato-chef-transparente.png';
+interface Props {number:number;}
+const {number}=Astro.props;
+const asset=await getImage({src:chef,width:522,format:'webp'});
+const id=`herb-${number}`;
+// Shared spread coordinates keep the stem continuous across the fold.
+const leaves=[
+  [17,578,-38],[19,591,38],[16,607,-48],[20,621,42],[17,641,-42],[22,654,50],
+  [29,672,-28],[43,684,62],[59,690,-50],[77,692,65],[232,693,-52],[250,697,58],
+  [278,695,-55],[314,692,60],[341,696,-48],[370,693,52],[488,693,-48],[516,695,52],
+  [548,693,-50],[583,695,56],[621,693,-48],[657,697,52],[694,694,-54],[728,693,50],
+  [764,696,-49],[800,694,56],[839,696,-52],[877,691,52],[919,694,-50],[950,690,48],
+  [1019,687,-40],[1036,678,48],[1050,664,-40],[1060,648,44],[1063,629,-40],[1062,612,42],
+] as const;
+const berries=[[16,561],[25,570],[12,630],[31,663],[62,677],[265,686],[329,704],[571,685],[644,703],[748,684],[855,704],[1027,666],[1071,601],[1060,590]];
+---
+<g class="herb-border">
+  <defs>
+    <g id={`${id}-leaf`}><path d="M0 0C-7-6-7-16 0-24C6-15 7-6 0 0Z" fill="#8c9061"/><path d="M0-2v-18" stroke="#67714c" stroke-width=".6"/></g>
+    <g id={`${id}-paw`} fill="#c66e3f"><path d="M-4 3Q-8 11-2 10Q0 8 2 10Q8 11 4 3Q0-2-4 3Z"/><ellipse cx="-6" cy="0" rx="2" ry="2.8" transform="rotate(-24 -6 0)"/><ellipse cx="-2.1" cy="-4" rx="1.8" ry="2.5"/><ellipse cx="2.1" cy="-4" rx="1.8" ry="2.5"/><ellipse cx="6" cy="0" rx="2" ry="2.8" transform="rotate(24 6 0)"/></g>
+  </defs>
+  <path d="M18 558C8 582 28 595 17 615S15 650 25 669Q35 696 81 694C133 692 179 696 227 694S283 700 315 693S374 700 409 695S468 690 505 694S564 690 600 694S657 700 694 694S746 691 780 695S836 700 873 693S930 695 970 691S1044 698 1059 655Q1071 628 1062 600" stroke="#a55f3e" stroke-width="1.35" stroke-linecap="round"/>
+  {leaves.map(([x,y,angle],index)=><g transform={`translate(${x} ${y}) rotate(${angle}) scale(${index<10||index>29 ? .78 : .64})`}><use class={'herb-leaf herb-leaf-'+index%3} href={`#${id}-leaf`}/></g>)}
+  <g fill="#df874b">{berries.map(([x,y],index)=><circle class="herb-berry" cx={x} cy={y} r={index%3===0 ? 2.5 : 1.7}/>)}</g>
+  <use href={`#${id}-paw`} transform="translate(48 658) rotate(-20) scale(.7)"/>
+  <use href={`#${id}-paw`} transform="translate(294 684) rotate(16) scale(.7)"/>
+  <use href={`#${id}-paw`} transform="translate(762 686) rotate(-12) scale(.7)"/>
+  <g transform="translate(421 693) rotate(62)" stroke="#b46943" stroke-width="1.1" fill="none" stroke-linecap="round">
+    <path d="M-2 0v-21Q-12-43 0-44Q12-43 2-21V0Q0 4-2 0Z"/>
+    <path d="M0-22Q-8-44 0-44Q8-44 0-22Zm0 0v-22m-2 24h4"/>
+  </g>
+  <g transform="translate(973 688) rotate(48)" stroke="#b46943" stroke-width="1.1" fill="#eac29d"><path d="M-1.5 0v-23C-12-24-8-43 0-43S12-24 1.5-23V0Q0 3-1.5 0Z"/><path d="M-3-28Q-8-38 0-40" fill="none"/></g>
+  <image class="herb-chef" href={asset.src} x="63" y="574" width="174" height="116"/>
+</g>
+<style is:global>
+  .herb-leaf{transform-box:fill-box;transform-origin:bottom center;animation:herb-sway 5.8s ease-in-out infinite}
+  .herb-leaf-1{animation-delay:-1.9s}.herb-leaf-2{animation-delay:-3.8s}
+  .herb-chef{transform-box:fill-box;transform-origin:bottom center;animation:chef-breath 5s ease-in-out infinite}
+  .herb-berry{animation:edge-ink 5s ease-in-out infinite}
+  @keyframes herb-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  @keyframes chef-breath{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.012)}}
+</style>

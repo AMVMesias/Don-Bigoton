@@ -1,5 +1,6 @@
 ---
 import {spreadDesigns} from '../data/editorial-designs';
+import HerbBorder from './HerbBorder.astro';
 interface Props {number:number;}
 const {number}=Astro.props;
 const first=number%2===0 ? number : number-1;
@@ -9,20 +10,7 @@ const gradientId=`edge-ink-${number}`;
 ---
 {design&&<svg class={'spread-connection connection-'+design.theme} data-spread={first} data-side={side} viewBox={(side==='left' ? '0' : '540')+' 0 540 760'} aria-hidden="true" focusable="false" fill="none">
   <defs><linearGradient id={gradientId} x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#d5aa65"/><stop offset=".48" stop-color="#d9ad70"/><stop offset=".57" stop-color="#b65c36"/><stop offset="1" stop-color="#a64c30"/></linearGradient></defs>
-  {design.theme==='beginning'&&<g>
-    {/* Paper folds frame the story; both halves share the same baseline. */}
-    <path d="M0 680C15 692 12 728 31 744H1080V760H0Z" fill="#c77951" opacity=".18"/>
-    <path d="M0 705C17 711 8 741 45 752H1080V760H0Z" fill="#c16a43"/>
-    <path d="M0 728Q13 740 35 744L60 752H1080V757H38Q12 750 0 743Z" fill="#efc19a"/>
-    <path d="M1080 687C1062 703 1076 732 1047 747L1026 752H1080Z" fill="#d78c61"/>
-    <path d="M1080 715Q1065 720 1066 738L1047 747Q1073 746 1080 730Z" fill="#f1c9a7"/>
-    <path d="M57 742H1022" stroke="#ac5737" stroke-width="1"/>
-    <g stroke="#a95636" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
-      <path transform="translate(-3 -9)" d="M20 727l11-17 8 6-15 14-4-3Zm2-2 10-9m-5 7 1 5m7-14 3-5 4 3-3 4"/>
-      <path transform="translate(13 -13)" d="M1039 725v-14l11 3 11-3v14l-11 3-11-3Zm11-11v14m-8-12 5 2m6 0 5-2"/>
-    </g>
-    <g class="edge-ink" fill="#ac5737"><circle cx="54" cy="735" r="1.6"/><circle cx="62" cy="737" r="1"/><circle cx="1027" cy="734" r="1.3"/></g>
-  </g>}
+  {design.theme==='beginning'&&<HerbBorder number={number}/>}
   {design.theme==='resources'&&<g>
     {/* Amber on the portrait becomes terracotta on the facing cream page. */}
     <path d="M0 681Q18 686 18 709V733Q18 749 39 749H1041Q1062 749 1062 732V704Q1062 686 1080 680" stroke={`url(#${gradientId})`} stroke-width="2"/>
