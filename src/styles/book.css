@@ -11,8 +11,8 @@ body{font-family:var(--sans);color:var(--ink);background:#e8e1d6;min-width:0;bac
 .book-cover h1{position:absolute;top:72px;left:238px;right:12px;margin:0;text-align:left;font-size:44px;line-height:1.03;letter-spacing:-.065em;white-space:nowrap}
 .book-cover .cover-deck{top:186px;left:238px;right:12px;max-width:none;text-align:left;font-size:12.5px;line-height:1.4;white-space:nowrap}
 .book-cover .cover-food{height:325px;bottom:45px}
-.book-cover .cover-food img{width:420px;height:420px;top:-54px;left:68px;transform:rotate(-3deg)}
-.book-cover .cover-bg-word{font-size:84px;top:38px;left:18px;line-height:.9}
+.book-cover .cover-food img{width:400px;height:400px;top:-66px;left:70px;transform:rotate(-3deg)}
+.book-cover .cover-bg-word{font-size:34px;top:auto;bottom:12px;left:20px;right:20px;line-height:1.1;letter-spacing:.08em;text-align:center;white-space:nowrap;color:#873c2270}
 .book-cover .cover-bottom>span{font-size:8px;font-weight:600;letter-spacing:.09em}
 .book-cover .cover-bottom button{font-size:8px;font-weight:700;letter-spacing:.08em}
 body.reader-ready{height:100dvh;overflow:hidden;display:grid;grid-template-rows:76px minmax(0,1fr) 89px}.reader-ready .reader-main{min-height:0;display:grid;grid-template-rows:38px minmax(0,1fr)}.reader-ready .book-viewport{min-height:0;height:100%}.reader-ready .reader-controls{height:89px}.reader-main.zoomed .book-viewport{max-height:none;height:100%;min-height:0}.reader-main.zoomed .book{touch-action:auto}.reader-ready .stf__wrapper{height:100%}
