@@ -1,51 +1,21 @@
 ---
 import {spreadDesigns} from '../data/editorial-designs';
 import HerbBorder from './HerbBorder.astro';
+import IllustratedBorder from './IllustratedBorder.astro';
 interface Props {number:number;}
 const {number}=Astro.props;
 const first=number%2===0 ? number : number-1;
 const design=spreadDesigns.find(item=>item.first===first);
 const side=number===first ? 'left' : 'right';
-const gradientId=`edge-ink-${number}`;
+
 ---
 {design&&<svg class={'spread-connection connection-'+design.theme} data-spread={first} data-side={side} viewBox={(side==='left' ? '0' : '540')+' 0 540 760'} aria-hidden="true" focusable="false" fill="none">
-  <defs><linearGradient id={gradientId} x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#d5aa65"/><stop offset=".48" stop-color="#d9ad70"/><stop offset=".57" stop-color="#b65c36"/><stop offset="1" stop-color="#a64c30"/></linearGradient></defs>
   {design.theme==='beginning'&&<HerbBorder number={number}/>}
-  {design.theme==='resources'&&<g>
-    {/* Amber on the portrait becomes terracotta on the facing cream page. */}
-    <path d="M0 681Q18 686 18 709V733Q18 749 39 749H1041Q1062 749 1062 732V704Q1062 686 1080 680" stroke={`url(#${gradientId})`} stroke-width="2"/>
-    <path d="M0 716Q10 716 10 733Q10 757 38 757H1042Q1070 757 1070 731Q1070 711 1080 711" stroke={`url(#${gradientId})`} stroke-width="5" opacity=".6"/>
-    <path d="M0 693Q22 690 22 711L22 728Q1 725 0 711Z" fill="#dbb574" opacity=".7"/>
-    <path d="M1080 692Q1056 690 1056 711V728Q1079 721 1080 710Z" fill="#c47b4c" opacity=".6"/>
-    <path d="M500 746h27l11 8h-27Z" fill="#d4a05d"/>
-    <path d="M527 746h27l11 8h-27Z" fill="#c47b47"/>
-    <path d="M554 746h27l11 8h-27Z" fill="#aa5836"/>
-    <path class="edge-glint" d="M510 747h17m27 0h17" stroke="#ffdfad" stroke-width="1"/>
-    <g stroke="#a95735" stroke-width="1" stroke-linejoin="round"><ellipse cx="1067" cy="671" rx="7" ry="2.8"/><path d="M1060 671v6c0 4 14 4 14 0v-6m-14 3c0 4 14 4 14 0"/></g>
-  </g>}
-  {design.theme==='relationships'&&<g>
-    {/* Two ribbons exchange places at the fold: conversation and balance. */}
-    <path d="M0 696Q24 696 24 722V742H512L536 751H1080V760H0Z" fill="#c7764e" opacity=".8"/>
-    <path d="M1080 700Q1055 701 1055 727V744H562L538 754H0V758H547L570 750H1062V727Q1062 708 1080 708Z" fill="#edbd93"/>
-    <path d="M0 732Q11 746 34 746H505L529 755H1080" stroke="#b3613e" stroke-width="1.1"/>
-    <path d="M1080 730Q1068 744 1048 744H570L549 751H514" stroke="#f5d5b2" stroke-width="1.1"/>
-    <g stroke="#dfb17e" stroke-width="1.1" stroke-linejoin="round"><path d="M6 686h17v11H14l-5 4v-4H6v-11Z"/><path class="edge-ink" d="M10 691h9m-9 3h6"/></g>
-    <g stroke="#a95735" stroke-width="1.1" stroke-linecap="round"><path d="M1067 682v18m-7 2h14m-18-16h22m-18 1-4 7h8l-4-7m14 0-4 7h8l-4-7"/></g>
-  </g>}
-  {design.theme==='future'&&<g>
-    {/* A rising route becomes a sound strip beside the interview. */}
-    <path d="M0 760v-8h131v-4h131v-4h131v-4h127v4h560v16Z" fill="#c8794e" opacity=".7"/>
-    <path d="M0 756h138v-4h131v-4h131v-4h115l9 4h556" stroke="#efc49c" stroke-width="2"/>
-    <path d="M5 710v-21h12v-11h12" stroke="#b56a41" stroke-width="1.2"/>
-    <path d="M23 674l6 4-6 4" stroke="#b56a41" stroke-width="1.2"/>
-    <g stroke="#a95735" stroke-width="1.5" stroke-linecap="round">
-      {[9,16,24,13,20].map((height,index)=><path class="edge-voice" style={'animation-delay:'+index*.18+'s'} d={`M${1054+index*4} ${700-height/2}v${height}`}/>)}
-    </g>
-    <g class="edge-ink" fill="#b76d44"><circle cx="140" cy="744" r="1.5"/><circle cx="271" cy="740" r="1.5"/><circle cx="402" cy="736" r="1.5"/></g>
-  </g>}
+  {design.theme!=='beginning'&&<IllustratedBorder theme={design.theme} number={number}/>}
 </svg>}
 <style is:global>
   .spread-connection{position:absolute;inset:0;width:540px;height:760px;overflow:hidden;pointer-events:none;z-index:3}
+  .connection-resources{z-index:1}
   .edge-ink{animation:edge-ink 4.6s ease-in-out infinite}
   .edge-glint{animation:edge-glint 5s ease-in-out infinite}
   .edge-voice{transform-box:fill-box;transform-origin:center;animation:edge-voice 2.2s ease-in-out infinite}

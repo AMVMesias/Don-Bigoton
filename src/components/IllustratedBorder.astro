@@ -1,0 +1,46 @@
+---
+interface Props {theme:'resources'|'relationships'|'future';number:number;}
+const {theme,number}=Astro.props;
+const ink=`illustrated-ink-${number}`;
+---
+<g class={'illustrated-border illustrated-'+theme} stroke-linecap="round" stroke-linejoin="round">
+  <defs><linearGradient id={ink} x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#edc381"/><stop offset=".48" stop-color="#eac18b"/><stop offset=".57" stop-color="#bd744b"/><stop offset="1" stop-color="#af5e3d"/></linearGradient></defs>
+  {theme==='resources'&&<g stroke={`url(#${ink})`} stroke-width="1.2">
+    <path d="M18 654C5 667 15 680 32 693S78 701 109 696S154 698 181 700S222 695 253 699S299 702 330 698S375 696 405 700S451 704 481 700S518 704 529 697C541 682 555 691 550 700C545 710 528 702 533 695C540 686 553 699 566 702C596 707 625 696 654 700S695 703 728 700S774 698 802 702S853 699 885 702S931 699 965 701S1021 705 1048 697Q1070 686 1064 662"/>
+    <g transform="translate(42 696) rotate(-32)"><path d="M-1.5 0v-21Q-12-44 0-44Q12-44 1.5-21V0Q0 3-1.5 0Z"/><path d="M0-22Q-7-44 0-44Q7-44 0-22Zm0 0v-22"/></g>
+    <g transform="translate(62 697) rotate(27)"><path d="M-1.5 0v-22h-5v-20h13v20h-5V0Z"/><path d="M-3-38v12m3-12v12m3-12v12"/></g>
+    <g fill="#edbd91" stroke-width=".8"><path d="M181 697l12-3 14 10-6 7-17-8Z"/><path d="M786 698l10-4 14 9-5 7-16-6Z"/></g>
+    <g stroke="#b16541"><ellipse cx="1028" cy="686" rx="8" ry="3"/><path d="M1020 686v9c0 4 16 4 16 0v-9m-16 4c0 4 16 4 16 0"/><path d="M1050 698l-3-28 22-2 3 28-22 2Zm3-24 13-1m-12 6 12-1m-11 6 12-1m-12 6 12-1"/><path class="border-glint" d="M1051 670v-4m5 4v-4m5 3v-4m5 4v-4"/></g>
+    <g class="border-dots" fill="#df9e62" stroke="none">{[[20,678],[218,704],[226,706],[361,704],[578,698],[607,706],[829,706],[1004,700]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.1 : 1.7}/>)}</g>
+  </g>}
+  {theme==='relationships'&&<g stroke={`url(#${ink})`} stroke-width="1.2">
+    <path d="M18 659v17q0 20 28 20C83 696 101 688 132 694S182 699 214 695S267 690 301 694S348 698 380 694S428 691 466 696S515 693 541 695S579 703 610 697S660 692 699 695S754 702 791 696S841 691 879 696S928 699 961 695S1011 697 1042 694Q1062 693 1062 677V656"/>
+    <path d="M18 636v15m1044-15v15" stroke-dasharray="1 6"/>
+    <g class="border-conversation" transform="translate(113 684)"><path d="M-13-9h18q8 0 8 7v3q0 7-8 7h-7l-7 5 1-5q-7 0-7-7v-3q0-7 2-7Z"/>{[-6,0,6].map(x=><circle cx={x} cy="0" r=".8" fill="#ecc58c"/>)}</g>
+    <g transform="translate(159 688) scale(.82)"><path d="M-12-8H6q7 0 7 7v2q0 7-7 7h-6l-7 5 1-5q-8 0-8-7v-2q0-7 2-7Z"/><path d="M-6 0H6"/></g>
+    <g transform="translate(201 682) scale(.78)"><path d="M-12-8H6q7 0 7 7v2q0 7-7 7h-6l-7 5 1-5q-8 0-8-7v-2q0-7 2-7Z"/><circle cx="-4" cy="0" r=".8"/><circle cx="3" cy="0" r=".8"/></g>
+    <g transform="translate(334 691)"><path d="M-29-2l12-5 9 2 9-5 7 4-11 8 7 5-5 4-18-4-10-2Zm29 0 9-8 13 5 10 2v9l-12 3-12-4-8-5Z"/><path d="m-4 2 8 5m4-7 8 4m-22-9 7 1"/></g>
+    <g stroke-width=".6"><ellipse cx="522" cy="695" rx="12" ry="3.4" fill="#e9b58b"/><ellipse cx="551" cy="690" rx="12" ry="3.4" fill="#a6a781"/><ellipse cx="580" cy="698" rx="12" ry="3.4" fill="#e9be79"/></g>
+    <g class="border-balance" transform="translate(1034 682)" stroke="#b56c43"><path d="M0-16v25m-8 2H8m-21-23h26M-10-10l-7 14h14l-7-14m20 0L3 4h14l-7-14"/><circle cy="-16" r="1.7" fill="#ce8d59"/></g>
+    <g class="border-dots" fill="#dea267" stroke="none">{[[58,689],[244,702],[403,689],[483,700],[632,703],[724,689],[842,704],[942,688]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.3 : 1.8}/>)}</g>
+  </g>}
+  {theme==='future'&&<g stroke="#b46c46" stroke-width="1.2">
+    <path d="M18 649v27q0 22 29 22h11"/>
+    <path d="M58 698C90 682 125 687 155 695S214 705 247 695S298 686 331 694S383 701 416 695" stroke-dasharray="2 4"/>
+    <path d="M416 695h34v-7h14v-7h14v-7h18v7h18v7h20v7h31C602 695 615 702 645 702H690m250 0h102q20 0 20-23v-30"/>
+    <g transform="translate(34 679)"><path d="M0 10v-25q6-5 12 0v12Q6-8 0-3"/><path d="M0-13q6-4 12 0" stroke="#edc18b"/></g>
+    <g fill="#fff7e9" stroke-width="1.5"><circle cx="100" cy="688" r="3"/><circle cx="247" cy="695" r="3" stroke="#7d8a5e"/><circle cx="397" cy="697" r="3" fill="#efc28f"/></g>
+    <path d="M690 702h25m208 0h17" stroke-dasharray="2 4"/>
+    <g stroke-width="1.6">{[5,9,14,20,12,7,4,8,16,24,16,10,5,8,14,19,12,5].map((h,i)=><path class="border-sound" style={'animation-delay:'+i*.12+'s'} stroke={i%3===0 ? '#a0a17b' : i%3===1 ? '#dba76b' : '#b46c46'} d={`M${722+i*10} ${699-h/2}v${h}`}/>)}</g>
+    <g transform="translate(1032 683)"><rect x="-4" y="-19" width="8" height="17" rx="4"/><path d="M-7-10v5a7 7 0 0 0 14 0v-5M0 2v8m-6 1H6m-8-24h4m-4 4h4"/></g>
+    <g class="border-dots" stroke="#d29b5e"><path d="m67 666 2-4 2 4-2 4-2-4Zm598 22 3-4 3 4-3 4-3-4Zm382-34 2-4 2 4-2 4-2-4Z"/></g>
+  </g>}
+</g>
+<style is:global>
+  .border-dots,.border-glint{animation:edge-ink 5s ease-in-out infinite}
+  .border-conversation{transform-box:fill-box;transform-origin:center;animation:border-talk 4.8s ease-in-out infinite}
+  .border-balance{transform-box:fill-box;transform-origin:top center;animation:border-balance 6s ease-in-out infinite}
+  .border-sound{transform-box:fill-box;transform-origin:center;animation:edge-voice 2.3s ease-in-out infinite}
+  @keyframes border-talk{0%,100%{opacity:.65}50%{opacity:1}}
+  @keyframes border-balance{0%,100%{opacity:.75}50%{opacity:1}}
+</style>

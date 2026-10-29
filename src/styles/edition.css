@@ -58,6 +58,7 @@
 .video-pending{background:#f0e3ce;padding:24px;margin:26px 0;text-align:center;border:1px solid #d7c5a9}
 .video-pending img{border-radius:50%;margin:18px auto}.video-pending p{font-size:13px!important;max-width:330px;margin:auto}
 .video-frame{aspect-ratio:16/9;margin:25px 0 15px;background:#38281f}.video-frame iframe{display:block;width:100%;height:100%;border:0}
+.video-page .page-content{bottom:90px}
 .video-page blockquote{font-size:27px;margin:23px 0}.print-video-link{display:none}
 .academic-back-cover .page-content{text-align:center}.academic-back-cover .page-content h2{font-size:48px;margin-bottom:18px}
 .academic-back-cover .page-kicker{margin-bottom:25px}.academic-back-cover img{width:115px;height:115px;margin:0 auto 25px}
