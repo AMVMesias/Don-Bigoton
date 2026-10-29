@@ -9,4 +9,13 @@
 
 Se presenta como publicidad histórica de marzo de 2023, no como confirmación de precios, horarios, calificaciones o disponibilidad actuales. El archivo proviene de un CDN de Facebook; se conserva localmente para no depender de enlaces temporales.
 
-Sustituye la pequeña foto de hamburguesa de la página 6 por una pieza más grande relacionada con presencia digital. Tras añadir una foto de parrillada en la página 5, la edición conserva diez páginas y cinco imágenes editoriales, además de la miniatura del video, logos, QR e ilustraciones.
+Sustituye la pequeña foto de hamburguesa de la página 6 por una pieza más grande relacionada con presencia digital. Tras añadir la foto de parrillada en 5 y el patrón de identidad en 3, la edición conserva diez páginas y seis imágenes editoriales, además de la miniatura del video, logos, QR e ilustraciones.
+
+## Patrón de identidad
+
+`patron-identidad-don-bigoton.jpg` es el patrón público de la marca (nombre, gatos, huellas y bigotes), descargado del visor de Facebook y conservado sin modificar. Se muestra como un detalle visual junto a «Encontrar una identidad» en la página 3. El recuadro de la web muestra una zona central del patrón repetido; el original completo queda en el proyecto.
+
+- Foto: https://www.facebook.com/photo.php?fbid=313230778208011
+- Fecha mostrada por Facebook: 1 de diciembre de 2023.
+- Autor de la publicación: Don Bigotón, perfil 100085608231966.
+- No se identifica como fotografía de un empaque ni como prueba de la fecha de creación de la marca.

@@ -5,6 +5,7 @@ import InterviewVideo from './InterviewVideo.astro';
 import { authors, youtubeVideoId, youtubeVideoTitle, youtubeVideoDurationSeconds } from '../data/edition';
 import portrait from '../../material/retrato/retrato-enviado.png';
 import uberCampaign from '../../material/facebook/anuncio-uber-eats.jpg';
+import brandPattern from '../../material/facebook/patron-identidad-don-bigoton.jpg';
 import grilledDish from '../../material/instagram/07-parrillada.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
@@ -44,7 +45,7 @@ const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtub
   <h2>Se cierra una puerta.<br/><em>Se abre la cocina.</em></h2>
   <p class="page-lead">Perder el empleo durante la pandemia fue el impulso. Su experiencia en cocina fue el punto de partida.</p>
   <p>La fundadora había trabajado en un restaurante de comida rápida y siempre había disfrutado cocinar. Ante la dificultad de conseguir empleo, decidió poner ese conocimiento en práctica e investigar qué podía ofrecer.</p>
-  <div class="story-steps"><article><span>01 / EMPEZAR EN CASA</span><p>Trabajar desde su vivienda reducía la presión de pagar arriendo mientras probaban la idea.</p></article><article><span>02 / SUMAR A LA FAMILIA</span><p>Los hijos aportaron capital, publicidad y marketing; ella, experiencia y sazón.</p></article><article><span>03 / ENCONTRAR UNA IDENTIDAD</span><p>Bigotes, el gato de la familia, inspiró el nombre. Un hijo formado en marketing diseñó la marca.</p></article></div>
+  <div class="story-steps"><article><span>01 / EMPEZAR EN CASA</span><p>Trabajar desde su vivienda reducía la presión de pagar arriendo mientras probaban la idea.</p></article><article><span>02 / SUMAR A LA FAMILIA</span><p>Los hijos aportaron capital, publicidad y marketing; ella, experiencia y sazón.</p></article><article class="identity-step"><div class="identity-copy"><span>03 / ENCONTRAR UNA IDENTIDAD</span><p>Bigotes, el gato de la familia, inspiró el nombre. Un hijo formado en marketing diseñó la marca.</p></div><figure class="identity-image"><Image src={brandPattern} alt="Patrón original de Don Bigotón con su nombre, caras de gato, huellas y bigotes" width={640} format="webp" quality={85} loading="eager"/><figcaption>Identidad gráfica de Don Bigotón.</figcaption></figure></article></div>
   <blockquote>«Intentemos,<br/><em>no perdemos nada».</em></blockquote>
 </Sheet>
 <Sheet number={4} section="03 / PERFIL DE LA EMPRENDEDORA" class="portrait-page profile-feature">
