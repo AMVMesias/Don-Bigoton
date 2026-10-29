@@ -80,7 +80,7 @@
 .academic-back-cover .page-content{text-align:center}.academic-back-cover .page-content h2{font-size:48px;margin-bottom:18px}
 .academic-back-cover .page-kicker{margin-bottom:25px}.academic-back-cover img{width:115px;height:115px;margin:0 auto 25px}
 .academic-back-cover .page-content>p{font-size:14px;margin-bottom:22px}
-.edition-credits{text-align:left;border-top:1px solid #38281f44;padding-top:15px;margin-bottom:20px}
+.edition-credits{text-align:center;border-top:1px solid #38281f44;padding-top:15px;margin-bottom:20px}
 .edition-credits p{font-size:11px!important;line-height:1.65!important}.edition-credits p+p{margin-top:11px!important}
 .academic-back-cover .printed-link{font-size:9px;margin:8px auto;padding:7px 0}
 @media print{.web-video{display:none}.print-video-link{display:block}.cover-bottom button{visibility:hidden}.academic-back-cover button{display:none}}
