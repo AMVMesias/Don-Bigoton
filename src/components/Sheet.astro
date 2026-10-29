@@ -5,7 +5,7 @@ import SpreadConnection from './SpreadConnection.astro';
 import CoverBorder from './CoverBorder.astro';
 interface Props { number: number; section: string; class?: string; cover?: boolean; }
 const { number, section, class: className = '', cover = false } = Astro.props;
-const hasCat=[1,3,4,5,7,9,10].includes(number);
+const hasCat=number!==2;
 ---
 <article class={`sheet ${className} ${hasCat&&number%2 ? 'has-header-cat' : ''} ${number%2===0 ? 'has-footer-art' : ''}`} data-density={cover ? 'hard' : 'soft'} aria-label={`Página ${number}: ${section}`}>
   <div class="page-canvas">
