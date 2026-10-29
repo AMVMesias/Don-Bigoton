@@ -14,15 +14,18 @@ const ink=`illustrated-ink-${number}`;
     <g class="border-dots" fill="#df9e62" stroke="none">{[[20,678],[218,704],[226,706],[361,704],[578,698],[607,706],[829,706],[1004,700]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.1 : 1.7}/>)}</g>
   </g>}
   {theme==='relationships'&&<g stroke={`url(#${ink})`} stroke-width="1.2">
-    <path d="M18 659v17q0 20 28 20C83 696 101 688 132 694S182 699 214 695S267 690 301 694S348 698 380 694S428 691 466 696S515 693 541 695S579 703 610 697S660 692 699 695S754 702 791 696S841 691 879 696S928 699 961 695S1011 697 1042 694Q1062 693 1062 677V656"/>
+    <path class="relationship-baseline" d="M18 659v17q0 25 28 25C112 701 146 703 214 702S310 700 380 702S474 701 541 702S638 703 699 702S818 701 879 702S982 703 1042 701Q1062 700 1062 677V656"/>
     <path d="M18 636v15m1044-15v15" stroke-dasharray="1 6"/>
     <g class="border-conversation" transform="translate(113 684)"><path d="M-13-9h18q8 0 8 7v3q0 7-8 7h-7l-7 5 1-5q-7 0-7-7v-3q0-7 2-7Z"/>{[-6,0,6].map(x=><circle cx={x} cy="0" r=".8" fill="#ecc58c"/>)}</g>
-    <g transform="translate(159 688) scale(.82)"><path d="M-12-8H6q7 0 7 7v2q0 7-7 7h-6l-7 5 1-5q-8 0-8-7v-2q0-7 2-7Z"/><path d="M-6 0H6"/></g>
+    <g transform="translate(159 684) scale(.82)"><path d="M-12-8H6q7 0 7 7v2q0 7-7 7h-6l-7 5 1-5q-8 0-8-7v-2q0-7 2-7Z"/><path d="M-6 0H6"/></g>
     <g transform="translate(201 682) scale(.78)"><path d="M-12-8H6q7 0 7 7v2q0 7-7 7h-6l-7 5 1-5q-8 0-8-7v-2q0-7 2-7Z"/><circle cx="-4" cy="0" r=".8"/><circle cx="3" cy="0" r=".8"/></g>
-    <g transform="translate(334 691)"><path d="M-29-2l12-5 9 2 9-5 7 4-11 8 7 5-5 4-18-4-10-2Zm29 0 9-8 13 5 10 2v9l-12 3-12-4-8-5Z"/><path d="m-4 2 8 5m4-7 8 4m-22-9 7 1"/></g>
+    <g class="relationship-handshake" transform="translate(313 665) scale(1.6)" stroke-width=".9">
+      <path d="m14 14 2.5 2.5a2.12 2.12 0 0 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0L11 10a2.12 2.12 0 0 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3q.5.4 1 .4H21"/>
+      <path d="m11 17 2 2a2.12 2.12 0 0 0 3-3M3 3 2 14l6.5 6.5a2.12 2.12 0 0 0 3-3M3 4h8m10-1 1 11h-2"/>
+    </g>
     <g stroke-width=".6"><ellipse cx="522" cy="695" rx="12" ry="3.4" fill="#e9b58b"/><ellipse cx="551" cy="690" rx="12" ry="3.4" fill="#a6a781"/><ellipse cx="580" cy="698" rx="12" ry="3.4" fill="#e9be79"/></g>
     <g class="border-balance" transform="translate(1034 682)" stroke="#b56c43"><path d="M0-16v25m-8 2H8m-21-23h26M-10-10l-7 14h14l-7-14m20 0L3 4h14l-7-14"/><circle cy="-16" r="1.7" fill="#ce8d59"/></g>
-    <g class="border-dots" fill="#dea267" stroke="none">{[[58,689],[244,702],[403,689],[483,700],[632,703],[724,689],[842,704],[942,688]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.3 : 1.8}/>)}</g>
+    <g class="border-dots" fill="#dea267" stroke="none">{[[58,689],[244,693],[403,689],[483,692],[632,692],[724,689],[842,692],[942,688]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.3 : 1.8}/>)}</g>
   </g>}
   {theme==='future'&&<g stroke="#b46c46" stroke-width="1.2">
     <path d="M18 649v27q0 22 29 22h11"/>
