@@ -70,4 +70,4 @@ El gato superior de la portada permanece visible durante todo el ciclo: se susti
 
 La contraportada conserva el naranja, con titular ciruela y créditos ampliados a 16 px sobre un bloque ciruela oscuro con texto marfil. Los enlaces aumentan a 13 px. Todo el cierre mantiene la alineación centrada y comparte estilos con el PDF.
 
-La frase decorativa de portada «BIEN SABROSÓN.» se presenta completa en una línea bajo el plato dentro del fondo naranja. La foto se ajusta ligeramente para dejar libre la frase, sin cambiar el resto de la portada.
+La portada aplica la propuesta visual aprobada: un sello circular marfil con doble borde cacao, estrella y «BIEN / SABROSÓN» en la esquina superior izquierda del panel naranja. La foto original se amplía y desplaza a la derecha sin tapar el sello. Se elimina la frase grande bajo el plato. El sello se construye con texto HTML y CSS, compartido por web y PDF.
