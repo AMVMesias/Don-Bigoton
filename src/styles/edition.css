@@ -83,10 +83,14 @@
 .video-frame{aspect-ratio:16/9;margin:25px 0 15px;background:#38281f}.video-frame iframe{display:block;width:100%;height:100%;border:0}
 .video-page .page-content{bottom:90px}
 .video-page blockquote{font-size:27px;margin:23px 0}.print-video-link{display:none}
-.academic-back-cover .page-content{text-align:center}.academic-back-cover .page-content h2{font-size:48px;margin-bottom:18px}
-.academic-back-cover .page-kicker{margin-bottom:25px}.academic-back-cover img{width:115px;height:115px;margin:0 auto 25px}
-.academic-back-cover .page-content>p{font-size:14px;margin-bottom:22px}
-.edition-credits{text-align:center;border-top:1px solid #38281f44;padding-top:15px;margin-bottom:20px}
-.edition-credits p{font-size:11px!important;line-height:1.65!important}.edition-credits p+p{margin-top:11px!important}
-.academic-back-cover .printed-link{font-size:9px;margin:8px auto;padding:7px 0}
+/* Contraportada: cierre tipográfico y créditos con contraste propio. */
+.academic-back-cover .page-content{text-align:center;color:#431c35}
+.academic-back-cover .page-content h2{font-size:54px;margin-bottom:12px;line-height:1.02}
+.academic-back-cover .page-kicker{margin-bottom:15px;font-size:9px}
+.academic-back-cover img{width:100px;height:100px;margin:0 auto 16px}
+.academic-back-cover .page-layout>p{font-size:18px;margin-bottom:18px}
+.edition-credits{text-align:center;background:#431c35;color:#fff7e9;padding:17px 20px;margin-bottom:14px;border-radius:3px}
+.academic-back-cover .edition-credits p{font-size:16px!important;line-height:1.45!important;margin-bottom:0;font-weight:500}
+.academic-back-cover .edition-credits p+p{margin-top:12px!important}
+.academic-back-cover .printed-link{font-size:13px;margin:5px auto;padding:6px 0;color:#431c35;border-color:#431c3570;text-align:center}
 @media print{.web-video{display:none}.print-video-link{display:block}.cover-bottom button{visibility:hidden}.academic-back-cover button{display:none}}
