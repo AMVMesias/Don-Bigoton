@@ -63,7 +63,7 @@ Las siguientes publicaciones se generan al actualizar la rama conectada en Verce
 - Diseño responsive: `src/styles/global.css`.
 - Controles y animaciones: `src/scripts/magazine.ts`.
 
-No se añadió un nombre de fundadora, año de inicio, local abierto ni precios actuales que no hayan sido confirmados. Para una entrega institucional, agregar los nombres de integrantes y los créditos académicos correctos cuando se disponga de ellos.
+No se añadió un nombre de fundadora, año de inicio, local abierto ni precios actuales que no hayan sido confirmados. Los cinco integrantes y su retrato grupal ya están incorporados; las reflexiones de `src/data/edition.ts` se redactaron a petición del equipo y pueden ajustarse antes de entregar, junto con los créditos académicos adicionales que correspondan.
 
 ## Material preparado
 

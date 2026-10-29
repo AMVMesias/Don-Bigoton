@@ -7,8 +7,23 @@
 .academic-page .page-content h3{font-size:25px;line-height:1.16;margin-bottom:10px}
 .academic-page .page-content h4{font-size:13px;line-height:1.4;font-weight:700;margin:0 0 6px}
 .academic-page .page-source{font-size:6px;margin-top:18px}
-.author-learnings{border-top:1px solid var(--line);padding-top:19px;margin-top:24px}
-.author-learnings article{margin-top:14px}.author-learnings article p{font-size:13px!important}
+.editorial-page .page-kicker{margin-bottom:16px}
+.editorial-page .page-content h2{font-size:46px;line-height:1.04;margin-bottom:25px}
+.authors-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:23px;align-items:start}
+.authors-portrait{margin:0}.authors-portrait img{width:100%;height:auto;display:block;border:1px solid #d2c7b7}
+.authors-portrait figcaption{font-size:6.5px;font-weight:600;letter-spacing:.13em;margin-top:9px}
+.authors-editorial{margin-top:23px;padding-top:16px;border-top:1px solid var(--line)}
+.authors-editorial h3{font-size:22px!important;margin-bottom:13px!important}
+.authors-editorial p{font-size:13px!important;line-height:1.7!important}
+.authors-editorial p+p{margin-top:13px!important}
+.author-list-label{display:block;font-size:6.5px;letter-spacing:.12em;font-weight:600;color:var(--rust);margin-bottom:13px}
+.author-reflection{position:relative;padding:0 0 9px 22px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.author-reflection:last-child{margin-bottom:0}
+.author-reflection .author-number{position:absolute;left:0;top:4px;font-size:6.5px;color:var(--rust);letter-spacing:.04em}
+.author-reflection h3{font-size:19px!important;line-height:1.18!important;letter-spacing:-.035em!important;margin-bottom:7px!important}
+.author-reflection p{font-size:12px!important;line-height:1.5!important}
+.reflection-pending p{color:#8c7c68;font-style:italic}
+.reflection-space{display:block;height:15px;margin-top:6px;border-bottom:1px dotted #d2c7b7}
 .pending-note{background:#f0e3ce;padding:15px 18px;margin-top:14px;border-left:2px solid var(--rust)}
 .pending-note>span,.case-reading>span,.video-pending>span{font-size:7px;font-weight:700;letter-spacing:.1em;display:block;margin-bottom:9px}
 .pending-note p{font-size:12px!important;line-height:1.6!important}

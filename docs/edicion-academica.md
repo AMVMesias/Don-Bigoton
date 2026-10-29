@@ -15,13 +15,15 @@ La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la co
 
 ## Material pendiente
 
-- Nombres y aprendizajes personales de los integrantes: completar `authors` en `src/data/edition.ts`. La introducción editorial actual no sustituye el aprendizaje de cada integrante exigido en la consigna. El espacio se presenta como «Autores y aprendizajes».
+- Revisar las reflexiones personales en `authors`, en `src/data/edition.ts`. Se redactaron cinco propuestas, a petición del equipo, basadas en recursos, clientes, organización, aprendizaje y riesgos. No son citas de textos enviados por cada integrante; el equipo puede adaptarlas antes de entregar.
 - Ajustar la duración del video: se recibió `https://youtu.be/pKUBEFdzzbw` el 28 de octubre de 2026 y ya está integrado. YouTube publica una duración de 10:19 (619 segundos), 19 segundos por encima del máximo de diez minutos. El registro original de la transcripción dura 14:43. Si cambia el enlace tras el recorte, actualizar ID, duración, miniatura y QR.
 - Confirmar la terminología de clasificación usada en clase. El texto identifica «por necesidad» como una interpretación del caso.
 
 La web y el PDF son un borrador de revisión mientras faltan esos materiales. No se declara la consigna cumplida en su totalidad.
 
-La página 9 contiene un reproductor de YouTube con acceso a pantalla completa y un enlace directo. En impresión, el reproductor se sustituye por la miniatura auténtica enlazada y un código QR del video; el PDF no reproduce video. Los nombres y aprendizajes siguen pendientes y no se inventaron.
+La página 9 contiene un reproductor de YouTube con acceso a pantalla completa y un enlace directo. En impresión, el reproductor se sustituye por la miniatura auténtica enlazada y un código QR del video; el PDF no reproduce video. Las cinco reflexiones individuales se redactaron a solicitud del equipo y quedan disponibles para su revisión.
+
+La página 2 presenta el retrato grupal completo a la izquierda, con la editorial debajo, y los cinco nombres con sus reflexiones a la derecha. El original aportado por el equipo se conserva en `material/equipo/retrato-autores.png`; Astro genera la imagen WebP para la revista. Se revisó la composición en escritorio, móvil y PDF.
 
 ## Material de trabajo y contenido público
 
@@ -41,7 +43,7 @@ Las páginas conservan las decisiones, experiencias y aprendizajes del emprendim
 
 Alternativa manual: abrir `/imprimir/` y pulsar «Imprimir / Guardar PDF», habilitando fondos y márgenes cero con el tamaño definido por el sitio.
 
-Antes de entregar, completar autores y video, regenerar el PDF y comprobar las diez páginas editoriales distribuidas en seis láminas. La tarea requiere tanto el enlace web como el archivo PDF.
+Antes de entregar, revisar las reflexiones y ajustar la duración del video, regenerar el PDF y comprobar las diez páginas editoriales distribuidas en seis láminas. La tarea requiere tanto el enlace web como el archivo PDF.
 
 ## Descarga optimizada sin cambios visuales
 

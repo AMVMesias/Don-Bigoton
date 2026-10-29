@@ -7,6 +7,7 @@ import portrait from '../../material/retrato/retrato-enviado.png';
 import burger from '../../material/instagram/08-hamburguesa.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
+import teamPortrait from '../../material/equipo/retrato-autores.png';
 const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? youtubeVideoId : null;
 const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtubeVideoDurationSeconds%60).padStart(2,'0');
 ---
@@ -19,12 +20,23 @@ const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtub
   <div class="cover-bottom"><span>UNA HISTORIA CON SABOR PROPIO</span><button data-next>ABRIR LA REVISTA <span>↗</span></button></div>
 </Sheet>
 <Sheet number={2} section="01 / EDITORIAL DE LOS AUTORES" class="academic-page editorial-page">
-  <span class="page-kicker">UNA HISTORIA PARA PENSAR EL EMPRENDIMIENTO</span>
-  <h2>Detrás del sabor,<br/><em>una decisión.</em></h2>
-  <p class="page-lead">Don Bigotón invita a mirar el emprendimiento desde la vida cotidiana: una necesidad, una experiencia y una familia dispuesta a empezar.</p>
-  <p>En cada pedido hay decisiones que no se ven: con qué recursos empezar, cómo elegir proveedores, cómo organizar el trabajo y cómo conseguir clientes. La historia de su fundadora permite conocer esa parte del negocio.</p>
-  <p>La experiencia familiar muestra el valor de investigar, capacitarse y construir relaciones. El recorrido va de la necesidad inicial a una decisión de futuro: cómo crecer sin perder la cercanía ni asumir riesgos sin analizarlos.</p>
-  <div class="author-learnings"><h3>Autores y aprendizajes</h3>{authors.length ? authors.map(author=><article><h4>{author.name}</h4><p>{author.learning}</p></article>) : <div class="pending-note"><span>PENDIENTE DE COMPLETAR POR EL EQUIPO</span><p>Espacio reservado para los nombres y el aprendizaje de cada integrante.</p></div>}</div>
+  <span class="page-kicker">EL EQUIPO DETRÁS DE ESTA REVISTA</span>
+  <h2>Una historia.<br/><em>Nuestras miradas.</em></h2>
+  <div class="authors-layout">
+    <div class="authors-introduction">
+      <figure class="authors-portrait"><Image src={teamPortrait} alt="Retrato grupal del equipo de autores de la revista" width={720} format="webp" quality={85} loading="eager"/><figcaption>NUESTRO EQUIPO</figcaption></figure>
+      <div class="authors-editorial"><h3>Nuestra editorial</h3><p>Don Bigotón nos acerca a las decisiones cotidianas de un emprendimiento: empezar con lo disponible, aprender y construir confianza.</p><p>En estas páginas, su fundadora comparte el origen del negocio, la organización familiar y sus planes para crecer.</p></div>
+    </div>
+    <section class="author-reflections" aria-label="Reflexiones de los integrantes">
+      <span class="author-list-label">REFLEXIONES DEL EQUIPO</span>
+      {authors.map((author,index)=><article class={'author-reflection'+(!author.learning ? ' reflection-pending' : '')}>
+        <span class="author-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span>
+        <h3>{author.name}</h3>
+        <p>{author.learning || 'Reflexión pendiente.'}</p>
+        {!author.learning&&<span class="reflection-space" aria-hidden="true"></span>}
+      </article>)}
+    </section>
+  </div>
 </Sheet>
 <Sheet number={3} section="02 / HISTORIA Y MOTIVACIÓN" class="academic-page story-page">
   <span class="page-kicker">DE LA NECESIDAD A LA DECISIÓN</span>
@@ -83,7 +95,7 @@ const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtub
   <Image src={logo} alt="Logo original de Don Bigotón" width={150} height={150} format="webp" loading="eager"/>
   <h2>Lo que empieza<br/>en casa<br/><em>puede llegar lejos.</em></h2>
   <p>Una historia con sazón propia.</p>
-  <div class="edition-credits"><p>Una revista sobre emprendimiento, gestión y aprendizaje a partir de la historia de Don Bigotón.</p><p>Fotografías de productos y logo: Don Bigotón. Retrato: archivo del equipo.</p><p>{authors.length ? `Autores: ${authors.map(author=>author.name).join(', ')}.` : 'Equipo editorial: nombres por confirmar.'}</p></div>
+  <div class="edition-credits"><p>Una revista sobre emprendimiento, gestión y aprendizaje a partir de la historia de Don Bigotón.</p><p>Fotografías de productos y logo: Don Bigotón. Retratos: archivo del equipo.</p><p>{authors.length ? `Autores: ${authors.map(author=>author.name).join(', ')}.` : 'Equipo editorial: nombres por confirmar.'}</p></div>
   <a class="printed-link" href="https://www.instagram.com/donbigoton_uio/" target="_blank" rel="noopener noreferrer">@donbigoton_uio ↗</a>
   <button class="printed-link" data-goto="0">Volver a la portada ↗</button>
 </Sheet>
