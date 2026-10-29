@@ -7,7 +7,7 @@ La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la co
 3. Historia y motivación.
 4. Perfil de la emprendedora.
 5. Recursos y organización: aportes familiares, costos iniciales, proveedores, operación, tipo e impacto.
-6. Estrategias y clientes: recomendaciones, WhatsApp, plataformas, atención y diferenciación. Los productos se describen como contexto con una sola foto.
+6. Estrategias y clientes: recomendaciones, WhatsApp, plataformas, atención y diferenciación. Un anuncio de Uber Eats publicado por Don Bigotón en Facebook ocupa una columna amplia junto a las estrategias; sustituye la foto pequeña de hamburguesa. La leyenda indica marzo de 2023. La descripción de productos se mantiene como contexto al pie del contenido.
 7. Beneficios y obstáculos.
 8. Evolución de capacidades, características y visión de futuro. Los avances descritos son cualitativos; no se inventan resultados económicos.
 9. Entrevista en YouTube.

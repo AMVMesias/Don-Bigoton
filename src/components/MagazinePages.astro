@@ -4,7 +4,7 @@ import Sheet from './Sheet.astro';
 import InterviewVideo from './InterviewVideo.astro';
 import { authors, youtubeVideoId, youtubeVideoTitle, youtubeVideoDurationSeconds } from '../data/edition';
 import portrait from '../../material/retrato/retrato-enviado.png';
-import burger from '../../material/instagram/08-hamburguesa.jpg';
+import uberCampaign from '../../material/facebook/anuncio-uber-eats.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
 import teamPortrait from '../../material/equipo/retrato-autores.png';
@@ -67,9 +67,19 @@ const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtub
 <Sheet number={6} section="05 / ESTRATEGIAS Y CLIENTES" class="academic-page clients-page dark-page">
   <span class="page-kicker">ATRAER, ATENDER Y LOGRAR QUE VUELVAN</span>
   <h2>La confianza<br/><em>también se gestiona.</em></h2>
-  <p class="page-lead">Su estrategia se reconoce en acciones cotidianas: hacerse visible, atender con cercanía y cuidar una diferencia propia.</p>
-  <div class="client-strategies"><article><h3>Recomendación local</h3><p>Familiares y vecinos recomiendan la comida. El grupo de emprendimientos de WhatsApp ayuda a darla a conocer.</p></article><article><h3>Presencia digital</h3><p>Las plataformas permiten recibir pedidos. Con asesoría y apoyo de su hijo, aprendió a cargar fotos y promociones.</p></article><article><h3>Atención personalizada</h3><p>Recuerda las preferencias de cada cliente, como enviar la salsa aparte. Ese cuidado fortalece la relación.</p></article><article><h3>Diferenciación</h3><p>Los cursos y la práctica mejoraron las recetas. La sazón y la atención son los atributos que destaca su fundadora.</p></article></div>
-  <div class="offer-context"><Image src={burger} alt="Hamburguesa y papas del archivo de Don Bigotón" width={180} height={180} format="webp" loading="eager"/><div><span>SU PROPUESTA GASTRONÓMICA</span><p>Hamburguesas, alitas, hot dogs y parrilladas forman parte de su propuesta. Su fundadora destaca la hamburguesa como el producto más vendido.</p></div></div>
+  <p class="page-lead">Para vender, combina recomendaciones, presencia digital y atención cercana.</p>
+  <div class="clients-layout">
+    <figure class="digital-campaign">
+      <Image src={uberCampaign} alt="Publicidad de Don Bigotón en Facebook que anuncia pedidos por Uber Eats, con un celular mostrando su oferta" width={640} format="webp" quality={86} loading="eager"/>
+      <figcaption>PUBLICIDAD DE DON BIGOTÓN<br/>FACEBOOK · MARZO DE 2023</figcaption>
+    </figure>
+    <div class="client-strategies">
+      <article><h3>Recomendación local</h3><p>Familiares y vecinos recomiendan su comida. Un grupo de WhatsApp ayuda a darla a conocer.</p></article>
+      <article><h3>Presencia digital</h3><p>Con apoyo de su hijo y asesoría, aprendió a cargar fotos y promociones en las plataformas de pedidos.</p></article>
+      <article><h3>Cercanía y sazón</h3><p>Recuerda las preferencias del cliente, como enviar la salsa aparte. Los cursos y la práctica mejoraron sus recetas.</p></article>
+    </div>
+  </div>
+  <p class="client-offer"><strong>SU PROPUESTA</strong> Hamburguesas, alitas, hot dogs y parrilladas. Su fundadora destaca la hamburguesa como el producto más vendido.</p>
 </Sheet>
 <Sheet number={7} section="06 / BENEFICIOS Y OBSTÁCULOS" class="academic-page balance-page">
   <span class="page-kicker">LO QUE AYUDA. LO QUE DESAFÍA.</span>

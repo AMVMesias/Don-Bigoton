@@ -42,12 +42,20 @@
 .resource-grid article>span{display:block;font-size:7px;letter-spacing:.07em;margin-bottom:9px;font-weight:700}
 .resource-grid h3{font-size:24px!important}.resource-grid p{font-size:14px!important;line-height:1.6!important}
 .resources-page .case-reading{margin-top:25px}
-.client-strategies{display:grid;grid-template-columns:1fr 1fr;gap:23px 25px;margin:24px 0}
-.client-strategies article{border-top:1px solid #fff7e944;padding-top:13px}
-.client-strategies h3{font-size:24px!important;color:#f8ad79}.client-strategies p{font-size:14px!important;line-height:1.6!important}
-.offer-context{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:18px;border-top:1px solid #fff7e944;padding-top:20px;margin-top:25px}
-.offer-context img{width:120px;height:110px;object-fit:cover}.offer-context span{display:block;font-size:7px;letter-spacing:.09em;margin-bottom:9px;color:#f8ad79}
-.offer-context p{font-size:12px!important;line-height:1.65!important}.clients-page .page-source{color:#e6c8b2;font-size:5.5px}
+.clients-page .page-kicker{margin-bottom:14px}
+.sheet.clients-page .page-content{bottom:128px}
+.clients-page .page-content h2{font-size:44px;margin-bottom:18px}
+.clients-page .page-content .page-lead{font-size:16px;line-height:1.5;margin-bottom:18px}
+.clients-layout{display:grid;grid-template-columns:202px minmax(0,1fr);gap:24px;align-items:start}
+.digital-campaign{margin:0}
+.digital-campaign img{display:block;width:100%;height:auto;border:1px solid #fff7e933}
+.digital-campaign figcaption{font-size:6.5px;line-height:1.6;letter-spacing:.08em;color:#e6c8b2;margin-top:8px}
+.client-strategies{display:grid;gap:17px}
+.client-strategies article{border-top:1px solid #fff7e944;padding-top:10px}
+.client-strategies h3{font-size:21px!important;line-height:1.12!important;margin-bottom:9px!important;color:#f8ad79}
+.client-strategies p{font-size:13px!important;line-height:1.55!important}
+.clients-page .page-content .client-offer{font-size:11.5px;line-height:1.6;margin-top:15px;border-top:1px solid #fff7e933;padding-top:11px;color:#eddbcc}
+.client-offer strong{font-size:6.5px;letter-spacing:.08em;color:#f8ad79;margin-right:6px}
 .balance-columns{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:25px}
 .balance-columns>section+section{border-left:1px solid var(--line);padding-left:23px}
 .balance-columns h3{color:var(--rust);font-size:25px!important}.balance-columns article{margin-top:20px}
