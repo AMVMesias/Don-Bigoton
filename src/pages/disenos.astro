@@ -13,7 +13,7 @@ import {spreadDesigns} from '../data/editorial-designs';
 <!doctype html>
 <html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Diseños de cada doble página — Don Bigotón</title></head>
 <body class="design-board">
-  <header class="design-header"><span>DON BIGOTÓN / CUADERNO DE DISEÑO</span><h1>Cada página,<br/><em>su propio trazo.</em></h1><p>Diez motivos distintos y cuatro composiciones que continúan de una hoja a la siguiente.</p><nav><a href="/">Abrir la revista ↗</a><button id="board-motion" aria-pressed="false">Pausar animaciones</button><a href="/revista-don-bigoton.pdf" download>Descargar PDF ↓</a></nav></header>
+  <header class="design-header"><span>DON BIGOTÓN / CUADERNO DE DISEÑO</span><h1>Cada página,<br/><em>su propio trazo.</em></h1><p>Diez motivos distintos y cuatro composiciones que continúan de una hoja a la siguiente.</p><nav><a href="/">Abrir la revista ↗</a><button id="board-motion" aria-pressed="false">Pausar animaciones</button><a href="/revista-don-bigoton.pdf" download="Revista Digital Don Bigoton Emprendimiento.pdf">Descargar PDF ↓</a></nav></header>
   <nav class="design-index" aria-label="Explorar las composiciones">{spreadDesigns.map(design=><a href={'#design-'+design.first+'-'+(design.first+1)}><span>{String(design.first).padStart(2,'0')} — {String(design.first+1).padStart(2,'0')}</span>{design.title}</a>)}</nav>
   <main class="design-pages"><MagazinePages/></main>
   <p class="design-note">Estas son las páginas de la revista. En pantalla, los detalles se mueven; en el PDF permanecen como parte de la composición.</p>
