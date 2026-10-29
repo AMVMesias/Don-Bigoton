@@ -2,6 +2,7 @@
 import MarginCat from './MarginCat.astro';
 import MarginOrnaments from './MarginOrnaments.astro';
 import SpreadConnection from './SpreadConnection.astro';
+import CoverBorder from './CoverBorder.astro';
 interface Props { number: number; section: string; class?: string; cover?: boolean; }
 const { number, section, class: className = '', cover = false } = Astro.props;
 const hasCat=[1,4,10].includes(number);
@@ -12,6 +13,7 @@ const hasCat=[1,4,10].includes(number);
     {hasCat&&<MarginCat variant={number % 2 ? 'header' : 'footer'} number={number}/>}
     <MarginOrnaments number={number}/>
     <SpreadConnection number={number}/>
+    {number===1&&<CoverBorder/>}
     <div class="page-content"><div class="page-layout"><slot /></div></div>
     <footer class="page-footer"><span>LA SAZÓN DE VOLVER A EMPEZAR</span><span>{String(number).padStart(2,'0')}</span></footer>
   </div>
