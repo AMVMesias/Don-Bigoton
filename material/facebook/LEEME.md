@@ -9,4 +9,4 @@
 
 Se presenta como publicidad histórica de marzo de 2023, no como confirmación de precios, horarios, calificaciones o disponibilidad actuales. El archivo proviene de un CDN de Facebook; se conserva localmente para no depender de enlaces temporales.
 
-Sustituye la pequeña foto de hamburguesa de la página 6 por una pieza más grande relacionada con presencia digital. La edición conserva diez páginas y cuatro imágenes editoriales, además de la miniatura del video, logos, QR e ilustraciones.
+Sustituye la pequeña foto de hamburguesa de la página 6 por una pieza más grande relacionada con presencia digital. Tras añadir una foto de parrillada en la página 5, la edición conserva diez páginas y cinco imágenes editoriales, además de la miniatura del video, logos, QR e ilustraciones.

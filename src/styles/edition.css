@@ -37,11 +37,20 @@
 .profile-feature .portrait-caption p+p{margin-top:13px}
 .profile-feature .portrait-caption .portrait-source{font-size:6px;line-height:1.6;letter-spacing:.06em;margin:17px 0 0;color:#eadac6}
 .case-reading{background:#f0e3ce;padding:17px 19px;margin:0 0 21px}.case-reading p{font-size:13px!important}
-.resource-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 25px;margin:25px 0}
+.resources-page .page-kicker{margin-bottom:14px}
+.resources-page .page-content h2{font-size:44px;margin-bottom:18px}
+.resources-page .page-content .page-lead{font-size:16px;line-height:1.5;margin-bottom:18px}
+.resource-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 25px;margin:20px 0}
 .resource-grid article{border-top:1px solid var(--line);padding-top:12px}
 .resource-grid article>span{display:block;font-size:7px;letter-spacing:.07em;margin-bottom:9px;font-weight:700}
 .resource-grid h3{font-size:24px!important}.resource-grid p{font-size:14px!important;line-height:1.6!important}
-.resources-page .case-reading{margin-top:25px}
+.resource-summary{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:16px;align-items:start;margin-top:22px}
+.resource-summary .case-reading{margin:0;padding:14px 15px}
+.resource-summary .case-reading>span{font-size:6.5px;line-height:1.5}
+.resource-summary .case-reading p{font-size:12.5px!important;line-height:1.55!important}
+.resource-photo{margin:0}
+.resource-photo img{width:132px;height:132px;display:block;border:1px solid #d2c7b7}
+.resource-photo figcaption{font-size:7px;line-height:1.5;margin-top:7px;color:#756657}
 .clients-page .page-kicker{margin-bottom:14px}
 .sheet.clients-page .page-content{bottom:128px}
 .clients-page .page-content h2{font-size:44px;margin-bottom:18px}

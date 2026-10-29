@@ -5,6 +5,7 @@ import InterviewVideo from './InterviewVideo.astro';
 import { authors, youtubeVideoId, youtubeVideoTitle, youtubeVideoDurationSeconds } from '../data/edition';
 import portrait from '../../material/retrato/retrato-enviado.png';
 import uberCampaign from '../../material/facebook/anuncio-uber-eats.jpg';
+import grilledDish from '../../material/instagram/07-parrillada.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
 import teamPortrait from '../../material/equipo/retrato-autores.png';
@@ -60,9 +61,12 @@ const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtub
 <Sheet number={5} section="04 / RECURSOS Y ORGANIZACIÓN" class="academic-page resources-page">
   <span class="page-kicker">DECISIONES QUE HACEN POSIBLE EL NEGOCIO</span>
   <h2>Empezar con lo propio.<br/><em>Elegir con criterio.</em></h2>
-  <p class="page-lead">Don Bigotón prepara y vende comida rápida desde casa. Su organización combina recursos familiares, experiencia y decisiones de compra.</p>
-  <div class="resource-grid"><article><span>01 / CAPITAL Y TRABAJO</span><h3>Repartir los aportes</h3><p>Un hijo aportó capital; otros apoyaron en publicidad y marketing. La fundadora sumó experiencia y se involucró en la investigación inicial.</p></article><article><span>02 / ESPACIO Y COSTOS</span><h3>Comenzar en casa</h3><p>Evitar el arriendo reducía la presión de un gasto fijo mientras comprobaban si la propuesta funcionaba.</p></article><article><span>03 / ABASTECIMIENTO</span><h3>Comparar antes de comprar</h3><p>Buscaban un equilibrio entre precio y calidad. En las carnes revisaban tamaño, aseo y refrigeración.</p></article><article><span>04 / OPERACIÓN</span><h3>Coordinar los pedidos</h3><p>Los clientes piden por las plataformas, la cocina prepara y los repartidores retiran. Ella valora poder organizar sus horarios.</p></article></div>
-  <div class="case-reading"><span>TIPO DE EMPRENDIMIENTO E IMPACTO</span><p>Un emprendimiento gastronómico de gestión familiar, surgido por necesidad tras la pérdida del empleo. Moviliza aportes familiares y atiende a vecinos y usuarios de las plataformas.</p></div>
+  <p class="page-lead">Desde casa, combina experiencia, apoyo familiar y decisiones de compra para preparar y vender comida rápida.</p>
+  <div class="resource-grid"><article><span>01 / CAPITAL Y TRABAJO</span><h3>Repartir los aportes</h3><p>Un hijo aportó capital; otros, publicidad y marketing. La fundadora sumó experiencia e investigación inicial.</p></article><article><span>02 / ESPACIO Y COSTOS</span><h3>Comenzar en casa</h3><p>Trabajar en casa evitó un arriendo mientras comprobaban si la propuesta funcionaba.</p></article><article><span>03 / ABASTECIMIENTO</span><h3>Elegir los insumos</h3><p>Comparaban precio y calidad. En las carnes revisaban tamaño, aseo y refrigeración.</p></article><article><span>04 / OPERACIÓN</span><h3>Coordinar los pedidos</h3><p>Los pedidos llegan por plataformas; la cocina prepara y los repartidores retiran. Ella organiza sus horarios.</p></article></div>
+  <div class="resource-summary">
+    <div class="case-reading"><span>TIPO DE EMPRENDIMIENTO E IMPACTO</span><p>Un emprendimiento gastronómico de gestión familiar, surgido por necesidad tras la pérdida del empleo. Moviliza aportes familiares y atiende a vecinos y usuarios de las plataformas.</p></div>
+    <figure class="resource-photo"><Image src={grilledDish} alt="Parrillada de Don Bigotón con carnes, papas y ensalada" width={480} format="webp" loading="eager"/><figcaption>Parrillada de Don Bigotón.</figcaption></figure>
+  </div>
 </Sheet>
 <Sheet number={6} section="05 / ESTRATEGIAS Y CLIENTES" class="academic-page clients-page dark-page">
   <span class="page-kicker">ATRAER, ATENDER Y LOGRAR QUE VUELVAN</span>
