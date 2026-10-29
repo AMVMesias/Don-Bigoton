@@ -5,12 +5,12 @@ const ink=`illustrated-ink-${number}`;
 ---
 <g class={'illustrated-border illustrated-'+theme} stroke-linecap="round" stroke-linejoin="round">
   <defs><linearGradient id={ink} x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#edc381"/><stop offset=".48" stop-color="#eac18b"/><stop offset=".57" stop-color="#bd744b"/><stop offset="1" stop-color="#af5e3d"/></linearGradient></defs>
-  {theme==='resources'&&<g stroke={`url(#${ink})`} stroke-width="1.2">
-    <path d="M18 654C5 667 15 680 32 693S78 701 109 696S154 698 181 700S222 695 253 699S299 702 330 698S375 696 405 700S451 704 481 700S518 704 529 697C541 682 555 691 550 700C545 710 528 702 533 695C540 686 553 699 566 702C596 707 625 696 654 700S695 703 728 700S774 698 802 702S853 699 885 702S931 699 965 701S1021 705 1048 697Q1070 686 1064 662"/>
-    <g transform="translate(42 696) rotate(-32)"><path d="M-1.5 0v-21Q-12-44 0-44Q12-44 1.5-21V0Q0 3-1.5 0Z"/><path d="M0-22Q-7-44 0-44Q7-44 0-22Zm0 0v-22"/></g>
-    <g transform="translate(62 697) rotate(27)"><path d="M-1.5 0v-22h-5v-20h13v20h-5V0Z"/><path d="M-3-38v12m3-12v12m3-12v12"/></g>
-    <g fill="#edbd91" stroke-width=".8"><path d="M181 697l12-3 14 10-6 7-17-8Z"/><path d="M786 698l10-4 14 9-5 7-16-6Z"/></g>
-    <g stroke="#b16541"><ellipse cx="1028" cy="686" rx="8" ry="3"/><path d="M1020 686v9c0 4 16 4 16 0v-9m-16 4c0 4 16 4 16 0"/><path d="M1050 698l-3-28 22-2 3 28-22 2Zm3-24 13-1m-12 6 12-1m-11 6 12-1m-12 6 12-1"/><path class="border-glint" d="M1051 670v-4m5 4v-4m5 3v-4m5 4v-4"/></g>
+  {theme==='resources'&&<g stroke={`url(#${ink})`} stroke-width="1.35">
+    <path d="M18 650C2 658 8 674 29 690Q39 702 54 699C75 694 91 686 111 690C130 694 120 710 109 704C97 697 111 685 128 688C151 692 163 698 181 697C209 695 231 689 252 695S297 704 317 697C335 690 350 691 344 700C337 708 325 695 338 687C355 676 378 700 405 704C442 713 490 711 514 698C532 688 541 676 530 672C513 666 512 686 535 695C552 702 573 682 557 681C544 680 539 700 557 704C578 714 604 698 629 701S676 710 708 703S755 699 785 704S828 711 859 703S903 699 935 703S979 709 1009 703Q1027 701 1043 699Q1072 697 1069 668"/>
+    <g transform="translate(42 697) rotate(-32) scale(1.15)"><path d="M-1.5 0v-21Q-12-44 0-44Q12-44 1.5-21V0Q0 3-1.5 0Z"/><path d="M0-22Q-7-44 0-44Q7-44 0-22Zm0 0v-22"/></g>
+    <g transform="translate(67 698) rotate(27) scale(1.13)"><path d="M-1.5 0v-22h-5v-20h13v20h-5V0Z"/><path d="M-3-38v12m3-12v12m3-12v12"/></g>
+    <g fill="#edbd91" stroke-width=".8"><path d="m173 693 14-4 20 14-8 9-21-10Z"/><path d="m779 701 11-8 19 9-12 17-13-8Z"/><circle cx="184" cy="695" r="1.5" fill="#b16541"/><circle cx="789" cy="700" r="1.5" fill="#b16541"/></g>
+    <g stroke="#b16541"><ellipse cx="1013" cy="685" rx="10" ry="3.5"/><path d="M1003 685v12c0 5 20 5 20 0v-12m-20 5c0 5 20 5 20 0m-20 4c0 5 20 5 20 0"/><path d="m1042 708-4-38 28-3 5 38-29 3Zm3-32 17-2m-16 9 17-2m-16 9 17-2m-16 9 17-2"/><path class="border-glint" d="M1042 671v-6m6 5v-6m6 5v-6m6 6v-6"/></g>
     <g class="border-dots" fill="#df9e62" stroke="none">{[[20,678],[218,704],[226,706],[361,704],[578,698],[607,706],[829,706],[1004,700]].map(([x,y],i)=><circle cx={x} cy={y} r={i%2 ? 1.1 : 1.7}/>)}</g>
   </g>}
   {theme==='relationships'&&<g stroke={`url(#${ink})`} stroke-width="1.2">

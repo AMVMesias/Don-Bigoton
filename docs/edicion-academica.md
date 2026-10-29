@@ -62,3 +62,5 @@ Cada pareja tiene un margen ilustrado propio: 2–3, hierbas, utensilios y huell
 `spread-layout.ts` agrupa las mismas hojas para impresión y para la galería `/disenos/`. La galería permite revisar la revista completa y sus animaciones sin usar maquetas distintas del contenido real.
 
 Se eliminó el separador recto del pie de las diez páginas para evitar duplicar los márgenes ilustrados. La portada incorpora su propio borde en `CoverBorder.astro`, con bigotes centrales, especias y detalles de esquina. En 6–7, el hilo recupera la curva de la propuesta y se interrumpe junto a los globos y las muñecas de las dos manos abiertas, sin cruzar sus contornos. Se verificó con capturas de escritorio, móvil y renderizados del PDF.
+
+El gato superior de la portada permanece visible durante todo el ciclo: se sustituyó el desplazamiento que lo escondía por un movimiento mínimo de cabeza, conservando las orejas animadas. En 4–5 se ajustaron las curvas y bucles del hilo y se ampliaron los utensilios, las etiquetas y la libreta según la referencia aprobada. El hilo pasa bajo las patas del gato y los adornos derechos quedan fuera del texto.
