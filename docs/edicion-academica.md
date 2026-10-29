@@ -71,3 +71,8 @@ El gato superior de la portada permanece visible durante todo el ciclo: se susti
 La contraportada conserva el naranja, con titular ciruela y créditos ampliados a 16 px sobre un bloque ciruela oscuro con texto marfil. Los enlaces aumentan a 13 px. Todo el cierre mantiene la alineación centrada y comparte estilos con el PDF.
 
 La portada aplica la propuesta visual aprobada: un sello circular marfil con doble borde cacao, estrella y «BIEN / SABROSÓN» en la esquina superior izquierda del panel naranja. La foto original se amplía y desplaza a la derecha sin tapar el sello. Se elimina la frase grande bajo el plato. El sello se construye con texto HTML y CSS, compartido por web y PDF.
+
+
+## Enlace de video y visores móviles
+
+La dirección visible y los tres enlaces PDF usan `https://www.youtube.com/watch?v=pKUBEFdzzbw`, con URL subrayada y completa para facilitar también su detección automática. El QR conserva el enlace corto al mismo video. La PDF Association documenta la detección automática de URLs en Google Preview y aplicaciones móviles (https://pdfa.org/googles-pdf-preview-fails-including-with-pdfs-made-by-google-docs/). Su problema principal documentado afecta enlaces internos, distinto de nuestro enlace externo. La URL completa es una medida de compatibilidad por comprobar en el visor Drive del usuario, no una solución confirmada en ese dispositivo.
