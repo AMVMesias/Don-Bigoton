@@ -1,6 +1,6 @@
 # Edición académica de diez páginas
 
-La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la consigna recibida. La versión anterior se conserva en Git; la lectura continua queda como archivo complementario.
+La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la consigna recibida. La versión anterior se conserva en Git; el modo de lectura continua se eliminó por solicitud del equipo; solo queda el visor por páginas, con descarga PDF. Los enlaces antiguos redirigen al visor en Vercel.
 
 1. Portada, con el título a la derecha del logo.
 2. Editorial y aprendizajes individuales.

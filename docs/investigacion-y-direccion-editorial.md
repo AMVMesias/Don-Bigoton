@@ -2,7 +2,7 @@
 
 Propuesta preparada el 26 de octubre de 2026. Es un documento de trabajo, no una revista publicada.
 
-Actualización de implementación: el usuario precisó que buscaba pasar páginas como en un libro y pidió el logo original en la portada. La versión principal se recompuso en 24 páginas con StPageFlip; la lectura vertical propuesta inicialmente se conserva como alternativa en `/lectura/`. Esa decisión posterior prevalece sobre las recomendaciones de formato que siguen en este documento de investigación.
+Actualización de implementación: el usuario precisó que buscaba pasar páginas como en un libro y pidió el logo original en la portada. La versión principal se recompuso en 24 páginas con StPageFlip; la lectura vertical propuesta inicialmente se retiró posteriormente por solicitud del usuario. El formato vigente tiene 10 páginas con giro de hoja. Esa decisión posterior prevalece sobre las recomendaciones de formato que siguen en este documento de investigación.
 
 ## Idea central
 

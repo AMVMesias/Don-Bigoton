@@ -212,6 +212,6 @@ async function startBook() {
 startBook().catch(error=>{
   document.documentElement.classList.remove('magazine-reader');
   document.body.classList.remove('reader-ready');
-  hint.textContent='Abre la versión de lectura continua si tu navegador no admite el visor.';
+  hint.textContent='No se pudo iniciar el visor. Recarga la página o descarga la revista en PDF desde el encabezado.';
   console.error('No se pudo iniciar el visor de revista',error);
 });

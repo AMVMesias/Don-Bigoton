@@ -6,7 +6,7 @@ Repositorio: https://github.com/AMVMesias/Don-Bigoton
 
 Revista implementada con Astro: **10 páginas con giro de hoja**, portada con el logo original, dobles páginas interiores en escritorio, una página a la vez en móvil y contraportada. Incluye editorial, historia, perfil, descripción y tipo de emprendimiento, productos, beneficios, obstáculos, características, futuro, entrevista en YouTube y créditos. La investigación y el material original se conservan en el repositorio.
 
-La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. El video de YouTube ya está incorporado en la página 9, con miniatura enlazada y QR en el PDF. Faltan los nombres y aprendizajes individuales; además, el video recibido dura 10:19 y requiere un recorte de 19 segundos para cumplir el máximo de diez minutos. La edición sigue como borrador hasta completar esos puntos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. `/lectura/` conserva la versión continua como alternativa para el lector. La transcripción original queda como material de trabajo en `docs/`, sin enlaces ni descargas públicas desde la revista.
+La entrada `/` es el visor de revista. `/imprimir/` comparte sus diez páginas y `/revista-don-bigoton.pdf` es la descarga. El video de YouTube ya está incorporado en la página 9, con miniatura enlazada y QR en el PDF. Faltan los nombres y aprendizajes individuales; además, el video recibido dura 10:19 y requiere un recorte de 19 segundos para cumplir el máximo de diez minutos. La edición sigue como borrador hasta completar esos puntos. Ver `docs/edicion-academica.md` para completarlos y regenerar el PDF. El modo de lectura continua se eliminó; los enlaces antiguos a `/lectura/` redirigen a la revista principal en Vercel. La transcripción original queda como material de trabajo en `docs/`, sin enlaces ni descargas públicas desde la revista.
 
 El PDF reproduce el formato de escritorio: portada y contraportada individuales e interiores en parejas 2–3, 4–5, 6–7 y 8–9. Conserva diez páginas editoriales distribuidas en seis láminas PDF.
 
@@ -48,20 +48,14 @@ Las siguientes publicaciones se generan al actualizar la rama conectada en Verce
 - Visor StPageFlip con efecto de hoja, esquinas arrastrables, gestos táctiles, flechas y barra de avance.
 - Índice directo a capítulos, ampliación para lectura y estado accesible de la página actual.
 - Navegación por teclado con flechas; las páginas inactivas quedan fuera del foco.
-- Versión de lectura continua con enlaces nativos, índice móvil y enlace para saltar al contenido.
-- Galería con cierre por Escape, navegación con flechas y retorno del foco al disparador.
-- Preferencia de movimiento reducido respetada por CSS y GSAP.
+- Preferencia de movimiento reducido respetada por CSS.
 - Contenido editorial completo en HTML; las animaciones no lo ocultan de forma permanente.
-- Créditos accesibles con apertura nativa mediante `details` en la lectura continua.
 
 ## Editar contenido
 
 - Revista paginada: `src/pages/index.astro`, `src/components/Sheet.astro`.
 - Visor y estilos editoriales de página: `src/scripts/book.ts`, `src/styles/book.css`.
-- Versión continua: `src/pages/lectura.astro`.
 - Preguntas y síntesis: `src/data/interview.ts`.
-- Diseño responsive: `src/styles/global.css`.
-- Controles y animaciones: `src/scripts/magazine.ts`.
 
 No se añadió un nombre de fundadora, año de inicio, local abierto ni precios actuales que no hayan sido confirmados. Los cinco integrantes y su retrato grupal ya están incorporados; las reflexiones de `src/data/edition.ts` se redactaron a petición del equipo y pueden ajustarse antes de entregar, junto con los créditos académicos adicionales que correspondan.
 
@@ -75,6 +69,6 @@ No se añadió un nombre de fundadora, año de inicio, local abierto ni precios 
 
 ## Tecnología propuesta
 
-Astro con salida estática, CSS propio, StPageFlip para el giro de páginas y GSAP/ScrollTrigger para la versión continua. Fuentes Fraunces y Manrope alojadas localmente. Destino de publicación: Vercel, conectado a este repositorio GitHub.
+Astro con salida estática, CSS propio, StPageFlip para el giro de páginas. Fuentes Fraunces y Manrope alojadas localmente. Destino de publicación: Vercel, conectado a este repositorio GitHub.
 
 La publicación sirve las imágenes desde el proyecto, sin depender de enlaces temporales de Instagram. Los originales se conservan en `material/`; las versiones optimizadas se generan al compilar. El recurso de portada y su prompt se documentan en `docs/recurso-creativo.md`.

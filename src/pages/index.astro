@@ -23,7 +23,7 @@ import NavigationArrow from '../components/NavigationArrow.astro';
 </head>
 <body>
   <header class="reader-header"><a href="/" class="reader-brand">don bigotón<span aria-hidden="true">✳</span></a><span class="reader-edition">LA SAZÓN DE VOLVER A EMPEZAR <i>—</i> EDICIÓN 01</span><div class="reader-tools"><a href="/revista-don-bigoton.pdf" download>Descargar PDF ↓</a><button id="index-toggle" aria-expanded="false" aria-controls="book-index">Índice <span>☰</span></button></div></header>
-  <nav class="book-index" id="book-index" aria-label="Ir a un capítulo" hidden><div class="index-top"><span>EN ESTA EDICIÓN</span><button id="index-close" aria-label="Cerrar índice">×</button></div>{chapters.map(({title,page})=><button data-goto={Number(page)-1}><span>{String(page).padStart(2,'0')}</span><strong>{title}</strong><span>↗</span></button>)}<a href="/lectura/">Prefiero leer de forma continua ↗</a></nav>
+  <nav class="book-index" id="book-index" aria-label="Ir a un capítulo" hidden><div class="index-top"><span>EN ESTA EDICIÓN</span><button id="index-close" aria-label="Cerrar índice">×</button></div>{chapters.map(({title,page})=><button data-goto={Number(page)-1}><span>{String(page).padStart(2,'0')}</span><strong>{title}</strong><span>↗</span></button>)}</nav>
   <main class="reader-main" id="reader-main">
     <p class="reader-hint" id="reader-hint"><span aria-hidden="true">↳</span> Abre la revista. Hay una historia detrás de cada sabor.</p>
     <div class="book-viewport" id="book-viewport"><div id="book" class="book" aria-label="Revista digital Don Bigotón, 10 páginas">
@@ -31,7 +31,7 @@ import NavigationArrow from '../components/NavigationArrow.astro';
     </div></div>
   </main>
   <footer class="reader-controls"><div class="reader-bottom"><button id="cover-button" data-goto="0">DON BIGOTÓN <span>/ REVISTA DIGITAL</span></button><div class="page-navigation"><button id="prev-page" aria-label="Página anterior" disabled><NavigationArrow direction="left"/></button><output id="page-status" aria-live="polite" aria-atomic="true">PORTADA / 10</output><button id="next-page" aria-label="Página siguiente"><NavigationArrow direction="right"/></button></div><div class="reader-extra"><EditorialCat /><button id="zoom-toggle" aria-pressed="false" title="Ampliar revista">Ampliar ＋</button><span id="reading-mode">DOBLE PÁGINA</span></div></div><label class="page-slider"><span class="sr-only">Ir a una página</span><input id="page-slider" type="range" min="1" max="10" value="1" aria-label="Ir a una página"/></label></footer>
-  <noscript><p class="no-script">Puedes leer todas las páginas a continuación o abrir la <a href="/lectura/">versión continua</a>.</p></noscript>
+  <noscript><p class="no-script">Activa JavaScript para pasar las páginas o <a href="/revista-don-bigoton.pdf">descarga la revista en PDF</a>.</p></noscript>
   <script>import '../scripts/book';</script>
 </body>
 </html>
