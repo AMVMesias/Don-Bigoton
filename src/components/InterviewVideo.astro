@@ -1,0 +1,37 @@
+---
+import {Image} from 'astro:assets';
+import poster from '../../material/video/entrevista-youtube.jpg';
+import qr from '../../material/video/qr-entrevista.svg';
+interface Props {id:string;title:string;duration:string;}
+const {id,title,duration}=Astro.props;
+const url='https://youtu.be/'+id;
+---
+<div class="interview-media">
+  <div class="video-frame interview-frame">
+    <a class="interview-poster" href={url} target="_blank" rel="noopener noreferrer" aria-label={'Ver entrevista: '+title}>
+      <Image src={poster} alt={'Miniatura del video '+title} width={480} height={360} format="webp" loading="eager"/>
+      <span class="interview-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="m8 5 12 7-12 7V5Z"/></svg></span>
+      <span class="interview-duration">{duration}</span>
+    </a>
+    <iframe data-interview-player src={'https://www.youtube-nocookie.com/embed/'+id+'?playsinline=1&rel=0&enablejsapi=1'} title={title} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div class="interview-access">
+    <a class="interview-watch" href={url} target="_blank" rel="noopener noreferrer"><span>VER LA ENTREVISTA EN YOUTUBE ↗</span><span class="interview-url">youtu.be/{id}</span></a>
+    <a class="interview-qr" href={url} target="_blank" rel="noopener noreferrer" aria-label="Abrir la entrevista desde el código QR"><img src={qr.src} alt="Código QR para abrir la entrevista en YouTube" width="80" height="80" loading="eager"/><span>ESCANEAR</span></a>
+  </div>
+</div>
+<style is:global>
+  .interview-frame{position:relative;overflow:hidden;isolation:isolate}
+  .interview-frame iframe{position:absolute;inset:0;z-index:2}
+  .interview-poster{position:absolute;inset:0;display:block;color:#af472d}
+  .interview-poster>img{width:100%;height:100%;object-fit:cover}
+  .interview-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff7e9ed;box-shadow:0 3px 15px #38281f44}
+  .interview-play svg{width:29px;height:29px}
+  .interview-duration{position:absolute;bottom:10px;right:10px;padding:4px 7px;background:#21170ddc;color:white;font-size:10px;font-weight:600;letter-spacing:.05em}
+  .interview-access{display:grid;grid-template-columns:1fr 84px;align-items:center;gap:22px;margin:16px 0 24px;border-bottom:1px solid var(--line);padding-bottom:14px}
+  .interview-watch{min-width:0}.interview-watch>span:first-child{font-size:8px;line-height:1.6;letter-spacing:.08em;font-weight:700;display:block}
+  .interview-url{display:block;font-size:12px;line-height:1.6;margin-top:7px;color:var(--rust)}
+  .interview-qr{display:block;text-align:center}.interview-qr img{width:80px;height:80px;margin:auto}
+  .interview-qr>span{display:block;font-size:6px;font-weight:600;letter-spacing:.1em;margin-top:4px}
+  @media print{.interview-frame iframe{display:none!important}}
+</style>

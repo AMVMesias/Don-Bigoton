@@ -15,11 +15,13 @@ La edición sustituye al visor de 24 páginas y aplica el máximo de 10 de la co
 
 ## Material pendiente
 
-- Nombres y aprendizajes personales de los integrantes: completar `authors` en `src/data/edition.ts`. La introducción editorial actual no sustituye las reflexiones individuales.
-- ID del video de YouTube editado a un máximo de diez minutos: completar `youtubeVideoId` en el mismo archivo. El registro original dura 14:43. No se recibió el archivo de video ni su enlace.
+- Nombres y aprendizajes personales de los integrantes: completar `authors` en `src/data/edition.ts`. La introducción editorial actual no sustituye el aprendizaje de cada integrante exigido en la consigna. El espacio se presenta como «Autores y aprendizajes».
+- Ajustar la duración del video: se recibió `https://youtu.be/pKUBEFdzzbw` el 28 de octubre de 2026 y ya está integrado. YouTube publica una duración de 10:19 (619 segundos), 19 segundos por encima del máximo de diez minutos. El registro original de la transcripción dura 14:43. Si cambia el enlace tras el recorte, actualizar ID, duración, miniatura y QR.
 - Confirmar la terminología de clasificación usada en clase. El texto identifica «por necesidad» como una interpretación del caso.
 
 La web y el PDF son un borrador de revisión mientras faltan esos materiales. No se declara la consigna cumplida en su totalidad.
+
+La página 9 contiene un reproductor de YouTube con acceso a pantalla completa y un enlace directo. En impresión, el reproductor se sustituye por la miniatura auténtica enlazada y un código QR del video; el PDF no reproduce video. Los nombres y aprendizajes siguen pendientes y no se inventaron.
 
 ## PDF compartido con la web
 

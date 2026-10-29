@@ -1,12 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import Sheet from './Sheet.astro';
-import { authors, youtubeVideoId } from '../data/edition';
+import InterviewVideo from './InterviewVideo.astro';
+import { authors, youtubeVideoId, youtubeVideoTitle, youtubeVideoDurationSeconds } from '../data/edition';
 import portrait from '../../material/retrato/retrato-enviado.png';
 import burger from '../../material/instagram/08-hamburguesa.jpg';
 import logo from '../../material/logo-original-alta-calidad.png';
 import hero from '../../material/creativo/hamburguesa-recorte.png';
 const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? youtubeVideoId : null;
+const videoDuration=Math.floor(youtubeVideoDurationSeconds/60)+':'+String(youtubeVideoDurationSeconds%60).padStart(2,'0');
 ---
 <Sheet number={1} section="EDICIÓN ESPECIAL · OCTUBRE 2026" class="book-cover" cover>
   <Image class="cover-original-logo" src={logo} alt="Logo original de Don Bigotón, bien sabrosón" widths={[190,380,570]} sizes="190px" format="webp" loading="eager"/>
@@ -22,7 +24,7 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
   <p class="page-lead">Don Bigotón invita a mirar el emprendimiento desde la vida cotidiana: una necesidad, una experiencia y una familia dispuesta a empezar.</p>
   <p>Esta revista reúne el testimonio de su fundadora y una lectura del caso desde el emprendimiento y la gestión. ¿Con qué recursos empezó? ¿Cómo elige proveedores, organiza el trabajo y consigue clientes? Sus decisiones permiten entender cómo sostiene el negocio.</p>
   <p>La experiencia familiar muestra el valor de investigar, capacitarse y construir relaciones. El recorrido va de la necesidad inicial a una decisión de futuro: cómo crecer sin perder la cercanía ni asumir riesgos sin analizarlos.</p>
-  <div class="author-learnings"><h3>Lo que aprendió cada integrante</h3>{authors.length ? authors.map(author=><article><h4>{author.name}</h4><p>{author.learning}</p></article>) : <div class="pending-note"><span>EDICIÓN EN PREPARACIÓN</span><p>Faltan los nombres de los autores y la reflexión personal de cada integrante del equipo.</p></div>}</div>
+  <div class="author-learnings"><h3>Autores y aprendizajes</h3>{authors.length ? authors.map(author=><article><h4>{author.name}</h4><p>{author.learning}</p></article>) : <div class="pending-note"><span>PENDIENTE DE COMPLETAR POR EL EQUIPO</span><p>Espacio reservado para los nombres y el aprendizaje de cada integrante.</p></div>}</div>
   <span class="page-source">LECTURA EDITORIAL DEL CASO · BASADA EN LA ENTREVISTA</span>
 </Sheet>
 <Sheet number={3} section="02 / HISTORIA Y MOTIVACIÓN" class="academic-page story-page">
@@ -80,11 +82,10 @@ const videoId = youtubeVideoId && /^[a-zA-Z0-9_-]{11}$/.test(youtubeVideoId) ? y
 <Sheet number={9} section="08 / LA ENTREVISTA EN VIDEO" class="academic-page video-page">
   <span class="page-kicker">LA HISTORIA, EN SU PROPIA VOZ</span>
   <h2>Escuchar también<br/><em>es conocer.</em></h2>
-  {videoId ? <><div class="video-frame web-video"><iframe src={`https://www.youtube-nocookie.com/embed/${videoId}`} title="Entrevista a la fundadora de Don Bigotón" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="printed-link" href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">Ver la entrevista en YouTube ↗</a><p class="print-video-link">Accede al video desde el enlace de YouTube de esta página.</p></> : <div class="video-pending"><span>ENTREVISTA EN PREPARACIÓN</span><Image src={logo} alt="Don Bigotón" width={120} height={120} format="webp" loading="eager"/><p>El video se incorporará aquí cuando el equipo comparta el enlace de YouTube de la edición de máximo 10 minutos.</p></div>}
-  <p>La conversación recorre el inicio del negocio, la organización familiar, la elección de proveedores, las estrategias de atención y la decisión de abrir un futuro local.</p>
-  <blockquote>«Tampoco podía quedarme<br/><em>con las manos cruzadas».</em></blockquote>
+  {videoId ? <InterviewVideo id={videoId} title={youtubeVideoTitle} duration={videoDuration}/> : <div class="video-pending"><span>ENTREVISTA EN PREPARACIÓN</span><p>El video se incorporará cuando el equipo comparta el enlace de YouTube.</p></div>}
+  <p>Su fundadora cuenta cómo empezó, organizó los recursos de la familia, aprendió a vender y construyó la confianza de sus clientes.</p>
   <a class="printed-link" href="https://github.com/AMVMesias/Don-Bigoton/blob/main/docs/transcripcion_entrevista_don_bigoton.md" target="_blank" rel="noopener noreferrer">Leer la transcripción original ↗</a>
-  <span class="page-source">FUENTE ORIGINAL: ENTREVISTA DE 14:43 · LA EDICIÓN PARA LA TAREA DEBE DURAR MÁXIMO 10:00</span>
+  <span class="page-source">{videoId ? 'ENTREVISTA EDITADA · YOUTUBE · '+videoDuration : 'FUENTE ORIGINAL: ENTREVISTA DE 14:43'}</span>
 </Sheet>
 <Sheet number={10} section="CONTRAPORTADA / CRÉDITOS" class="academic-page academic-back-cover back-cover" cover>
   <span class="page-kicker">COCINA · FAMILIA · EMPRENDIMIENTO</span>

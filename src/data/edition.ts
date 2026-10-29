@@ -1,7 +1,9 @@
-// Completar con el material del equipo. No publicar reflexiones personales inventadas.
+// Completar con los nombres y aprendizajes reales de cada integrante.
 export const authors: { name: string; learning: string }[] = [];
-// Solo el ID del video de YouTube editado a un máximo de 10 minutos.
-export const youtubeVideoId: string | null = null;
+// Video proporcionado por el equipo. La consigna pide un máximo de 10 minutos.
+export const youtubeVideoId: string | null = 'pKUBEFdzzbw';
+export const youtubeVideoTitle = 'Don Bigoton - Emprendimiento y sazón';
+export const youtubeVideoDurationSeconds = 619;
 export const chapters = [
   { title: 'Nuestra editorial', page: 2 },
   { title: 'El comienzo', page: 3 },

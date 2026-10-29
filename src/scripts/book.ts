@@ -84,7 +84,14 @@ function updateReader() {
   next.disabled = isBack || busy;
   mode.textContent = portrait ? 'UNA PÁGINA' : 'DOBLE PÁGINA';
   hint.innerHTML = isFront ? '<span aria-hidden="true">↳</span> Abre la revista. Hay una historia detrás de cada sabor.' : portrait ? 'Desliza para pasar la página · Usa Ampliar para leer más cerca.' : 'Pasa la página desde una esquina o utiliza las flechas del teclado.';
-  pages.forEach((page,i) => { const active = i >= index && i <= end; page.inert = !active; page.setAttribute('aria-hidden',String(!active)); });
+  pages.forEach((page,i) => {
+    const active=i>=index&&i<=end;
+    page.inert=!active;
+    page.setAttribute('aria-hidden',String(!active));
+    if(!active) page.querySelectorAll<HTMLIFrameElement>('[data-interview-player]').forEach(frame=>{
+      frame.contentWindow?.postMessage(JSON.stringify({event:'command',func:'pauseVideo',args:[]}), 'https://www.youtube-nocookie.com');
+    });
+  });
   // Los acentos se animan una vez al abrir la doble página, sin mover los párrafos.
   if (!reduced.matches) pages.slice(index,end+1).forEach(page => page.querySelectorAll<HTMLElement>('.turn-flower,.cat-star').forEach(flower => {
     flower.animate([{transform:'rotate(-35deg)',opacity:.4},{transform:'rotate(0)',opacity:1}],{duration:850,easing:'cubic-bezier(.2,.7,.3,1)'});
